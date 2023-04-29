@@ -1,10 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
 import { UserViewInfo } from "./UserViewInfo";
 
 export const ViewUserInfo = ({ user }) => {
-  console.log({ user });
   return (
     <InfoUser>
       <InfoContainer>
