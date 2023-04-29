@@ -53,8 +53,8 @@ const ByContent = styled.div`
 
 const CenterContent = styled.div`
   @media screen and (max-width: 480px) {
-    grid-column: 1;
-    grid-row: 2;
+    margin-top: 5vw;
+    margin-left: 2vw;
   }
 `;
 
@@ -65,10 +65,16 @@ const FooterContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr auto;
+    margin-top: 5vw;
   }
 `;
 
-const IconLinkedin = styled.a``;
+const IconLinkedin = styled.a`
+  @media screen and (max-width: 480px) {
+    margin-right: 1vw;
+    margin-left: 2vw;
+  }
+`;
 
 const Img = styled.img`
   width: 25px;
@@ -81,6 +87,10 @@ const Info = styled.p`
   font-weight: bold;
   margin-right: 1rem;
   margin-left: 10px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const LeftContent = styled.div`
@@ -110,6 +120,10 @@ const NameGym = styled.p`
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 25px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const PoweredBy = styled.p`
@@ -119,7 +133,8 @@ const PoweredBy = styled.p`
   color: ${primaryBlue};
 
   @media screen and (max-width: 480px) {
-    padding-right: 0;
+    width: 100%;
+    margin-top: 2vw;
   }
 `;
 
