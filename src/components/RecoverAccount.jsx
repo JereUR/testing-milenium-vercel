@@ -7,35 +7,39 @@ import { FetchGetData } from "../helpers/FetchGetData";
 import { Toaster, toast } from "react-hot-toast";
 import routes from "../static/routes.json";
 
-export const useRecover = (user) => {
-  return user && user.recover;
-};
-
-const RecoverAccount = ({ email, login, months }) => {
-  const [isRecover, setIsRecover] = useState(null);
+const RecoverAccount = (email, login, months) => {
+  const [isRecover, setIsRecover] = useState(false);
 
   useEffect(() => {
     //Get recover
     async function getRecover(email) {
-      return await FetchGetData(`/${email}`);
+      return await FetchGetData(`${routes.RESET_PASSWORD}/${email}`);
     }
-    const res = getRecover(email);
-    if (!(res instanceof Error)) {
-      setIsRecover(res);
-    } else {
-      toast.error(res.message, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
+
+    getRecover(email)
+      .then((response) => response.json())
+      .then((data) => {
+        setIsRecover(data);
+      })
+      .catch((e) => {
+        if (
+          e.message !==
+          `Unexpected token 'Y', "You need t"... is not valid JSON`
+        ) {
+          toast.error(e.message, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        }
       });
-    }
   }, [email]);
 
-  if (login) {
+  if (login === true) {
     return isRecover ? (
       <Outlet />
     ) : (
