@@ -1,0 +1,4830 @@
+[
+  {
+    "username": "Jeremias",
+    "surname": "Dominguez Vega",
+    "email": "jeremias.jdv@gmail.com",
+    "date": "1994-11-29",
+    "gender": "Masculino",
+    "login": false,
+    "admin": true,
+    "recover": false,
+    "photo": null,
+    "weight": 80,
+    "height": 173,
+    "medication": [
+      "med1",
+      "med2",
+      "med3"
+    ],
+    "injuries": [
+      {
+        "injury": "Esguince tobillo",
+        "treatment": null
+      }
+    ],
+    "diseases": [
+      {
+        "disease": "Diabetes",
+        "medication": [
+          "med1",
+          "med2"
+        ]
+      }
+    ],
+    "routine": {
+      "monday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseBiceps/CurlZottmanConGiroCompleto.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy.Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "tuesday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "wednesday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "thursday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "friday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "saturday": [
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": 30,
+          "description": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": null
+        },
+        {
+          "series": 3,
+          "count": 15,
+          "measure": "Repeticiones",
+          "zone": "Abdominales y lumbares",
+          "exercise": "Contracciones tumbado",
+          "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png",
+          "rest": null,
+          "description": "Lorem Ipsum is simply dummy."
+        }
+      ],
+      "sunday": []
+    },
+    "nutricionalPlan": {
+      "monday": [
+        {
+          "breakfast": []
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "tuesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "wednesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": []
+        }
+      ],
+      "thursday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "friday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "saturday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "sunday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": []
+        }
+      ]
+    },
+    "payment": {
+      "nextPayment": {
+        "day": 5,
+        "month": 3,
+        "year": 2023
+      },
+      "payments": [
+        {
+          "month": "Diciembre",
+          "year": 2022,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Enero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Febrero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "username": "Leandro Ariel",
+    "surname": "Libutti",
+    "email": "leanlibutti@gmail.com",
+    "date": "1994-11-29",
+    "gender": "Masculino",
+    "login": true,
+    "admin": true,
+    "recover": false,
+    "photo": null,
+    "weight": 190,
+    "height": 80,
+    "medication": [
+      "med1",
+      "med2",
+      "med3"
+    ],
+    "injuries": [
+      {
+        "injury": "Esqguince tobillo",
+        "treatment": "Reposo 15 días"
+      }
+    ],
+    "diseases": [
+      {
+        "disease": "Diabetes",
+        "medication": [
+          "med1",
+          "med2"
+        ]
+      }
+    ],
+    "routine": {
+      "monday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "tuesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "wednesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "thursday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "friday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "saturday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "sunday": []
+    },
+    "nutricionalPlan": {
+      "monday": [
+        {
+          "breakfast": []
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "tuesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "wednesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": []
+        }
+      ],
+      "thursday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "friday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "saturday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "sunday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": []
+        }
+      ]
+    },
+    "payment": {
+      "nextPayment": {
+        "day": 5,
+        "month": 1,
+        "year": 2023
+      },
+      "payments": [
+        {
+          "month": "Diciembre",
+          "year": 2022,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Enero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Febrero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "username": "Nicolas",
+    "surname": "lopez Linchetta",
+    "email": "nicolinche@gmail.com",
+    "date": "1994-11-29",
+    "gender": "Masculino",
+    "login": true,
+    "admin": true,
+    "recover": false,
+    "photo": null,
+    "weight": null,
+    "height": 170,
+    "medication": [
+      "med1",
+      "med2",
+      "med3"
+    ],
+    "injuries": [
+      {
+        "injury": "Esguince tobillo",
+        "treatment": "Reposo 15 días"
+      }
+    ],
+    "diseases": [
+      {
+        "disease": "Diabetes",
+        "medication": []
+      }
+    ],
+    "routine": {
+      "monday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "tuesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "wednesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "thursday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "friday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "saturday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "sunday": []
+    },
+    "nutricionalPlan": {
+      "monday": [
+        {
+          "breakfast": []
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "tuesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "wednesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": []
+        }
+      ],
+      "thursday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "friday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "saturday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "sunday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": []
+        }
+      ]
+    },
+    "payment": {
+      "nextPayment": {
+        "day": 5,
+        "month": 5,
+        "year": 2023
+      },
+      "payments": [
+        {
+          "month": "Diciembre",
+          "year": 2022,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Enero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Febrero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "username": "Silvia Beatriz",
+    "surname": "Vega",
+    "email": "silve@gmail.com",
+    "date": "1994-11-29",
+    "gender": "Femenino",
+    "login": true,
+    "admin": true,
+    "recover": false,
+    "photo": null,
+    "weight": null,
+    "height": null,
+    "medication": [
+      "med1",
+      "med2",
+      "med3"
+    ],
+    "injuries": [],
+    "diseases": [],
+    "routine": {
+      "monday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "tuesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "wednesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "thursday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "friday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "saturday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "sunday": []
+    },
+    "nutricionalPlan": {
+      "monday": [
+        {
+          "breakfast": []
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "tuesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "wednesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": []
+        }
+      ],
+      "thursday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "friday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "saturday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "sunday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": []
+        }
+      ]
+    },
+    "payment": {
+      "nextPayment": {
+        "day": 5,
+        "month": 3,
+        "year": 2023
+      },
+      "payments": [
+        {
+          "month": "Diciembre",
+          "year": 2022,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Enero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Febrero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "username": "Christian",
+    "surname": "Mellare",
+    "email": "chrismella@gmail.com",
+    "date": "1994-11-29",
+    "gender": "Masculino",
+    "login": true,
+    "admin": true,
+    "recover": false,
+    "photo": null,
+    "weight": null,
+    "height": null,
+    "medication": [
+      "med1",
+      "med2",
+      "med3"
+    ],
+    "injuries": [
+      {
+        "injury": "Esguince tobillo",
+        "treatment": "Reposo 15 días"
+      }
+    ],
+    "diseases": [
+      {
+        "disease": "Diabetes",
+        "medication": [
+          "med1",
+          "med2"
+        ]
+      }
+    ],
+    "routine": {
+      "monday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "Lorem Ipsum is simply dummy."
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "tuesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "wednesday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "thursday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "friday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "saturday": [
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "15 Repeticiones",
+          "exercise": "xxxx"
+        },
+        {
+          "mount": "20 Repeticiones",
+          "exercise": "xxxx"
+        }
+      ],
+      "sunday": []
+    },
+    "nutricionalPlan": {
+      "monday": [
+        {
+          "breakfast": []
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "tuesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "wednesday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": []
+        }
+      ],
+      "thursday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "friday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "saturday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "postWorkout": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "collation": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        }
+      ],
+      "sunday": [
+        {
+          "breakfast": [
+            {
+              "mount": "3 ud",
+              "meal": "Huevo"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "lunch": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "snack": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "dinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "afterDinner": [
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            },
+            {
+              "count": "200",
+              "measure": "gr",
+              "meal": "Churrasco"
+            }
+          ]
+        },
+        {
+          "preWorkout": []
+        },
+        {
+          "postWorkout": []
+        },
+        {
+          "collation": []
+        }
+      ]
+    },
+    "payment": {
+      "nextPayment": {
+        "day": 5,
+        "month": 2,
+        "year": 2023
+      },
+      "payments": [
+        {
+          "month": "Diciembre",
+          "year": 2022,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Enero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        },
+        {
+          "month": "Febrero",
+          "year": 2023,
+          "day": 5,
+          "mount": 5000
+        }
+      ]
+    }
+  }
+]
