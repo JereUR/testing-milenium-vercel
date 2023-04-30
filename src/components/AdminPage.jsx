@@ -16,16 +16,16 @@ import routes from "../static/routes.json";
 
 const { secondaryBlue, backgroundText } = Colors;
 
+async function getUsers() {
+  return await FetchGetData(routes.ADMIN_USER);
+}
+
 export const AdminPage = ({ dbLocal }) => {
   const [users, setUsers] = useState(null);
-  const [activeUsers, setActiveUsers] = useState([])
-  const [notActiveUsers, setNotActiveUsers] = useState([])
+  const [activeUsers, setActiveUsers] = useState([]);
+  const [notActiveUsers, setNotActiveUsers] = useState([]);
 
   useLayoutEffect(() => {
-    async function getUsers() {
-      return await FetchGetData(routes.ADMIN_USER);
-    }
-
     getUsers()
       .then((response) => response.json())
       .then((data) => setUsers(data))
@@ -43,12 +43,11 @@ export const AdminPage = ({ dbLocal }) => {
   }, []);
 
   useEffect(() => {
-    if(users !== null){
+    if (users !== null) {
       setActiveUsers(users.filter((user) => user.active));
       setNotActiveUsers(users.filter((user) => !user.active));
     }
-  }, [users])
-  
+  }, [users]);
 
   return (
     <AdminContainer>
@@ -85,7 +84,10 @@ export const AdminPage = ({ dbLocal }) => {
       </DebtorsContainer>
       <ActivateContainer>
         <Title>Dar de baja/alta a usuario</Title>
-        <ActivateUser activeUsers={activeUsers} notActiveUsers={notActiveUsers}/>
+        <ActivateUser
+          activeUsers={activeUsers}
+          notActiveUsers={notActiveUsers}
+        />
       </ActivateContainer>
       <Toaster />
     </AdminContainer>

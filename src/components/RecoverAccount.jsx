@@ -7,15 +7,14 @@ import { FetchGetData } from "../helpers/FetchGetData";
 import { Toaster, toast } from "react-hot-toast";
 import routes from "../static/routes.json";
 
+async function getRecover(email) {
+  return await FetchGetData(`${routes.RESET_PASSWORD}/${email}`);
+}
+
 const RecoverAccount = (email, login, months) => {
   const [isRecover, setIsRecover] = useState(false);
 
   useEffect(() => {
-    //Get recover
-    async function getRecover(email) {
-      return await FetchGetData(`${routes.RESET_PASSWORD}/${email}`);
-    }
-
     getRecover(email)
       .then((response) => response.json())
       .then((data) => {

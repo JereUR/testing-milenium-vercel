@@ -12,6 +12,10 @@ import routes from "../static/routes.json";
 
 const { secondaryBlue, secondaryRed } = Colors;
 
+async function getNextPayment() {
+  return await FetchGetData(routes.CURRENT_USER_NEXT_PAYMENT);
+}
+
 export const Home = ({ months, weight, height }) => {
   const [nextPayment, setNextPayment] = useState(null);
   const [debtor, setDebtor] = useState(false);
@@ -35,12 +39,6 @@ export const Home = ({ months, weight, height }) => {
   };
 
   useEffect(() => {
-    //Get proximo pago
-    //console.log(email);
-    async function getNextPayment() {
-      return await FetchGetData(routes.CURRENT_USER_NEXT_PAYMENT);
-    }
-
     getNextPayment()
       .then((response) => response.json())
       .then((data) => setNextPayment(data))

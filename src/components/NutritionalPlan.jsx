@@ -12,6 +12,10 @@ import routes from "../static/routes.json";
 
 const { primaryBlue, secondaryBlue, primaryRed } = Colors;
 
+async function getPlan() {
+  return await FetchGetData(routes.GET_PLANS);
+}
+
 export const NutritionalPlan = ({ email, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const [plan, setPlan] = useState({});
@@ -21,10 +25,6 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
   const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
   useEffect(() => {
-    async function getPlan() {
-      return await FetchGetData(routes.GET_PLANS);
-    }
-
     setLoading(true);
     getPlan()
       .then((response) => response.json())
@@ -881,7 +881,9 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
           </PlanDay>
         </PlanData>
       )}{" "}
-      {viewData && Object.keys(plan).length === 0 && <NoPlan>Sin Información.</NoPlan>}
+      {viewData && Object.keys(plan).length === 0 && (
+        <NoPlan>Sin Información.</NoPlan>
+      )}
       <Toaster />
     </PlanContainer>
   );

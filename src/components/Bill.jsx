@@ -10,14 +10,14 @@ import routes from "../static/routes.json";
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors;
 
+async function getPayment() {
+  return await FetchGetData(routes.GET_PAYMENTS);
+}
+
 export const Bill = ({ user, months }) => {
   const [payment, setPayment] = useState(null);
 
   useEffect(() => {
-    async function getPayment() {
-      return await FetchGetData(routes.GET_PAYMENTS);
-    }
-
     getPayment()
       .then((response) => response.json())
       .then((data) => setPayment(data))

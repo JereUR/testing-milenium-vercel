@@ -12,6 +12,10 @@ import routes from "../static/routes.json";
 
 const { primaryRed, primaryBlue, secondaryBlue } = Colors;
 
+async function getRoutine() {
+  return await FetchGetData(routes.GET_ROUTINES);
+}
+
 export const Routine = ({ email, title, addInfo }) => {
   const [viewData, setViewData] = useState(true);
   const [routine, setRoutine] = useState({});
@@ -21,10 +25,6 @@ export const Routine = ({ email, title, addInfo }) => {
   const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
 
   useEffect(() => {
-    async function getRoutine() {
-      return await FetchGetData(routes.GET_ROUTINES);
-    }
-
     setLoading(true);
     getRoutine()
       .then((response) => response.json())

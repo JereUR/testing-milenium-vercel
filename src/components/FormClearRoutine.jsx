@@ -67,19 +67,23 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     if (Object.keys(err).length === 0) {
       let ex = [];
 
-      await FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
+      await FetchGetData(
+        `${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`
+      )
         .then((response) => {
-          if(!response.ok){
+          if (!response.ok) {
             switch (response.status) {
               case 423:
-                  throw new Error('El usuario no cuenta con rutina para el día seleccionado.');
+                throw new Error(
+                  "El usuario no cuenta con rutina para el día seleccionado."
+                );
                 break;
-            
+
               default:
                 break;
             }
-          }  
-          return response.json()
+          }
+          return response.json();
         })
         .then((data) => {
           if (data.length > 0) {
@@ -124,15 +128,20 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
     });
 
     if (!(res instanceof Error)) {
-      toast.success(`Rutina de ${forData} del dia ${dbLocal.days.find(d => d.value === dayData).day} eliminada.`, {
-        position: "top-right",
-        duration: 6000,
-        style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+      toast.success(
+        `Rutina de ${forData} del dia ${
+          dbLocal.days.find((d) => d.value === dayData).day
+        } eliminada.`,
+        {
+          position: "top-right",
+          duration: 6000,
+          style: {
+            background: "rgba(215, 250, 215)",
+            fontSize: "1rem",
+            fontWeight: "500",
+          },
+        }
+      );
 
       clearData();
     } else {

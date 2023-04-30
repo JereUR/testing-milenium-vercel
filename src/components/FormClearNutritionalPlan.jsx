@@ -35,7 +35,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
   const [preWorkout, setPreWorkout] = useState(initialData);
   const [postWorkout, setPostWorkout] = useState(initialData);
   const [collation, setCollation] = useState(initialData);
-  const [viewPlan, setViewPlan] = useState(false)
+  const [viewPlan, setViewPlan] = useState(false);
 
   const clearData = () => {
     setForData(null);
@@ -122,19 +122,20 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
 
       await FetchGetData(`${routes.USER_PLAN}?email=${forData}&day=${dayData}`)
         .then((response) => {
-          if(!response.ok){
+          if (!response.ok) {
             switch (response.status) {
               case 423:
-                  throw new Error('El usuario no cuenta con plan nutricional para el día seleccionado.');
+                throw new Error(
+                  "El usuario no cuenta con plan nutricional para el día seleccionado."
+                );
                 break;
-            
+
               default:
                 break;
             }
-            
-          }  
-          
-          return response.json()
+          }
+
+          return response.json();
         })
         .then((data) => {
           if (data.breakfast.length > 0) {
@@ -277,7 +278,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
           });
         });
 
-        setViewPlan(true)
+      setViewPlan(true);
     }
   };
 
@@ -289,12 +290,14 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchDeleteData({
-        path: `${routes.USER_DELETE_PLAN}?email=${forData}&day=${dayData}`
+        path: `${routes.USER_DELETE_PLAN}?email=${forData}&day=${dayData}`,
       });
 
       if (!(res instanceof Error)) {
         toast.success(
-          `Plan nutricional de ${forData} del dia ${dbLocal.days.find(d => d.value === dayData).day} eliminado.`,
+          `Plan nutricional de ${forData} del dia ${
+            dbLocal.days.find((d) => d.value === dayData).day
+          } eliminado.`,
           {
             position: "top-right",
             duration: 6000,

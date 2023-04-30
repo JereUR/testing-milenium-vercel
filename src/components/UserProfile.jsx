@@ -39,6 +39,14 @@ const initialData = {
   diseases: [],
 };
 
+async function getUser() {
+  return await FetchGetData(`${routes.USER_PROFILE}`);
+}
+
+async function getUserPhoto() {
+  return await FetchGetData(`${routes.USER_GET_PHOTO}`);
+}
+
 export const UserProfile = ({ email }) => {
   const [user, setUser] = useState(initialData);
   const [userPhoto, setUserPhoto] = useState(null);
@@ -52,13 +60,29 @@ export const UserProfile = ({ email }) => {
     //Get user info menos routine, plan y payments
     // console.log(email);
     if (email !== null && email !== undefined) {
-      async function getUser(email) {
-        return await FetchGetData(`${routes.USER_PROFILE}${email}`);
-      }
-
-      getUser(email)
+      getUser()
         .then((response) => response.json())
-        .then((data) => setUser(data))
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((e) => {
+          toast.error(e, {
+            position: "top-right",
+            duration: 6000,
+            style: {
+              background: "rgba(250, 215, 215)",
+              fontSize: "1rem",
+              fontWeight: "500",
+            },
+          });
+        });
+
+      getUserPhoto()
+        .then((response) => response.blob())
+        .then((data) => {
+          const imageUrl = URL.createObjectURL(data);
+          setUserPhoto(imageUrl);
+        })
         .catch((e) => {
           toast.error(e, {
             position: "top-right",
@@ -148,6 +172,9 @@ export const UserProfile = ({ email }) => {
     setChangePhoto(!changePhoto);
 
     if (userPhoto != null) {
+      const formData = new FormData();
+      formData.append("image", userPhoto);
+
       const res = await FetchPostImage({
         path: routes.USER_PHOTO,
         data: formData,
@@ -204,7 +231,8 @@ export const UserProfile = ({ email }) => {
             />
             {userPhoto ? (
               <ImagePhoto
-                src={preview}
+                src={userPhoto}
+                alt="User photo"
                 onClick={uploadFiles}
                 style={{ width: "25vw", height: "30vw", cursor: "pointer" }}
               />
