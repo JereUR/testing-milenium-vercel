@@ -1,14 +1,17 @@
-import { React, useState, useEffect } from "react";
-import styled from "styled-components";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { AiOutlineArrowUp } from 'react-icons/ai';
 
-import banner from "../assets/banner_home.jpg";
-import { NutritionalPlan } from "./NutritionalPlan";
-import { Routine } from "./Routine";
-import { Colors } from "../constants/Colors";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { toast, Toaster } from "react-hot-toast";
-import routes from "../static/routes.json";
+import banner from '../assets/banner_home.jpg';
+import homePhoto1 from '../assets/home-photo.jpg';
+import homePhoto2 from '../assets/gym-front-page.jpg';
+import { NutritionalPlan } from './NutritionalPlan';
+import { Routine } from './Routine';
+import { Colors } from '../constants/Colors';
+import { FetchGetData } from '../helpers/FetchGetData';
+import { toast, Toaster } from 'react-hot-toast';
+import routes from '../static/routes.json';
+import { Carousel } from './Carousel';
 
 const { secondaryBlue, secondaryRed } = Colors;
 
@@ -22,17 +25,19 @@ export const Home = ({ months, weight, height }) => {
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const images = [banner, homePhoto1, homePhoto2];
+
   const handleNavigation = (scroll) => {
-    const $scrollBtn = document.querySelector(".scroll-top-btn");
+    const $scrollBtn = document.querySelector('.scroll-top-btn');
 
     if ($scrollBtn !== null) {
       if (scroll > 2000) {
-        if ($scrollBtn.classList.contains("hidden")) {
-          $scrollBtn.classList.remove("hidden");
+        if ($scrollBtn.classList.contains('hidden')) {
+          $scrollBtn.classList.remove('hidden');
         }
       } else {
-        if (!$scrollBtn.classList.contains("hidden")) {
-          $scrollBtn.classList.add("hidden");
+        if (!$scrollBtn.classList.contains('hidden')) {
+          $scrollBtn.classList.add('hidden');
         }
       }
     }
@@ -44,13 +49,13 @@ export const Home = ({ months, weight, height }) => {
       .then((data) => setNextPayment(data))
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
         });
       });
   }, []);
@@ -60,16 +65,16 @@ export const Home = ({ months, weight, height }) => {
       setScrollTop(event.target.documentElement.scrollTop);
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => handleNavigation(scrollTop));
+    window.addEventListener('scroll', () => handleNavigation(scrollTop));
 
     return () => {
-      window.removeEventListener("scroll", () => handleNavigation(scrollTop));
+      window.removeEventListener('scroll', () => handleNavigation(scrollTop));
     };
   }, [scrollTop]);
 
@@ -96,22 +101,22 @@ export const Home = ({ months, weight, height }) => {
   }, [nextPayment, weight, height]);
 
   const handleClickScroll = () => {
-    document.querySelector("header").scrollIntoView({ behavior: "smooth" });
+    document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <HomeContainer>
       <BannerContainer>
-        <Banner src={banner} />
+        <Carousel images={images} />
       </BannerContainer>
       {debtor && (
         <ReportPaymentContainer>
           <MessageDebtor>
-            ¡Tienes un pago atrasado del día {nextPayment.payment.dayNext} de{" "}
+            ¡Tienes un pago atrasado del día {nextPayment.payment.dayNext} de{' '}
             {
               months.find((m) => m.value === nextPayment.payment.monthNext)
                 .month
-            }{" "}
+            }{' '}
             del año {nextPayment.payment.yearNext}!
           </MessageDebtor>
         </ReportPaymentContainer>
