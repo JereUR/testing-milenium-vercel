@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { AiOutlineArrowUp } from 'react-icons/ai';
 
 import banner from '../assets/banner_home.jpg';
-import homePhoto1 from '../assets/home-photo.jpg';
-import homePhoto2 from '../assets/gym-front-page.jpg';
+import homeHour from '../assets/home-hour.gif';
 import { NutritionalPlan } from './NutritionalPlan';
 import { Routine } from './Routine';
 import { Colors } from '../constants/Colors';
@@ -25,7 +24,7 @@ export const Home = ({ months, weight, height }) => {
   const [addInfo, setAddInfo] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
-  const images = [banner, homePhoto1, homePhoto2];
+  const images = [homeHour, banner];
 
   const handleNavigation = (scroll) => {
     const $scrollBtn = document.querySelector('.scroll-top-btn');

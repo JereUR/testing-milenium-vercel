@@ -9,6 +9,7 @@ const { backgroundText } = Colors;
 export const Carousel = (images) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   const handleNext = () => {
     if (currentImage === images.images.length - 1) {
@@ -17,6 +18,7 @@ export const Carousel = (images) => {
       setCurrentImage(currentImage + 1);
     }
 
+    setLoaded(false);
     handleButtonInteraction();
   };
 
@@ -27,12 +29,14 @@ export const Carousel = (images) => {
       setCurrentImage(currentImage - 1);
     }
 
+    setLoaded(false);
     handleButtonInteraction();
   };
 
   useEffect(() => {
     const id = setInterval(handleNext, 5000);
     setIntervalId(id);
+    setLoaded(false);
     return () => clearInterval(intervalId);
   }, [currentImage]);
 
@@ -40,21 +44,21 @@ export const Carousel = (images) => {
     clearInterval(intervalId);
   };
 
-  console.log(currentImage);
-
   return (
     <CarouselContainer>
       <Button type="button" onClick={handlePrev}>
-        <IoIosArrowBack size={28} />
+        <IoIosArrowBack />
       </Button>
       <Button type="button" onClick={handleNext}>
-        <IoIosArrowForward size={28} />
+        <IoIosArrowForward />
       </Button>
       <CarouselImages>
         <CarouselImage
           key={currentImage}
           src={images.images[currentImage]}
           alt={`Imagen ${currentImage + 1}`}
+          className={loaded ? 'loaded' : ''}
+          onLoad={() => setLoaded(true)}
         />
       </CarouselImages>
     </CarouselContainer>
@@ -73,6 +77,14 @@ const Button = styled.button`
   cursor: pointer;
   z-index: 1;
   transition: opacity 0.5s ease-in-out;
+
+  svg {
+    font-size: 2.5rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
 
   :first-of-type {
     left: 0;
@@ -94,12 +106,15 @@ const CarouselContainer = styled.div`
 const CarouselImage = styled.img`
   width: 100%;
   height: auto;
-  box-shadow: 5px 5px 5px #ccc;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.loaded {
+    opacity: 1;
+  }
 `;
 
 const CarouselImages = styled.div`
   position: relative;
-  height: 800px;
   overflow: hidden;
 `;
