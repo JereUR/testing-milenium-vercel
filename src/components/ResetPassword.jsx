@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Toaster, toast } from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { Toaster, toast } from 'react-hot-toast';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
-import { useLocation } from "react-router-dom";
+import { Colors } from '../constants/Colors';
+import { FontFamily } from '../constants/Fonts';
+import { FetchPostData } from '../helpers/FetchPostData';
+import routes from '../static/routes.json';
+import { useLocation } from 'react-router-dom';
 
 const initialData = {
-  newPassword: "",
-  confirmPassword: "",
+  newPassword: '',
+  confirmPassword: ''
 };
 
 const { colorText, primaryBlue, secondaryBlue, errorInput } = Colors;
@@ -21,7 +21,9 @@ export const ResetPassword = () => {
   const [errors, setErrors] = useState({});
   const [viewPassword, setViewPassword] = useState(false);
   const { search } = useLocation();
-  const token = new URLSearchParams(search).get("reset_password_token");
+  const token = new URLSearchParams(search).get('reset_password_token');
+
+  console.log({ token });
 
   const onValidate = () => {
     let errorsForm = {};
@@ -53,23 +55,23 @@ export const ResetPassword = () => {
       const user = {
         reset_password_toke: token,
         password: dataRecovery.newPassword,
-        password_confirmation: dataRecovery.confirmPassword,
+        password_confirmation: dataRecovery.confirmPassword
       };
 
       const res = await FetchPostData({
         path: routes.RESET_PASSWORD,
-        data: { user },
+        data: { user }
       });
 
       if (!(res instanceof Error)) {
         toast.success(`Contraseña recuperada con exito.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
         });
 
         setDataRecovery(initialData);
@@ -79,13 +81,13 @@ export const ResetPassword = () => {
         }, 2000);
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
         });
       }
     }
@@ -97,7 +99,7 @@ export const ResetPassword = () => {
       <Form onSubmit={handleSubmit}>
         <InputContainer>
           <Input
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             placeholder="Nueva contraseña"
             name="newPassword"
             value={dataRecovery.newPassword}
@@ -113,7 +115,7 @@ export const ResetPassword = () => {
         {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
         <InputContainer>
           <Input
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             placeholder="Confirma nueva contraseña"
             name="confirmPassword"
             value={dataRecovery.confirmPassword}

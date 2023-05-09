@@ -1,25 +1,25 @@
-import "./App.css";
-import styled from "styled-components";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
-import { toast, Toaster } from "react-hot-toast";
+import './App.css';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
 
-import { SesionPage } from "./components/SesionPage";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Home } from "./components/Home";
-import { Bill } from "./components/Bill";
-import { UserProfile } from "./components/UserProfile";
-import { AdminPage } from "./components/AdminPage";
-import { Error404 } from "./components/Error404";
-import LoginRoute from "./components/LoginRoute";
-import AdminRoute from "./components/AdminRoute";
-import { ResetPassword } from "./components/ResetPassword";
-import { ChangePassword } from "./components/ChangePassword";
-import RecoverAccount from "./components/RecoverAccount";
-import dbLocal from "./static/db_local.json";
-import { FetchGetData } from "./helpers/FetchGetData";
-import routes from "./static/routes.json";
+import { SesionPage } from './components/SesionPage';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Home } from './components/Home';
+import { Bill } from './components/Bill';
+import { UserProfile } from './components/UserProfile';
+import { AdminPage } from './components/AdminPage';
+import { Error404 } from './components/Error404';
+import LoginRoute from './components/LoginRoute';
+import AdminRoute from './components/AdminRoute';
+import { ResetPassword } from './components/ResetPassword';
+import { ChangePassword } from './components/ChangePassword';
+import RecoverAccount from './components/RecoverAccount';
+import dbLocal from './static/db_local.json';
+import { FetchGetData } from './helpers/FetchGetData';
+import routes from './static/routes.json';
 
 const initialData = {
   email: null,
@@ -27,7 +27,7 @@ const initialData = {
   surname: null,
   admin: false,
   weight: null,
-  height: null,
+  height: null
 };
 
 function App() {
@@ -48,13 +48,13 @@ function App() {
           `Unexpected token 'Y', "You need t"... is not valid JSON`
         ) {
           toast.error(e.message, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
           });
         }
       });
@@ -68,6 +68,8 @@ function App() {
       setLogin(false);
     }
   }, [user]);
+
+  console.log(login);
 
   return (
     <Container>

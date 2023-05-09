@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import linkedin from "../assets/linkedin.png";
-import logo from "../assets/logo.png";
-import { Colors } from "../constants/Colors";
+import linkedin from '../assets/linkedin.png';
+import logo from '../assets/logo.png';
+import { Colors } from '../constants/Colors';
 
 const { primaryBlue } = Colors;
 
@@ -12,7 +12,7 @@ export const Footer = () => {
     <FooterContainer>
       <LeftContent>
         <NameGym>Milenium Gimnasio</NameGym>
-        <Info>Calle 4 n°539 e/42</Info>
+        <Info>Calle 4 n°539 e/42 y 43</Info>
         <Info>Tel: (0221) 526-1149</Info>
         <Info>Contacto: mileniumgim@hotmail.com</Info>
         <Info>V 0.1.0 - Beta</Info>
