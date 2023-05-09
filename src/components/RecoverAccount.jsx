@@ -11,7 +11,7 @@ async function getRecover(email) {
   return await FetchGetData(`${routes.RESET_PASSWORD}/${email}`);
 }
 
-const RecoverAccount = (email, login, months) => {
+const RecoverAccount = ({ email, login, months }) => {
   const [isRecover, setIsRecover] = useState(false);
 
   useEffect(() => {
@@ -38,16 +38,18 @@ const RecoverAccount = (email, login, months) => {
       });
   }, [email]);
 
-  console.log(login);
+  if (login === true) {
+    return isRecover ? (
+      <Outlet />
+    ) : (
+      <>
+        <Home email={email} months={months} />
+        <Toaster />
+      </>
+    );
+  }
 
-  return !login ? (
-    <Outlet />
-  ) : (
-    <>
-      <Home email={email} months={months} />
-      <Toaster />
-    </>
-  );
+  return <SesionPage />;
 };
 
 export default RecoverAccount;
