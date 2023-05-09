@@ -44,7 +44,7 @@ async function getUser() {
 }
 
 async function getUserPhoto() {
-  return await FetchGetData(`${routes.USER_GET_PHOTO}`);
+  return await FetchGetData(`${routes.USER_PHOTO}`);
 }
 
 export const UserProfile = ({ email }) => {
@@ -53,6 +53,7 @@ export const UserProfile = ({ email }) => {
   const [errorInput, setErrorInput] = useState(null);
   const [changePhoto, setChangePhoto] = useState(false);
   const [preview, setPreview] = useState("");
+  const [photoToSend, setPhotoToSend] = useState(null)
 
   const formData = new FormData();
 
@@ -99,18 +100,12 @@ export const UserProfile = ({ email }) => {
 
   useEffect(() => {
     if (!changePhoto) {
-      setUserPhoto(null);
+      setPhotoToSend(null);
     }
   }, [changePhoto]);
 
   useEffect(() => {
-    if (userPhoto) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result.toString());
-      };
-      reader.readAsDataURL(userPhoto);
-    } else {
+    if (!userPhoto){
       setPreview("");
     }
   }, [userPhoto]);
@@ -154,7 +149,9 @@ export const UserProfile = ({ email }) => {
     if (file && file.type.substring(0, 5) === "image") {
       formData.append("image", file);
 
-      setUserPhoto(file);
+      const imageUrl = URL.createObjectURL(file);
+      setUserPhoto(imageUrl);
+      setPhotoToSend(file)
       setErrorInput(null);
     } else {
       setUserPhoto(null);
@@ -171,9 +168,9 @@ export const UserProfile = ({ email }) => {
   const handleSendPhoto = async () => {
     setChangePhoto(!changePhoto);
 
-    if (userPhoto != null) {
+    if (photoToSend != null) {
       const formData = new FormData();
-      formData.append("image", userPhoto);
+      formData.append("image", photoToSend);
 
       const res = await FetchPostImage({
         path: routes.USER_PHOTO,
@@ -181,7 +178,7 @@ export const UserProfile = ({ email }) => {
       });
 
       if (!(res instanceof Error)) {
-        toast.success(`Actualizando foto de perfil...`, {
+        toast.success(`Foto de perfil actualizada.`, {
           position: "top-right",
           duration: 6000,
           style: {
@@ -190,10 +187,6 @@ export const UserProfile = ({ email }) => {
             fontWeight: "500",
           },
         });
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 500);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -211,8 +204,8 @@ export const UserProfile = ({ email }) => {
   return (
     <ProfileContainer>
       <PhotoContainer>
-        <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
-        {/* <FaEdit size="1.5rem" onClick={handleModal} /> Comming soon*/}
+        <UserPhoto src={userPhoto ? userPhoto : defaultPhoto} />
+        {<FaEdit size="1.5rem" onClick={handleModal} />}
       </PhotoContainer>
       <Modal
         state={changePhoto}

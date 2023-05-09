@@ -51,13 +51,15 @@ export const ResetPassword = () => {
 
     if (Object.keys(err).length === 0) {
       const user = {
-        reset_password_toke: token,
+        reset_password_token: token,
         password: dataRecovery.newPassword,
         password_confirmation: dataRecovery.confirmPassword,
       };
 
+      console.log({user})
+
       const res = await FetchPostData({
-        path: routes.RESET_PASSWORD,
+        path: routes.RECOVER,
         data: { user },
       });
 
