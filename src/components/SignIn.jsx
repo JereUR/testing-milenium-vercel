@@ -1,157 +1,159 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { toast, Toaster } from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { toast, Toaster } from 'react-hot-toast'
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-import logo from "../assets/logo.png";
-import Loader from "./Loader";
-import Modal from "./Modal";
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
+import logo from '../assets/logo.png'
+import newEmail from '../assets/newEmail.png'
+import Loader from './Loader'
+import Modal from './Modal'
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { FetchPostData } from '../helpers/FetchPostData'
+import routes from '../static/routes.json'
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
-  Colors;
+  Colors
 
 const initialData = {
-  email: "",
-  password: "",
-};
+  email: '',
+  password: ''
+}
 
 export const SignIn = ({ setUser }) => {
-  const [forgotPassword, setForgotPassword] = useState(false);
-  const [remember, setRemember] = useState(false);
-  const [emailRecover, setEmailRecover] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [credentials, setCredentials] = useState(initialData);
-  const [viewPassword, setViewPassword] = useState(false);
+  const [forgotPassword, setForgotPassword] = useState(false)
+  const [remember, setRemember] = useState(false)
+  const [emailRecover, setEmailRecover] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [credentials, setCredentials] = useState(initialData)
+  const [viewPassword, setViewPassword] = useState(false)
+  const [emailSended, setEmailSended] = useState(false)
 
   useEffect(() => {
     const storedCredentials = JSON.parse(
-      localStorage.getItem("loginCredentials")
-    );
+      localStorage.getItem('loginCredentials')
+    )
 
-    const remember = JSON.parse(localStorage.getItem("remember"));
+    const remember = JSON.parse(localStorage.getItem('remember'))
 
     if (storedCredentials) {
-      setCredentials(storedCredentials);
+      setCredentials(storedCredentials)
     }
 
     if (remember) {
-      setRemember(remember);
+      setRemember(remember)
     }
-  }, []);
+  }, [])
 
   const clearForm = () => {
-    document.getElementById("email-sign-in").value = "";
-    document.getElementById("password-sign-in").value = "";
-    document.getElementById("remember").value = false;
+    document.getElementById('email-sign-in').value = ''
+    document.getElementById('password-sign-in').value = ''
+    document.getElementById('remember').value = false
 
-    setRemember(false);
-    setCredentials(initialData);
-  };
+    setRemember(false)
+    setCredentials(initialData)
+  }
 
   const clearRecoverForm = () => {
-    document.getElementById("email-recover").value = "";
-    setEmailRecover("");
-  };
+    document.getElementById('email-recover').value = ''
+    setEmailRecover('')
+  }
 
   const handleForgotPasswordModal = () => {
-    setForgotPassword(!forgotPassword);
-  };
+    setForgotPassword(!forgotPassword)
+  }
 
   const handleCredentialsChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setCredentials((prevCredentials) => ({
       ...prevCredentials,
-      [name]: value,
-    }));
-  };
+      [name]: value
+    }))
+  }
 
   const handleRemember = (e) => {
-    setRemember(e.target.checked);
-  };
+    setRemember(e.target.checked)
+  }
 
   const handleSubmitSignIn = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setLoading(true)
 
     const user = {
       email: credentials.email,
-      password: credentials.password,
-    };
+      password: credentials.password
+    }
 
     const res = await FetchPostData({
       path: routes.LOGIN,
-      data: { user },
-    });
+      data: { user }
+    })
 
     if (!(res instanceof Error)) {
       if (remember) {
-        localStorage.setItem("loginCredentials", JSON.stringify(credentials));
-        localStorage.setItem("remember", remember);
+        localStorage.setItem('loginCredentials', JSON.stringify(credentials))
+        localStorage.setItem('remember', remember)
       } else {
-        localStorage.removeItem("loginCredentials");
-        localStorage.removeItem("remember");
+        localStorage.removeItem('loginCredentials')
+        localStorage.removeItem('remember')
       }
 
       // console.log(res)
-      setUser(res);
+      setUser(res)
 
-      clearForm();
-      setLoading(false);
+      clearForm()
+      setLoading(false)
     } else {
       toast.error(res.message, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
-      setLoading(false);
+          background: 'rgba(250, 215, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
+      setLoading(false)
     }
-  };
+  }
 
   const handleEmailRecover = (e) => {
-    setEmailRecover(e.target.value);
-  };
+    setEmailRecover(e.target.value)
+  }
 
   const handleSubmitRecover = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const res = await FetchPostData({
       path: routes.RECOVER,
-      data: { user: { email: emailRecover } },
-    });
+      data: { user: { email: emailRecover } }
+    })
 
     if (!(res instanceof Error)) {
       toast.success(`Se envió un correo a ${emailRecover}.`, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(215, 250, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
 
-      clearRecoverForm();
-      setForgotPassword(!forgotPassword);
+      clearRecoverForm()
+      setForgotPassword(!forgotPassword)
     } else {
       toast.error(res.message, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(250, 215, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
     }
-  };
+  }
 
   return (
     <FormContainer>
@@ -169,7 +171,7 @@ export const SignIn = ({ setUser }) => {
         <InputContainer>
           <Input
             id="password-sign-in"
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             name="password"
             value={credentials.password}
             placeholder="Ingrese su contraseña"
@@ -184,7 +186,7 @@ export const SignIn = ({ setUser }) => {
           </ViewPasswordButton>
         </InputContainer>
         <InputCheckContainer>
-          <InputCheck type="checkbox" id="remember" onChange={handleRemember} />
+          <InputCheck type="checkbox" onChange={handleRemember} />
           <Label>Recordarme</Label>
         </InputCheckContainer>
         <ButtonSignIn>Iniciar Sesión</ButtonSignIn>
@@ -198,28 +200,46 @@ export const SignIn = ({ setUser }) => {
         setState={setForgotPassword}
         title="Recuperar Cuenta"
       >
-        <Content>
-          <TextForgotPassword>
-            Introduzca su correo electrónico para reestablecer su contraseña.
-          </TextForgotPassword>
-          <FormRecoverContainer>
-            <Form onSubmit={handleSubmitRecover}>
-              <InputRecover
-                type="email"
-                placeholder="Ingrese su email"
-                id="email-recover"
-                onChange={handleEmailRecover}
-                required
-              />
-              <ButtonRecover>Enviar</ButtonRecover>
-            </Form>
-          </FormRecoverContainer>
-        </Content>
+        {!emailSended ? (
+          <Content>
+            <TextForgotPassword>
+              Introduzca su correo electrónico para reestablecer su contraseña.
+            </TextForgotPassword>
+            <FormRecoverContainer>
+              <Form onSubmit={handleSubmitRecover}>
+                <InputRecover
+                  type="email"
+                  placeholder="Ingrese su email"
+                  onChange={handleEmailRecover}
+                  required
+                />
+                <ButtonRecover>Enviar</ButtonRecover>
+              </Form>
+            </FormRecoverContainer>
+          </Content>
+        ) : (
+          <Content>
+            <ImgNewEmail src={newEmail} />
+            <TextSended>
+              Acabamos de enviarle un correo electrónico con instrucciones para
+              restablecer su contraseña. Si no recibe un correo electrónico,{' '}
+              <A onClick={() => setEmailSended(false)}>
+                intente nuevamente con una dirección de correo electrónico
+                diferente
+              </A>
+            </TextSended>
+          </Content>
+        )}
       </Modal>
       <Toaster />
     </FormContainer>
-  );
-};
+  )
+}
+
+const A = styled.a`
+  color: ${secondaryRed};
+  cursor: pointer;
+`
 
 const ButtonRecover = styled.button`
   font-family: ${FontFamily};
@@ -232,14 +252,16 @@ const ButtonRecover = styled.button`
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
   width: 20vw;
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
+
   @media screen and (max-width: 480px) {
     width: 60%;
   }
-`;
+`
 
 const ButtonSignIn = styled.button`
   font-family: ${FontFamily};
@@ -251,45 +273,52 @@ const ButtonSignIn = styled.button`
   border: none;
   border-radius: 0.5rem;
   transition: all 0.7s ease-in-out;
+
   :hover {
     cursor: pointer;
     background-color: ${secondaryRed};
   }
+
   @media screen and (max-width: 480px) {
     margin-bottom: 3vw;
     width: 60vw;
   }
-`;
+`
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h1 {
     font-size: 42px;
     font-weight: 700;
     margin-bottom: 10px;
   }
+
   p {
     font-size: 18px;
     margin-bottom: 20px;
   }
+
   img {
     width: 100%;
     vertical-align: top;
     border-radius: 3px;
   }
-`;
+`
 
 const Form = styled.form`
   display: grid;
+
   .lds-ring {
     left: 38%;
   }
+
   @media screen and (max-width: 480px) {
     display: block;
   }
-`;
+`
 
 const FormContainer = styled.div`
   display: block;
@@ -299,11 +328,29 @@ const FormContainer = styled.div`
   @media screen and (max-width: 1380px) {
     margin-top: 2vw;
   }
-`;
+`
 
 const FormRecoverContainer = styled(FormContainer)`
   margin-top: 0;
-`;
+`
+
+const ImgNewEmail = styled.img`
+  width: 7vw !important;
+  height: auto;
+  margin-bottom: 2vw;
+
+  @media screen and (max-width: 1600px) {
+    width: 10vw !important;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 15vw !important;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 25vw !important;
+  }
+`
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -325,18 +372,18 @@ const Input = styled.input`
     width: 80%;
     margin-bottom: 3vh;
   }
-`;
+`
 
 const InputCheck = styled.input`
   @media screen and (max-width: 480px) {
     margin-left: 10vw;
   }
-`;
+`
 
 const InputCheckContainer = styled.div`
   text-align: left;
   margin: 0 0 1rem 0.5vw;
-`;
+`
 
 const InputContainer = styled.div`
   position: relative;
@@ -346,7 +393,7 @@ const InputContainer = styled.div`
   @media screen and (max-width: 480px) {
     right: 0;
   }
-`;
+`
 
 const InputRecover = styled.input`
   font-family: ${FontFamily};
@@ -358,51 +405,61 @@ const InputRecover = styled.input`
   padding: 10px;
   margin-bottom: 1rem;
   width: 20vw;
+
   :focus {
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
+
   @media screen and (max-width: 480px) {
     width: 90%;
   }
-`;
+`
 
 const Label = styled.label`
   font-weight: bold;
   margin: 0.5rem 0.5rem 0 0.5rem;
   font-style: italic;
   color: ${secondaryBlue};
+
   @media screen and (max-width: 480px) {
     margin-left: 1vw;
   }
-`;
+`
 
 const LogoForm = styled.img`
   margin-bottom: 1vw;
+
   @media screen and (max-width: 480px) {
     width: 80vw;
     margin-bottom: 3vh !important;
     margin-top: 3vh !important;
   }
-`;
+`
 
 const PasswordForgot = styled.p`
   font-size: 14px;
   color: ${secondaryBlue};
+
   :hover {
     cursor: pointer;
   }
-`;
+`
 
 const TextForgotPassword = styled.div`
   font-size: 1.2rem;
-  font-weight: bold;
   margin-bottom: 2vw;
+
   @media screen and (max-width: 480px) {
     margin-top: 1vw;
     margin-bottom: 5vw;
   }
-`;
+`
+
+const TextSended = styled(TextForgotPassword)`
+  font-size: 1.3rem;
+  width: 80%;
+`
 
 const ViewPasswordButton = styled.button`
   position: absolute;
@@ -422,4 +479,4 @@ const ViewPasswordButton = styled.button`
   @media screen and (max-width: 380px) {
     top: 40%;
   }
-`;
+`
