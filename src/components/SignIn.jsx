@@ -140,6 +140,7 @@ export const SignIn = ({ setUser }) => {
         }
       })
 
+      setEmailSended(true)
       clearRecoverForm()
       setForgotPassword(!forgotPassword)
     } else {
