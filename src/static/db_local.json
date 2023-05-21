@@ -13,43 +13,131 @@
     "Abdominales y lumbares": [
       {
         "exercise": "Contracciones tumbado",
-        "photo": "./assets/exerciseAbdominalesYLumbares/contraccionesTumbado.png"
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesTumbado.png"
       },
       {
-        "exercise": "Elevaciones de tronco en banco/silla",
-        "photo": "./assets/exerciseAbdominalesYLumbares/elevacionesDeTroncoEnBancoSilla.png"
+        "exercise": "Contacciones tumbado con giro",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContaccionesTumbadoConGiro.png"
+      },
+      {
+        "exercise": "Contacciones tumbado declinado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContaccionesTumbadoDeclinado.png"
+      },
+      {
+        "exercise": "Contacciones tumbado brazos al frente",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContaccionesTumbadoBrazosAlFrente.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco/silla romana",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnBancoSilla.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco/silla romana con giro",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnBancoSillaConGiro.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco/silla romana con lastre",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnBancoSillaConLastre.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco plano inclinado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnBancoPlanoInclinado.png"
+      },
+      {
+        "exercise": "Elevaciones de tronco en banco vertical",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDeTroncoEnBancoVertical.png"
       },
       {
         "exercise": "Elevaciones verticales de piernas, tumbado",
-        "photo": "./assets/exerciseAbdominalesYLumbares/elevacionesVerticalesDePiernasTumbado.png"
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesVerticalesDePiernasTumbado.png"
+      },
+      {
+        "exercise": "Elevaciones verticales de piernas, rodillas al pecho",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesVerticalesDePiernasRodillasAlPecho.png"
+      },
+      {
+        "exercise": "Elevaciones verticales de piernas, tijeras",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesVerticalesDePiernasTijeras.png"
       },
       {
         "exercise": "Elevaciones de pelvis en banco vertical",
         "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDePelvisEnBancoVertical.png"
       },
       {
+        "exercise": "Elevaciones de pelvis en barra",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDePelvisEnBarra.png"
+      },
+      {
+        "exercise": "Elevaciones de pelvis en espalderas",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesDePelvisEnEspalderas.png"
+      },
+      {
         "exercise": "Patadas de rana/tijeras/uve/carpa",
         "photo": "./assets/exerciseAbdominalesYLumbares/PatadasDeRanaTijerasUveCarpa.png"
       },
       {
-        "exercise": "Giros con pica",
+        "exercise": "Patadas de rana/tijeras/uve/carpa sin manos",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PatadasDeRanaTijerasUveCarpaSinManos.png"
+      },
+      {
+        "exercise": "Patadas de rana/tijeras/uve/carpa tocando los pies arriba",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PatadasDeRanaTijerasUveCarpaTocandoLosPiesArriba.png"
+      },
+      {
+        "exercise": "Giros con pica/barra",
         "photo": "./assets/exerciseAbdominalesYLumbares/GirosConPica.png"
       },
       {
-        "exercise": "Inclinaciones/flexiones laterales con pica",
+        "exercise": "Giros con pica/barra en banco inclinado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosConPicaEnBancoInclinado.png"
+      },
+      {
+        "exercise": "Giros con pica/barra sentado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosConPicaSentado.png"
+      },
+      {
+        "exercise": "Inclinaciones/flexiones laterales con pica/barra",
         "photo": "./assets/exerciseAbdominalesYLumbares/InclinacionesFlexionesLateralesConPica.png"
+      },
+      {
+        "exercise": "Inclinaciones/flexiones laterales con mancuerna",
+        "photo": "./assets/exerciseAbdominalesYLumbares/InclinacionesFlexionesLateralesConMancuerna.png"
       },
       {
         "exercise": "Elevaciones laterales tumbado",
         "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesLateralesTumbado.png"
       },
       {
+        "exercise": "Elevaciones laterales tumbado levantando piernas",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ElevacionesLateralesTumbadoLevantandoPiernas.png"
+      },
+      {
+        "exercise": "Giros de piernas juntas tumbado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosDePiernasJuntasTumbado.png"
+      },
+      {
         "exercise": "Peso muerto",
         "photo": "./assets/exerciseAbdominalesYLumbares/PesoMuerto.png"
       },
       {
+        "exercise": "Peso muerto con mancuernas",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PesoMuertoConMancuernas.png"
+      },
+      {
+        "exercise": "Peso muerto buenos dias",
+        "photo": "./assets/exerciseAbdominalesYLumbares/PesoMuertoBuenosDias.png"
+      },
+      {
         "exercise": "Extensiones del tronco en banco inclinado",
         "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDelTroncoEnBancoInclinado.png"
+      },
+      {
+        "exercise": "Extensiones del tronco en banco inclinado con lastre",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDelTroncoEnBancoInclinadoConLastre.png"
+      },
+      {
+        "exercise": "Extensiones del tronco en banco horizontal",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ExtensionesDelTroncoEnBancoHorizontal.png"
       },
       {
         "exercise": "Elevación de tronco suspendido por los pies",
@@ -64,12 +152,36 @@
         "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnMaquinaSentado.png"
       },
       {
+        "exercise": "Contracciones en máquina sentado inferior",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnMaquinaSentadoInferior.png"
+      },
+      {
+        "exercise": "Contracciones en máquina sentado en máquina de press pectoral",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnMaquinaSentadoEnMaquinaDePressPectoral.png"
+      },
+      {
         "exercise": "Contracciones en polea alta",
         "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnPoleaAlta.png"
       },
       {
+        "exercise": "Contracciones en polea alta de rodillas",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnPoleaAltaDeRodillas.png"
+      },
+      {
+        "exercise": "Contracciones en polea alta laterales",
+        "photo": "./assets/exerciseAbdominalesYLumbares/ContraccionesEnPoleaAltaLaterales.png"
+      },
+      {
         "exercise": "Giros en disco",
         "photo": "./assets/exerciseAbdominalesYLumbares/GirosEnDisco.png"
+      },
+      {
+        "exercise": "Giros en disco en máquina sentado",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosEnDiscoEnMaquinaSentado.png"
+      },
+      {
+        "exercise": "Giros en disco en polea",
+        "photo": "./assets/exerciseAbdominalesYLumbares/GirosEnDiscoEnPolea.png"
       },
       {
         "exercise": "Extensiones de tronco en remo sentado",

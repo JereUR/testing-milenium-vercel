@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import { IoMdAddCircle } from "react-icons/io";
-import { toast, Toaster } from "react-hot-toast";
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import { IoMdAddCircle } from 'react-icons/io'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { ExerciseComponent } from "./ExerciseComponent";
-import { FetchPostData } from "../helpers/FetchPostData";
-import { FetchGetData } from "../helpers/FetchGetData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { ExerciseComponent } from './ExerciseComponent'
+import { FetchPostData } from '../helpers/FetchPostData'
+import { FetchGetData } from '../helpers/FetchGetData'
+import routes from '../static/routes.json'
 
 const {
   errorInput,
@@ -17,106 +17,102 @@ const {
   primaryBlue,
   secondaryRed,
   secondaryBlue,
-  success,
-} = Colors;
+  success
+} = Colors
 
 const FormRoutine = ({ users, dbLocal }) => {
-  const [forData, setForData] = useState(null);
-  const [errorFor, setErrorFor] = useState(null);
-  const [dayData, setDayData] = useState(null);
-  const [measure, setMeasure] = useState(null);
-  const [series, setSeries] = useState(null);
-  const [count, setCount] = useState(null);
-  const [zone, setZone] = useState(null);
-  const [typeExercise, setTypeExercise] = useState(null);
-  const [photo, setPhoto] = useState(null);
-  const [rest, setRest] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [exercises, setExercises] = useState([]);
-  const [errorsExercises, setErrorsExercises] = useState({});
-  const [errorsRoutine, setErrorsRoutine] = useState({});
+  const [forData, setForData] = useState(null)
+  const [errorFor, setErrorFor] = useState(null)
+  const [dayData, setDayData] = useState(null)
+  const [measure, setMeasure] = useState(null)
+  const [series, setSeries] = useState(null)
+  const [count, setCount] = useState(null)
+  const [zone, setZone] = useState(null)
+  const [typeExercise, setTypeExercise] = useState(null)
+  const [photo, setPhoto] = useState(null)
+  const [rest, setRest] = useState(null)
+  const [description, setDescription] = useState(null)
+  const [exercises, setExercises] = useState([])
+  const [errorsExercises, setErrorsExercises] = useState({})
+  const [errorsRoutine, setErrorsRoutine] = useState({})
 
-  const seeLogos = true;
+  const seeLogos = true
 
   const timeout = (delay) => {
-    return new Promise((res) => setTimeout(res, delay));
-  };
+    return new Promise((res) => setTimeout(res, delay))
+  }
 
   const clearFormRoutine = () => {
-    document.getElementById("seriesExercise").value = null;
-    document.getElementById("measureExercise").value = null;
-    document.getElementById("countExercise").value = null;
-    document.getElementById("zone").value = null;
-    document.getElementById("exercise").value = null;
-    document.getElementById("rest").value = null;
-    document.getElementById("description").value = null;
+    document.getElementById('seriesExercise').value = null
+    document.getElementById('measureExercise').value = null
+    document.getElementById('countExercise').value = null
+    document.getElementById('zone').value = null
+    document.getElementById('exercise').value = null
+    document.getElementById('rest').value = null
+    document.getElementById('description').value = null
 
-    setSeries(null);
-    setMeasure(null);
-    setCount(null);
-    setTypeExercise(null);
-    setPhoto(null);
-    setRest(null);
-    setDescription(null);
-  };
+    setSeries(null)
+    setMeasure(null)
+    setCount(null)
+    setTypeExercise(null)
+    setPhoto(null)
+    setRest(null)
+    setDescription(null)
+  }
 
   const clearData = () => {
-    setForData(null);
-    setDayData(null);
+    setForData(null)
+    setDayData(null)
 
-    setExercises([]);
-  };
+    setExercises([])
+  }
 
   const onValidateExercises = () => {
-    let errorsForm = {};
+    let errorsForm = {}
 
     if (series === null) {
-      errorsForm.series = "Debe especificar series.";
+      errorsForm.series = 'Debe especificar series.'
     }
 
     if (series <= 0 && series != null) {
-      errorsForm.series = "El número de series debe ser mayor a 0.";
+      errorsForm.series = 'El número de series debe ser mayor a 0.'
     }
 
     if (measure === null) {
-      errorsForm.measure = "Debe especificar tipo de medida.";
+      errorsForm.measure = 'Debe especificar tipo de medida.'
     }
 
     if (count === null) {
-      errorsForm.count = "Debe especificar cantidad.";
-    }
-
-    if (count <= 0 && count != null) {
-      errorsForm.count = "La cantidad debe ser mayor a 0.";
+      errorsForm.count = 'Debe especificar cantidad.'
     }
 
     if (typeExercise === null) {
-      errorsForm.typeExercise = "Debe especificar tipo de ejercicio.";
+      errorsForm.typeExercise = 'Debe especificar tipo de ejercicio.'
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const onValidateRoutine = () => {
-    let errorsForm = {};
+    let errorsForm = {}
 
     if (forData === null) {
-      errorsForm.forData = "Debe especificar destinatario.";
+      errorsForm.forData = 'Debe especificar destinatario.'
     }
 
     if (dayData === null) {
-      errorsForm.dayData = "Debe especificar día de rutina.";
+      errorsForm.dayData = 'Debe especificar día de rutina.'
     }
 
     if (exercises.length === 0) {
-      errorsForm.exercises = "La rutina esta vacia.";
+      errorsForm.exercises = 'La rutina esta vacia.'
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const handleFor = async (e) => {
-    setForData(e.target.value);
+    setForData(e.target.value)
 
     const user = await FetchGetData(
       `${routes.USER_WEIGHT_HEIGHT}${e.target.value}`
@@ -125,76 +121,76 @@ const FormRoutine = ({ users, dbLocal }) => {
       .then()
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      })
 
     if (user.weight === null || user.height === null) {
       setErrorFor(
         `${e.target.value} no ha completado su información adicional. No es posible agregar una rutina al mismo.`
-      );
+      )
     } else {
-      setErrorFor(null);
+      setErrorFor(null)
     }
-  };
+  }
 
   const handleChangeFor = () => {
-    setForData(null);
-  };
+    setForData(null)
+  }
 
   const handleDay = (e) => {
-    setDayData(e.target.value);
-  };
+    setDayData(e.target.value)
+  }
 
   const handleChangeDay = () => {
-    setDayData(null);
-  };
+    setDayData(null)
+  }
 
   const handleMeasure = (e) => {
-    setMeasure(e.target.value);
-  };
+    setMeasure(e.target.value)
+  }
 
   const handleSeries = (e) => {
-    setSeries(e.target.value);
-  };
+    setSeries(e.target.value)
+  }
 
   const handleCount = (e) => {
-    setCount(e.target.value);
-  };
+    setCount(e.target.value)
+  }
 
   const handleZone = (e) => {
-    setZone(e.target.value);
-    document.getElementById("exercise").value = null;
-  };
+    setZone(e.target.value)
+    document.getElementById('exercise').value = null
+  }
 
   const handleTypeExercise = (e) => {
-    setTypeExercise(e.target.value);
+    setTypeExercise(e.target.value)
 
     const p = dbLocal.exercises[zone].find(
       (ex) => ex.exercise === e.target.value
-    ).photo;
-    setPhoto(p);
-  };
+    ).photo
+    setPhoto(p)
+  }
 
   const handleRest = (e) => {
-    setRest(e.target.value);
-  };
+    setRest(e.target.value)
+  }
 
   const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
+    setDescription(e.target.value)
+  }
 
   const handleAddExercise = () => {
-    timeout(2000);
+    timeout(2000)
 
-    const err = onValidateExercises();
-    setErrorsExercises(err);
+    const err = onValidateExercises()
+    setErrorsExercises(err)
 
     if (Object.keys(err).length === 0) {
       const e = {
@@ -206,92 +202,92 @@ const FormRoutine = ({ users, dbLocal }) => {
         photo,
         rest,
         description,
-        id: "exercise_" + Math.floor(Math.random() * 10000),
-      };
-      setExercises(exercises.concat(e));
-      clearFormRoutine();
+        id: 'exercise_' + Math.floor(Math.random() * 10000)
+      }
+      setExercises(exercises.concat(e))
+      clearFormRoutine()
     } else {
       /* console.log("Error ejercicio"); */
     }
-  };
+  }
 
   const editData = (el) => {
-    deleteData(el.id);
+    deleteData(el.id)
 
-    document.getElementById("seriesExercise").value = el.series;
-    document.getElementById("measureExercise").value = el.measure;
-    document.getElementById("countExercise").value = el.count;
-    document.getElementById("zone").value = zone;
-    document.getElementById("exercise").value = el.typeExercise;
-    document.getElementById("rest").value = el.rest;
-    document.getElementById("description").value = el.description;
+    document.getElementById('seriesExercise').value = el.series
+    document.getElementById('measureExercise').value = el.measure
+    document.getElementById('countExercise').value = el.count
+    document.getElementById('zone').value = zone
+    document.getElementById('exercise').value = el.typeExercise
+    document.getElementById('rest').value = el.rest
+    document.getElementById('description').value = el.description
 
-    setSeries(el.series);
-    setMeasure(el.measure);
-    setCount(el.count);
-    setTypeExercise(el.typeExercise);
-    setRest(el.rest);
-    setDescription(el.description);
+    setSeries(el.series)
+    setMeasure(el.measure)
+    setCount(el.count)
+    setTypeExercise(el.typeExercise)
+    setRest(el.rest)
+    setDescription(el.description)
 
     const p = dbLocal.exercises[zone].find(
       (ex) => ex.exercise === el.typeExercise
-    ).photo;
-    setPhoto(p);
-  };
+    ).photo
+    setPhoto(p)
+  }
 
   const deleteData = (id) => {
-    let newData = exercises.filter((el) => el.id !== id);
-    setExercises(newData);
-  };
+    let newData = exercises.filter((el) => el.id !== id)
+    setExercises(newData)
+  }
 
   const handleSubmitRoutine = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const err = onValidateRoutine();
-    setErrorsRoutine(err);
+    const err = onValidateRoutine()
+    setErrorsRoutine(err)
 
     if (Object.keys(err).length === 0 && errorFor === null) {
       const routineDay = {
         user_email: forData,
         day_week: dayData,
-        exercises_attributes: exercises,
-      };
+        exercises_attributes: exercises
+      }
 
       const res = await FetchPostData({
         path: routes.CREATE_ROUTINE,
-        data: { routineDay },
-      });
+        data: { routineDay }
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Rutina enviada a ${forData}.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
 
-        clearData();
+        clearData()
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
-  };
+  }
 
   useEffect(() => {
-    let ex = [];
+    let ex = []
 
-    if (forData === null || dayData === null) return;
+    if (forData === null || dayData === null) return
 
     if (forData !== null && dayData !== null) {
       FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
@@ -308,27 +304,27 @@ const FormRoutine = ({ users, dbLocal }) => {
                 photo: el.photo,
                 rest: el.rest,
                 description: el.description,
-                id: "exercise_" + Math.floor(Math.random() * 10000),
-              };
-              ex.push(e);
-            });
+                id: 'exercise_' + Math.floor(Math.random() * 10000)
+              }
+              ex.push(e)
+            })
           }
 
-          setExercises(ex);
+          setExercises(ex)
         })
         .catch((e) => {
           toast.error(e.messsage, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        })
     }
-  }, [forData, dayData]);
+  }, [forData, dayData])
 
   return (
     <Form onSubmit={handleSubmitRoutine}>
@@ -398,7 +394,7 @@ const FormRoutine = ({ users, dbLocal }) => {
         <InputContainer>
           <Label>Cantidad</Label>
           <Input
-            type="number"
+            type="text"
             onChange={handleCount}
             id="countExercise"
             placeholder="Determine cantidad"
@@ -493,8 +489,8 @@ const FormRoutine = ({ users, dbLocal }) => {
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
       <Toaster />
     </Form>
-  );
-};
+  )
+}
 
 const ButtonSubmit = styled.button`
   font-family: ${FontFamily};
@@ -516,7 +512,7 @@ const ButtonSubmit = styled.button`
     cursor: pointer;
     background-color: ${primaryBlue};
   }
-`;
+`
 
 const DataContainer = styled.div`
   svg {
@@ -534,9 +530,9 @@ const DataContainer = styled.div`
       opacity: 0.6;
     }
   }
-`;
+`
 
-const DayPartContainer = styled.div``;
+const DayPartContainer = styled.div``
 
 const ErrorInput = styled.div`
   font-size: 15px;
@@ -548,17 +544,17 @@ const ErrorInput = styled.div`
   @media screen and (max-width: 480px) {
     margin-bottom: 0 !important;
   }
-`;
+`
 
-const ExerciseName = styled.p``;
+const ExerciseName = styled.p``
 
-const ExercisePhoto = styled.img``;
+const ExercisePhoto = styled.img``
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
-`;
+`
 
-const ForPartContainer = styled.div``;
+const ForPartContainer = styled.div``
 
 const ForText = styled.p`
   margin-left: 1rem;
@@ -573,7 +569,7 @@ const ForText = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`
 
 const ForTextContainer = styled.div`
   display: flex;
@@ -594,7 +590,7 @@ const ForTextContainer = styled.div`
     transform: scale(1.1);
     color: ${secondaryRed};
   }
-`;
+`
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -615,28 +611,28 @@ const Input = styled.input`
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
   line-height: 2.5rem;
-`;
+`
 
 const Label = styled.label`
   font-size: 1.3rem;
   font-weight: 500;
-`;
+`
 
-const List = styled.ol``;
+const List = styled.ol``
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
-const PhotoExampleContainer = styled.div``;
+const PhotoExampleContainer = styled.div``
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -678,7 +674,7 @@ const Select = styled.select`
   ::-ms-expand {
     display: none;
   }
-`;
+`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
@@ -686,7 +682,7 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 60vw;
   }
-`;
+`
 
 const TextArea = styled.textarea`
   border: 2px solid ${primaryBlue};
@@ -710,6 +706,6 @@ const TextArea = styled.textarea`
     height: 25vw;
     width: 55vw;
   }
-`;
+`
 
-export default FormRoutine;
+export default FormRoutine
