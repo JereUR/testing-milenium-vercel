@@ -81,8 +81,10 @@ export const UserProfile = ({ email }) => {
       getUserPhoto()
         .then((response) => response.blob())
         .then((data) => {
-          const imageUrl = URL.createObjectURL(data);
-          setUserPhoto(imageUrl);
+          if (data.size !== 14) {
+            const imageUrl = URL.createObjectURL(data);
+            setUserPhoto(imageUrl);
+          }
         })
         .catch((e) => {
           toast.error(e, {

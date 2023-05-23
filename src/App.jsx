@@ -69,8 +69,6 @@ function App() {
     }
   }, [user]);
 
-  console.log(login);
-
   return (
     <Container>
       {user !== null && (

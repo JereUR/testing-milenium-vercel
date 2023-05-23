@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 
 import defaultPhoto from "../assets/default_user.jpg";
 import { Colors } from "../constants/Colors";
+import routes from "../static/routes.json";
+import { FetchGetData } from "../helpers/FetchGetData";
 
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
+async function getUserPhoto(email) {
+  return await FetchGetData(`${routes.USER_PHOTO}/${email}`);
+}
+
 export const UserViewInfo = ({ user }) => {
+  const [photo, setPhoto] = useState(null)
+  
   const getYears = () => {
     var actDate = new Date();
 
@@ -17,10 +25,26 @@ export const UserViewInfo = ({ user }) => {
     return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25));
   };
 
+  useEffect(() => {
+    getUserPhoto(user.email)
+        .then((response) => response.blob())
+        .then((data) => {
+          console.log({data})
+          if (data.size !== 14) {
+            const imageUrl = URL.createObjectURL(data);
+            setPhoto(imageUrl);
+          }
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+  }, [])
+  
+
   return (
     <ProfileContainer>
       <PhotoContainer>
-        <UserPhoto src={user.photo ? user.photo : defaultPhoto} />
+        <UserPhoto src={photo ? photo : defaultPhoto} />
       </PhotoContainer>
       <InfoContainer>
         <FirstInfo>

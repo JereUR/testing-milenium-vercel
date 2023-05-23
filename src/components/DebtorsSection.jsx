@@ -20,10 +20,11 @@ export const DebtorsSection = ({ users }) => {
   const handleDebtors = () => {
     if (!viewDebtors) {
       const today = new Date();
+      let newArray = []
 
       users.forEach(async (user) => {
         const nextPayment = await FetchGetData(
-          `${routes.GET_NEXT_PAYMENT}${user.email}`
+          `${routes.GET_NEXT_PAYMENT}?email=${user.email}`
         )
           .then((response) => response.json())
           .then()
@@ -38,7 +39,7 @@ export const DebtorsSection = ({ users }) => {
               },
             });
           });
-
+        
         if (nextPayment !== null) {
           let userDate = new Date(
             nextPayment.year,
@@ -53,10 +54,11 @@ export const DebtorsSection = ({ users }) => {
               email: user.email,
             };
 
-            setDebtorUsers(...debtorUsers, debtorUsers.concat(newData));
+            setDebtorUsers(prevArray => [...prevArray, newData]);
           }
         }
       });
+      
       setViewDebtors(true);
     } else {
       setDebtorUsers([]);
@@ -66,7 +68,7 @@ export const DebtorsSection = ({ users }) => {
 
   const handleReport = async (email) => {
     const res = await FetchPostData({
-      path: "/",
+      path: routes.REPORT,
       data: { email },
     });
 

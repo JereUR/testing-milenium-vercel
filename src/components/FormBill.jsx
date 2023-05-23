@@ -133,7 +133,7 @@ export const FormBill = ({ users, dbLocal }) => {
   const onValidate = async () => {
     const errorsForm = {};
 
-    const payment = await FetchGetData(`${routes.USER_PAYMENTS}${forData}`)
+    const payment = await FetchGetData(`${routes.USER_PAYMENTS}?email=${forData}`)
       .then((response) => response.json())
       .then()
       .catch((e) => {

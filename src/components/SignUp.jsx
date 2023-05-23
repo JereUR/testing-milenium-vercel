@@ -6,6 +6,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Modal from "./Modal";
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
+import LoaderSignUp from './LoaderSignUp'
 import { FetchPostData } from "../helpers/FetchPostData";
 import routes from "../static/routes.json";
 
@@ -26,6 +27,7 @@ export const SignUp = ({ setUser }) => {
   const [register, setRegister] = useState(false);
   const [dataRegister, setDataRegister] = useState(initialData);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false)
   const [viewPassword, setViewPassword] = useState(false);
 
   const onValidate = () => {
@@ -89,6 +91,7 @@ export const SignUp = ({ setUser }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
+      setLoading(true)
       const res = await FetchPostData({
         path: routes.SIGN_UP,
         data: { user: dataRegister },
@@ -107,6 +110,7 @@ export const SignUp = ({ setUser }) => {
         setUser(res);
         setDataRegister(initialData);
         setRegister(false);
+        setLoading(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -249,6 +253,7 @@ export const SignUp = ({ setUser }) => {
                 )}
               </InputContainer>
               <ButtonSignUpModal>Registrarte</ButtonSignUpModal>
+              {loading && <LoaderSignUp/>}
             </Form>
           </FormContainer>
         </Content>
@@ -335,6 +340,10 @@ const ErrorInputNameSurname = styled.div`
 const Form = styled.form`
   display: grid;
   margin-top: 1rem;
+
+  .sign-up {
+    left: 45%;
+  }
 `;
 
 const FormContainer = styled.div`

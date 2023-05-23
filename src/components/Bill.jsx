@@ -38,7 +38,7 @@ export const Bill = ({ user, months }) => {
     <BillContainer>
       <NextPaymentContainer>
         <NoticeTitleNext>Próximo Pago:</NoticeTitleNext>
-        {payment !== null && payment !== undefined ? (
+        {payment !== null && payment.payment !== null ? (
           <Notice>
             El próximo pago deberá realizarse el día{' '}
             {payment.payment.nextPayment.day} de{' '}
@@ -54,7 +54,7 @@ export const Bill = ({ user, months }) => {
       </NextPaymentContainer>
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
-        {payment !== null && payment !== undefined ? (
+        {payment !== null && payment.payment !== null ? (
           payment.payment.payments.map((el, index) => (
             <BillItem key={index} bill={el} user={user} months={months} />
           ))
