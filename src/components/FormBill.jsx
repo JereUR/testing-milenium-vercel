@@ -316,9 +316,9 @@ export const FormBill = ({ users, dbLocal }) => {
           },
         });
       }
-
-      setLoading(false)
     }
+
+    setLoading(false)
   };
 
   return (

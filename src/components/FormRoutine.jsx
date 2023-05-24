@@ -284,9 +284,9 @@ const FormRoutine = ({ users, dbLocal }) => {
           }
         })
       }
-
-      setLoading(false)
     }
+
+    setLoading(false)
   }
 
   useEffect(() => {
