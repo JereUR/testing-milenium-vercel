@@ -5,7 +5,7 @@
       "Antebrazos",
       "Biceps",
       "Dorsales",
-      "Hombros y cuellos",
+      "Hombros y cuello",
       "Pectorales",
       "Piernas",
       "Triceps"
@@ -590,14 +590,22 @@
         "photo": "./assets/exerciseDorsales/TraccionAUnaManoLateral.png"
       }
     ],
-    "Hombros y cuellos": [
+    "Hombros y cuello": [
       {
         "exercise": "Depresión de hombros en paralelas",
         "photo": "./assets/exerciseHombrosYCuellos/DepresionDeHombrosEnParalelas.png"
       },
       {
+        "exercise": "Elevaciones/Encogimientos de hombros con barra",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosConBarra.png"
+      },
+      {
         "exercise": "Elevaciones/Encogimientos de hombros con mancuernas",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosConMancuernas.png"
+      },
+      {
+        "exercise": "Elevaciones/Encogimientos de hombros con mancuernas, con giro",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesEncogimientosDeHombrosConMancuernasConGiro.png"
       },
       {
         "exercise": "Elevaciones/Encogimientos de hombros en multipower",
@@ -624,8 +632,28 @@
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesEnPoleaBaja.png"
       },
       {
+        "exercise": "Elevaciones frontales en polea baja, de frente a la polea",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesEnPoleaBajaDeFrenteALaPolea.png"
+      },
+      {
         "exercise": "Elevaciones frontales/Flexiones",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexiones.png"
+      },
+      {
+        "exercise": "Elevaciones frontales/Flexiones con barra",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexionesConBarra.png"
+      },
+      {
+        "exercise": "Elevaciones frontales/Flexiones con disco/mancuerna",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexionesConDiscoMancuerna.png"
+      },
+      {
+        "exercise": "Elevaciones frontales/Flexiones, manos en posición neutra/martillo",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexionesManosEnPosicionNeutraMartillo.png"
+      },
+      {
+        "exercise": "Elevaciones frontales/Flexiones simultáneo a dos manos",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesFrontalesFlexionesSimultaneoADosManos.png"
       },
       {
         "exercise": "Elevaciones frontales inclinado",
@@ -636,24 +664,92 @@
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaMano.png"
       },
       {
+        "exercise": "Elevaciones laterales a una mano con barra",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaManoConBarra.png"
+      },
+      {
+        "exercise": "Elevaciones laterales a una mano, cuerpo declinado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaManoCuerpoDeclinado.png"
+      },
+      {
+        "exercise": "Elevaciones laterales a una mano, cuerpo inclinado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaManoCuerpoInclinado.png"
+      },
+      {
+        "exercise": "Elevaciones laterales a una mano tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesAUnaManoTumbado.png"
+      },
+      {
         "exercise": "Elevaciones laterales con mancuernas",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernas.png"
+      },
+      {
+        "exercise": "Elevaciones laterales con mancuernas, elevaciones completas",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernasElevacionesCompletas.png"
+      },
+      {
+        "exercise": "Elevaciones laterales con mancuernas, extensiones en cruz directa",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernasExtensionesEnCruzDirectas.png"
+      },
+      {
+        "exercise": "Elevaciones laterales con mancuernas, pulgares hacia abajo",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernasPulgaresAbajo.png"
+      },
+      {
+        "exercise": "Elevaciones laterales con mancuernas, pulgares hacia arriba",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesConMancuernasPulgaresArriba.png"
       },
       {
         "exercise": "Elevaciones laterales en máquina",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnMaquina.png"
       },
       {
+        "exercise": "Elevaciones laterales en máquina a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnMaquinaAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones laterales en máquina inclinado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnMaquinaInclinado.png"
+      },
+      {
         "exercise": "Elevaciones laterales en polea baja a una mano",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnPoleaBajaAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones laterales en polea baja a una mano por detrás",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnPoleaBajaAUnaManoPorDetras.png"
+      },
+      {
+        "exercise": "Elevaciones laterales en polea baja cruzando a dos manos",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesLateralesEnPoleaBajaCruzandoADosManos.png"
       },
       {
         "exercise": "Elevaciones posterioes/Pájaros de pie",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosDePie.png"
       },
       {
+        "exercise": "Elevaciones posterioes/Pájaros recostado a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosRecostadoAUnaMano.png"
+      },
+      {
+        "exercise": "Elevaciones posterioes/Pájaros recostado sobre un banco",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosRecostadoSobreUnBanco.png"
+      },
+      {
+        "exercise": "Elevaciones posterioes/Pájaros sentado",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosSentado.png"
+      },
+      {
+        "exercise": "Elevaciones posterioes/Pájaros tumbado sobre codos elevando tronco",
+        "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresPajarosTumbadoSobreCodosElevandoTronco.png"
+      },
+      {
         "exercise": "Elevaciones posteriores tumbado lateral",
         "photo": "./assets/exerciseHombrosYCuellos/ElevacionesPosterioresTumbadoLateral.png"
+      },
+      {
+        "exercise": "Extensiones de brazos rectos",
+        "photo": "./assets/exerciseHombrosYCuellos/ExtensionDeBrazosRectos.png"
       },
       {
         "exercise": "Extensiones de cabeza tumbado",
@@ -684,12 +780,44 @@
         "photo": "./assets/exerciseHombrosYCuellos/PajarosAUnaManoEnPolea.png"
       },
       {
+        "exercise": "Pájaros a una mano en polea de rodillas",
+        "photo": "./assets/exerciseHombrosYCuellos/PajarosAUnaManoEnPoleaDeRodillas.png"
+      },
+      {
+        "exercise": "Pájaros a una mano, extensiones con codo recto en polea baja",
+        "photo": "./assets/exerciseHombrosYCuellos/PajarosAUnaManoExtensionesConCodoRectoEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Pájaro sentado en contractor con los codos",
+        "photo": "./assets/exerciseHombrosYCuellos/PajaroSentadoEnContractorConLosCodos.png"
+      },
+      {
         "exercise": "Pájaro sentado en máquina horizontal",
         "photo": "./assets/exerciseHombrosYCuellos/PajaroSentadoEnMaquinaHorizontal.png"
       },
       {
-        "exercise": "Press  con mancuernas",
+        "exercise": "Press con mancuernas",
         "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernas.png"
+      },
+      {
+        "exercise": "Press con mancuernas a una mano",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernasAUnaMano.png"
+      },
+      {
+        "exercise": "Press con mancuernas con parada arriba",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernasConParadaArriba.png"
+      },
+      {
+        "exercise": "Press con mancuernas de pie",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernasDePie.png"
+      },
+      {
+        "exercise": "Press con mancuernas, palmas enfrentadas",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernasPalmasEnfrentadas.png"
+      },
+      {
+        "exercise": "Press con mancuernas tipo w",
+        "photo": "./assets/exerciseHombrosYCuellos/PressConMancuernasTipoW.png"
       },
       {
         "exercise": "Press en máquina",
@@ -700,20 +828,64 @@
         "photo": "./assets/exerciseHombrosYCuellos/PressFrontalConMancuernas.png"
       },
       {
+        "exercise": "Press frontal con mancuernas con giro/press Arnold/Scott",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalConMancuernasConGiroPressArnoldScott.png"
+      },
+      {
+        "exercise": "Press frontal con mancuernas, banco inclinado",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalConMancuernasBancoInclinado.png"
+      },
+      {
         "exercise": "Press frontal/Militar en multipower",
         "photo": "./assets/exerciseHombrosYCuellos/PressFrontalMilitarEnMultipower.png"
+      },
+      {
+        "exercise": "Press frontal/Militar en multipower, agarre estrecho y codos al frente",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalMilitarEnMultipowerAgarreEstrechoYCodosAlFrente.png"
+      },
+      {
+        "exercise": "Press frontal/Militar en multipower tras nuca",
+        "photo": "./assets/exerciseHombrosYCuellos/PressFrontalMilitarEnMultipowerTrasNuca.png"
       },
       {
         "exercise": "Press militar/Frontal con barra",
         "photo": "./assets/exerciseHombrosYCuellos/PressMilitarFrontalConBarra.png"
       },
       {
+        "exercise": "Press militar/Frontal con barra, agarre estrecho y codos al frente",
+        "photo": "./assets/exerciseHombrosYCuellos/PressMilitarFrontalConBarraAgarreEstrechoYCodosAlFrente.png"
+      },
+      {
+        "exercise": "Press sentado entre poleas bajas",
+        "photo": "./assets/exerciseHombrosYCuellos/PressSentadoEntrePoleasBajas.png"
+      },
+      {
         "exercise": "Remo al cuello con barra",
         "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloConBarra.png"
       },
       {
+        "exercise": "Remo al cuello con barra, tronco flexionado",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloConBarraTroncoFlexionado.png"
+      },
+      {
+        "exercise": "Remo al cuello con barra y extensión al frente",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloConBarraYExtensionAlFrente.png"
+      },
+      {
+        "exercise": "Remo al cuello con mancuernas",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloConMancuernas.png"
+      },
+      {
+        "exercise": "Remo al cuello en multipower",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloEnMultipower.png"
+      },
+      {
         "exercise": "Remo al cuello en polea baja",
         "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Remo al cuello en polea baja tumbado",
+        "photo": "./assets/exerciseHombrosYCuellos/RemoAlCuelloEnPoleaBajaTumbado.png"
       },
       {
         "exercise": "Rotaciones externas en polea",
@@ -738,12 +910,28 @@
         "photo": "./assets/exercisePectorales/AperturasAberturasConMancuernas.png"
       },
       {
+        "exercise": "Aperturas/Aberturas con mancuernas cruzando",
+        "photo": "./assets/exercisePectorales/AperturasAberturasConMancuernasCruzando.png"
+      },
+      {
+        "exercise": "Aperturas/Aberturas con mancuernas declinadas",
+        "photo": "./assets/exercisePectorales/AperturasAberturasConMancuernasDeclinadas.png"
+      },
+      {
+        "exercise": "Aperturas/Aberturas con mancuernas inclinadas",
+        "photo": "./assets/exercisePectorales/AperturasAberturasConMancuernasInclinadas.png"
+      },
+      {
         "exercise": "Aperturas en poleas bajas",
         "photo": "./assets/exercisePectorales/AperturasEnPoleasBajas.png"
       },
       {
         "exercise": "Aperturas en poleas bajas a una mano",
         "photo": "./assets/exercisePectorales/AperturasEnPoleasBajasAUnaMano.png"
+      },
+      {
+        "exercise": "Aperturas en poleas bajas inclinado",
+        "photo": "./assets/exercisePectorales/AperturasEnPoleasBajasInclinado.png"
       },
       {
         "exercise": "Aperturas en poleas bajas tipo press",
@@ -754,8 +942,28 @@
         "photo": "./assets/exercisePectorales/Contractor.png"
       },
       {
+        "exercise": "Contractor, brazos abiertos",
+        "photo": "./assets/exercisePectorales/ContractorBrazosAbiertos.png"
+      },
+      {
+        "exercise": "Contractor, solo movimiento final",
+        "photo": "./assets/exercisePectorales/ContractorSoloMovimientoFinal.png"
+      },
+      {
         "exercise": "Cruce de poleas",
         "photo": "./assets/exercisePectorales/CruceDePoleas.png"
+      },
+      {
+        "exercise": "Cruce de poleas a una mano",
+        "photo": "./assets/exercisePectorales/CruceDePoleasAUnaMano.png"
+      },
+      {
+        "exercise": "Cruce de poleas a una mano en polea baja",
+        "photo": "./assets/exercisePectorales/CruceDePoleasAUnaManoEnPoleaBaja.png"
+      },
+      {
+        "exercise": "Cruce de poleas tipo press",
+        "photo": "./assets/exercisePectorales/CruceDePoleasTipoPress.png"
       },
       {
         "exercise": "Elevaciones de barra lateral a una mano",
@@ -766,12 +974,36 @@
         "photo": "./assets/exercisePectorales/FondosEnElSuelo.png"
       },
       {
+        "exercise": "Fondos en el suelo con codos rectos",
+        "photo": "./assets/exercisePectorales/FondosEnElSueloConCodosRectos.png"
+      },
+      {
+        "exercise": "Fondos en el suelo, manos en alto",
+        "photo": "./assets/exercisePectorales/FondosEnElSueloManosEnAlto.png"
+      },
+      {
+        "exercise": "Fondos en el suelo, pies en alto",
+        "photo": "./assets/exercisePectorales/FondosEnElSueloPiesEnAlto.png"
+      },
+      {
+        "exercise": "Fondos en la pared",
+        "photo": "./assets/exercisePectorales/FondosEnLaPared.png"
+      },
+      {
         "exercise": "Fondos en paralelas",
         "photo": "./assets/exercisePectorales/FondosEnParalelas.png"
       },
       {
         "exercise": "Fondos en paralelas con ayuda",
         "photo": "./assets/exercisePectorales/FondosEnParalelasConAyuda.png"
+      },
+      {
+        "exercise": "Fondos en paralelas con lastre",
+        "photo": "./assets/exercisePectorales/FondosEnParalelasConLastre.png"
+      },
+      {
+        "exercise": "Fondos en paralelas, cuerpo recto",
+        "photo": "./assets/exercisePectorales/FondosEnParalelasCuerpoRecto.png"
       },
       {
         "exercise": "Fondos rodando con mancuernas",
@@ -786,6 +1018,14 @@
         "photo": "./assets/exercisePectorales/PressConMancuernas.png"
       },
       {
+        "exercise": "Press con mancuernas con giro hacia fuera",
+        "photo": "./assets/exercisePectorales/PressConMancuernasConGiroHaciaFuera.png"
+      },
+      {
+        "exercise": "Press con mancuernas con palmas enfrentadas",
+        "photo": "./assets/exercisePectorales/PressConMancuernasConPalmasEnfrentadas.png"
+      },
+      {
         "exercise": "Press de banca",
         "photo": "./assets/exercisePectorales/PressDeBanca.png"
       },
@@ -798,20 +1038,84 @@
         "photo": "./assets/exercisePectorales/PressDeBancaDeclinado.png"
       },
       {
+        "exercise": "Press de banca declinado con mancuernas",
+        "photo": "./assets/exercisePectorales/PressDeBancaDeclinadoConMancuernas.png"
+      },
+      {
+        "exercise": "Press de banca declinado con mancuernas y giro hacia fuera",
+        "photo": "./assets/exercisePectorales/PressDeBancaDeclinadoConMancuernasYGiroHaciaFuera.png"
+      },
+      {
         "exercise": "Press de banca en máquina",
         "photo": "./assets/exercisePectorales/PressDeBancaEnMaquina.png"
+      },
+      {
+        "exercise": "Press de banca en máquina declinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMaquinaDeclinado.png"
+      },
+      {
+        "exercise": "Press de banca en máquina inclinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMaquinaInclinado.png"
+      },
+      {
+        "exercise": "Press de banca en máquina sentado/vertical",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMaquinaSentadoVertical.png"
       },
       {
         "exercise": "Press de banca en multipower",
         "photo": "./assets/exercisePectorales/PressDeBancaEnMultipower.png"
       },
       {
+        "exercise": "Press de banca en multipower, codos rectos",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMultipowerCodosRectos.png"
+      },
+      {
+        "exercise": "Press de banca en multipower declinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMultipowerDeclinado.png"
+      },
+      {
+        "exercise": "Press de banca en multipower inclinado",
+        "photo": "./assets/exercisePectorales/PressDeBancaEnMultipowerInclinado.png"
+      },
+      {
         "exercise": "Press de banca inclinado",
         "photo": "./assets/exercisePectorales/PressDeBancaInclinado.png"
       },
       {
+        "exercise": "Press de banca inclinado con mancuernas",
+        "photo": "./assets/exercisePectorales/PressDeBancaInclinadoConMancuernas.png"
+      },
+      {
+        "exercise": "Press de banca inclinado con mancuernas y giro hacia fuera",
+        "photo": "./assets/exercisePectorales/PressDeBancaInclinadoConMancuernasYGiroHaciaFuera.png"
+      },
+      {
+        "exercise": "Press de banca, manos juntas/agarre cerrado",
+        "photo": "./assets/exercisePectorales/PressDeBancaManosJuntasAgarreCerrado.png"
+      },
+      {
+        "exercise": "Press de banca, manos juntas y codos pegados",
+        "photo": "./assets/exercisePectorales/PressDeBancaManosJuntasYCodosPegados.png"
+      },
+      {
+        "exercise": "Press de banca, manos separadas/agarre abierto",
+        "photo": "./assets/exercisePectorales/PressDeBancaManosSeparadasAgarreAbierto.png"
+      },
+      {
+        "exercise": "Pull over con barra",
+        "photo": "./assets/exercisePectorales/PullOverConBarra.png"
+      },
+      {
         "exercise": "Pull over con mancuerna",
         "photo": "./assets/exercisePectorales/PullOverConMancuerna.png"
+      },
+      {
+        "exercise": "Pull over con mancuerna a dos manos alterno",
+        "photo": "./assets/exercisePectorales/PullOverConMancuernaADosManosAlterno.png"
+      },
+      {
+        "exercise": "Pull over con mancuerna, banco cruzado",
+        "photo": "./assets/exercisePectorales/PullOverConMancuernaBancoCruzado.png"
       },
       {
         "exercise": "Pull over en polea baja",
