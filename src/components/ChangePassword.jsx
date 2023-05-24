@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { toast, Toaster } from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { toast, Toaster } from 'react-hot-toast'
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { FetchPutData } from "../helpers/FetchPutData";
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { FetchPutData } from '../helpers/FetchPutData'
+import { FetchPostData } from '../helpers/FetchPostData'
+import routes from '../static/routes.json'
 
 const initialData = {
-  currentPassword: "",
-  newPassword: "",
-  confirmPassword: "",
-};
+  currentPassword: '',
+  newPassword: '',
+  confirmPassword: ''
+}
 
 const {
   colorText,
@@ -21,104 +21,104 @@ const {
   secondaryBlue,
   errorInput,
   primaryRed,
-  secondaryRed,
-} = Colors;
+  secondaryRed
+} = Colors
 
 export const ChangePassword = ({ username, email }) => {
-  const [dataUpdate, setDataUpdate] = useState(initialData);
-  const [errors, setErrors] = useState({});
-  const [viewPassword, setViewPassword] = useState(false);
+  const [dataUpdate, setDataUpdate] = useState(initialData)
+  const [errors, setErrors] = useState({})
+  const [viewPassword, setViewPassword] = useState(false)
 
   const onValidate = () => {
-    let errorsForm = {};
+    let errorsForm = {}
 
     if (dataUpdate.newPassword.length < 8) {
-      errorsForm.newPassword = `La contraseña debe tener más de 8 caracteres.`;
+      errorsForm.newPassword = `La contraseña debe tener más de 8 caracteres.`
     }
 
     if (dataUpdate.newPassword !== dataUpdate.confirmPassword) {
-      errorsForm.newPassword = `La contraseña y su confirmación no coinciden.`;
-      errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`;
+      errorsForm.newPassword = `La contraseña y su confirmación no coinciden.`
+      errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDataUpdate({ ...dataUpdate, [name]: value });
-  };
+    const { name, value } = e.target
+    setDataUpdate({ ...dataUpdate, [name]: value })
+  }
 
   const handleBack = () => {
-    window.location.href = `/usuario/${username}`;
-  };
+    window.location.href = `/usuario/${username}`
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
       const userChange = {
         currentPassword: dataUpdate.currentPassword,
-        newPassword: dataUpdate.newPassword,
-      };
+        newPassword: dataUpdate.newPassword
+      }
 
       const res = await FetchPutData({
         path: routes.SIGN_UP,
-        data: { userChange },
-      });
+        data: { userChange }
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Contraseña actualizada con exito.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
 
-        setDataUpdate(initialData);
+        setDataUpdate(initialData)
 
         const user = {
           email,
-          password: userChange.newPassword,
-        };
+          password: userChange.newPassword
+        }
 
         const res = await FetchPostData({
           path: routes.LOGIN,
-          data: { user },
-        });
+          data: { user }
+        })
 
         if (!(res instanceof Error)) {
-          window.location.replace(`/`);
+          window.location.replace(`/`)
         } else {
           toast.error(res.message, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
         }
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
-  };
+  }
 
   return (
     <FormContainer>
@@ -126,7 +126,7 @@ export const ChangePassword = ({ username, email }) => {
       <Form onSubmit={handleSubmit}>
         <InputContainer>
           <Input
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             placeholder="Contraseña actual"
             name="currentPassword"
             value={dataUpdate.currentPassword}
@@ -141,7 +141,7 @@ export const ChangePassword = ({ username, email }) => {
         </InputContainer>
         <InputContainer>
           <Input
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             placeholder="Nueva contraseña"
             name="newPassword"
             value={dataUpdate.newPassword}
@@ -157,7 +157,7 @@ export const ChangePassword = ({ username, email }) => {
         {errors.newPassword && <ErrorInput>{errors.newPassword}</ErrorInput>}
         <InputContainer>
           <Input
-            type={viewPassword ? "text" : "password"}
+            type={viewPassword ? 'text' : 'password'}
             placeholder="Confirma nueva contraseña"
             name="confirmPassword"
             value={dataUpdate.confirmPassword}
@@ -180,8 +180,8 @@ export const ChangePassword = ({ username, email }) => {
       </Form>
       <Toaster />
     </FormContainer>
-  );
-};
+  )
+}
 
 const ButtonSend = styled.button`
   font-family: ${FontFamily};
@@ -204,7 +204,7 @@ const ButtonSend = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const ButtonBack = styled(ButtonSend)`
   background-color: ${primaryRed};
@@ -213,7 +213,7 @@ const ButtonBack = styled(ButtonSend)`
   :hover {
     background-color: ${secondaryRed};
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -221,11 +221,11 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 0.5rem;
-`;
+`
 
 const Form = styled.form`
   display: grid;
-`;
+`
 
 const FormContainer = styled.div`
   border-radius: 5px;
@@ -234,7 +234,7 @@ const FormContainer = styled.div`
   @media screen and (max-width: 480px) {
     padding: 20vw 8vw 20vw 8vw;
   }
-`;
+`
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -254,7 +254,7 @@ const Input = styled.input`
   :focus {
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
-`;
+`
 
 const InputContainer = styled.div`
   position: relative;
@@ -264,7 +264,7 @@ const InputContainer = styled.div`
   @media screen and (max-width: 480px) {
     right: 0;
   }
-`;
+`
 
 const TitleReset = styled.h1`
   font-family: ${FontFamily};
@@ -274,7 +274,7 @@ const TitleReset = styled.h1`
   @media screen and (max-width: 480px) {
     margin-bottom: 10vw;
   }
-`;
+`
 
 const ViewPasswordButton = styled.button`
   position: absolute;
@@ -294,4 +294,4 @@ const ViewPasswordButton = styled.button`
   @media screen and (max-width: 380px) {
     right: -10px;
   }
-`;
+`

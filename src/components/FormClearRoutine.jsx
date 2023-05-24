@@ -1,71 +1,71 @@
-import React from "react";
-import { useState } from "react";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import { toast, Toaster } from "react-hot-toast";
+import React from 'react'
+import { useState } from 'react'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { ExerciseComponent } from "./ExerciseComponent";
-import { FetchDeleteData } from "../helpers/FetchDeleteData";
-import { FetchGetData } from "../helpers/FetchGetData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { ExerciseComponent } from './ExerciseComponent'
+import { FetchDeleteData } from '../helpers/FetchDeleteData'
+import { FetchGetData } from '../helpers/FetchGetData'
+import routes from '../static/routes.json'
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
-  Colors;
+  Colors
 
 export const FormClearRoutine = ({ users, dbLocal }) => {
-  const [exercises, setExercises] = useState([]);
-  const [forData, setForData] = useState(null);
-  const [dayData, setDayData] = useState(null);
-  const [errors, setErrors] = useState({});
-  const [viewRoutine, setViewRoutine] = useState(false);
+  const [exercises, setExercises] = useState([])
+  const [forData, setForData] = useState(null)
+  const [dayData, setDayData] = useState(null)
+  const [errors, setErrors] = useState({})
+  const [viewRoutine, setViewRoutine] = useState(false)
 
-  const seeLogos = false;
+  const seeLogos = false
 
   const clearData = () => {
-    setForData(null);
-    setDayData(null);
+    setForData(null)
+    setDayData(null)
 
-    setExercises([]);
-  };
+    setExercises([])
+  }
 
   const onValidate = () => {
-    let errorsForm = {};
+    let errorsForm = {}
 
     if (forData === null) {
-      errorsForm.forData = "Debe especificar destinatario.";
+      errorsForm.forData = 'Debe especificar destinatario.'
     }
 
     if (dayData === null) {
-      errorsForm.dayData = "Debe especificar día de rutina.";
+      errorsForm.dayData = 'Debe especificar día de rutina.'
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const handleFor = (e) => {
-    setForData(e.target.value);
-  };
+    setForData(e.target.value)
+  }
 
   const handleChangeFor = () => {
-    setForData(null);
-  };
+    setForData(null)
+  }
 
   const handleDay = (e) => {
-    setDayData(e.target.value);
-  };
+    setDayData(e.target.value)
+  }
 
   const handleChangeDay = () => {
-    setDayData(null);
-  };
+    setDayData(null)
+  }
 
   const handleSeeRoutine = async () => {
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
-      let ex = [];
+      let ex = []
 
       await FetchGetData(
         `${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`
@@ -75,15 +75,15 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
             switch (response.status) {
               case 423:
                 throw new Error(
-                  "El usuario no cuenta con rutina para el día seleccionado."
-                );
-                break;
+                  'El usuario no cuenta con rutina para el día seleccionado.'
+                )
+                break
 
               default:
-                break;
+                break
             }
           }
-          return response.json();
+          return response.json()
         })
         .then((data) => {
           if (data.length > 0) {
@@ -97,35 +97,35 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
                 photo: el.photo,
                 rest: el.rest,
                 description: el.description,
-                id: "exercise_" + Math.floor(Math.random() * 10000),
-              };
-              ex.push(e);
-            });
+                id: 'exercise_' + Math.floor(Math.random() * 10000)
+              }
+              ex.push(e)
+            })
           }
 
-          setExercises(ex);
-          setViewRoutine(true);
+          setExercises(ex)
+          setViewRoutine(true)
         })
         .catch((e) => {
           toast.error(e.messsage, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        })
     }
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const res = await FetchDeleteData({
-      path: `${routes.USER_DELETE_ROUTINE}?email=${forData}&day=${dayData}`,
-    });
+      path: `${routes.USER_DELETE_ROUTINE}?email=${forData}&day=${dayData}`
+    })
 
     if (!(res instanceof Error)) {
       toast.success(
@@ -133,29 +133,29 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           dbLocal.days.find((d) => d.value === dayData).day
         } eliminada.`,
         {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
         }
-      );
+      )
 
-      clearData();
+      clearData()
     } else {
       toast.error(res.message, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(250, 215, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
     }
-  };
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -211,8 +211,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
         <ListContainer>
           {forData && dayData && (
             <Title>
-              Rutina del dia{" "}
-              {dbLocal.days.find((el) => el.value === dayData).day} para{" "}
+              Rutina del dia{' '}
+              {dbLocal.days.find((el) => el.value === dayData).day} para{' '}
               {users.find((u) => u.email === forData).username}:
             </Title>
           )}
@@ -227,8 +227,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
       <Toaster />
     </Form>
-  );
-};
+  )
+}
 
 const ButtonSubmit = styled.button`
   font-family: ${FontFamily};
@@ -250,7 +250,7 @@ const ButtonSubmit = styled.button`
     cursor: pointer;
     background-color: ${primaryBlue};
   }
-`;
+`
 
 const ButtonSeeRoutine = styled(ButtonSubmit)`
   background-color: ${primaryBlue};
@@ -258,9 +258,9 @@ const ButtonSeeRoutine = styled(ButtonSubmit)`
   :hover {
     background-color: ${primaryRed};
   }
-`;
+`
 
-const DayPartContainer = styled.div``;
+const DayPartContainer = styled.div``
 
 const ErrorInput = styled.div`
   font-size: 15px;
@@ -272,13 +272,13 @@ const ErrorInput = styled.div`
   @media screen and (max-width: 480px) {
     margin-bottom: 0 !important;
   }
-`;
+`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
-`;
+`
 
-const ForPartContainer = styled.div``;
+const ForPartContainer = styled.div``
 
 const ForText = styled.p`
   margin-left: 1rem;
@@ -293,7 +293,7 @@ const ForText = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`
 
 const ForTextContainer = styled.div`
   display: flex;
@@ -314,22 +314,22 @@ const ForTextContainer = styled.div`
     transform: scale(1.1);
     color: ${secondaryRed};
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
   line-height: 2.5rem;
-`;
+`
 
 const Label = styled.label`
   font-size: 1.3rem;
   font-weight: 500;
-`;
+`
 
-const List = styled.ol``;
+const List = styled.ol``
 
-const ListContainer = styled.div``;
+const ListContainer = styled.div``
 
 const NoData = styled.p`
   font-size: 2.5rem;
@@ -341,13 +341,13 @@ const NoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.4rem;
   }
-`;
+`
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -389,7 +389,7 @@ const Select = styled.select`
   ::-ms-expand {
     display: none;
   }
-`;
+`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
@@ -397,7 +397,7 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 60vw;
   }
-`;
+`
 
 const Title = styled.p`
   font-size: 2.5rem;
@@ -405,4 +405,4 @@ const Title = styled.p`
   text-align: start;
   margin: 3vw 0.5vw 2vw 1vw;
   font-style: italic;
-`;
+`
