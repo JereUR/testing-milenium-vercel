@@ -1,131 +1,133 @@
-import React from "react";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import { useState, useEffect } from "react";
-import { toast, Toaster } from "react-hot-toast";
+import React from 'react'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
+import { Colors } from '../constants/Colors'
 import Loader from './Loader'
-import { FontFamily } from "../constants/Fonts";
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
+import { FontFamily } from '../constants/Fonts'
+import { FetchPostData } from '../helpers/FetchPostData'
+import routes from '../static/routes.json'
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
-  Colors;
+  Colors
 
 export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
-  const [forDataDesactivate, setForDataDesactivate] = useState(null);
-  const [forDataActivate, setForDataActivate] = useState(null);
-  const [errorsActivate, setErrorsActivate] = useState({});
-  const [errorsDesactivate, setErrorsDesactivate] = useState({});
+  const [forDataDesactivate, setForDataDesactivate] = useState(null)
+  const [forDataActivate, setForDataActivate] = useState(null)
+  const [errorsActivate, setErrorsActivate] = useState({})
+  const [errorsDesactivate, setErrorsDesactivate] = useState({})
   const [loadingA, setLoadingA] = useState(false)
   const [loadingD, setLoadingD] = useState(false)
-  
+
   const onValidateActivate = () => {
-    let errors = {};
+    let errors = {}
 
     if (forDataActivate === null) {
-      errors.forData = "Debe especificar usuario.";
+      errors.forData = 'Debe especificar usuario.'
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const onValidateDesactivate = () => {
-    let errors = {};
+    let errors = {}
 
     if (forDataDesactivate === null) {
-      errors.forData = "Debe especificar usuario.";
+      errors.forData = 'Debe especificar usuario.'
     }
 
-    return errors;
-  };
+    return errors
+  }
 
-  const handleSubmitActivate = async  (e) => {
-    e.preventDefault();
+  const handleSubmitActivate = async (e) => {
+    e.preventDefault()
     setLoadingA(true)
 
-    const err = onValidateActivate();
-    setErrorsActivate(err);
+    const err = onValidateActivate()
+    setErrorsActivate(err)
 
     if (Object.keys(err).length === 0) {
-        const res = await FetchPostData({
-            path: routes.USER_ACTIVATE,
-            data: { email: forDataActivate },
-          });
-    
-          if (!(res instanceof Error)) {
-            toast.success(`${forDataActivate} fue dado de alta. Recargando...`, {
-              position: "top-right",
-              duration: 6000,
-              style: {
-                background: "rgba(215, 250, 215)",
-                fontSize: "1rem",
-                fontWeight: "500",
-              },
-            });
-    
-            setForDataActivate(null)
-            setTimeout(() => {
-                window.location.reload()
-            }, 1000);
-          } else {
-            toast.error(res.message, {
-              position: "top-right",
-              duration: 6000,
-              style: {
-                background: "rgba(250, 215, 215)",
-                fontSize: "1rem",
-                fontWeight: "500",
-              },
-            });
+      const res = await FetchPostData({
+        path: routes.USER_ACTIVATE,
+        data: { email: forDataActivate }
+      })
+
+      if (!(res instanceof Error)) {
+        toast.success(`${forDataActivate} fue dado de alta. Recargando...`, {
+          position: 'top-right',
+          duration: 6000,
+          style: {
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
           }
-      setLoadingA(false)
+        })
+
+        setForDataActivate(null)
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      } else {
+        toast.error(res.message, {
+          position: 'top-right',
+          duration: 6000,
+          style: {
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      }
     }
-  };
+
+    setLoadingA(false)
+  }
 
   const handleSubmitDesactivate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setLoadingD(true)
 
-    const err = onValidateDesactivate();
-    setErrorsDesactivate(err);
+    const err = onValidateDesactivate()
+    setErrorsDesactivate(err)
 
     if (Object.keys(err).length === 0) {
-        const res = await FetchPostData({
-            path: routes.USER_DESACTIVATE,
-            data: { email: forDataDesactivate },
-          });
-    
-          if (!(res instanceof Error)) {
-            toast.success(`${forDataDesactivate} fue dado de baja. Recargando...`, {
-              position: "top-right",
-              duration: 6000,
-              style: {
-                background: "rgba(215, 250, 215)",
-                fontSize: "1rem",
-                fontWeight: "500",
-              },
-            });
-    
-            setForDataDesactivate(null)
-            setTimeout(() => {
-                window.location.reload()
-            }, 1000);
-          } else {
-            toast.error(res.message, {
-              position: "top-right",
-              duration: 6000,
-              style: {
-                background: "rgba(250, 215, 215)",
-                fontSize: "1rem",
-                fontWeight: "500",
-              },
-            });
+      const res = await FetchPostData({
+        path: routes.USER_DESACTIVATE,
+        data: { email: forDataDesactivate }
+      })
+
+      if (!(res instanceof Error)) {
+        toast.success(`${forDataDesactivate} fue dado de baja. Recargando...`, {
+          position: 'top-right',
+          duration: 6000,
+          style: {
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
           }
-          setLoadingA(false)
+        })
+
+        setForDataDesactivate(null)
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      } else {
+        toast.error(res.message, {
+          position: 'top-right',
+          duration: 6000,
+          style: {
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      }
     }
-  };
+
+    setLoadingD(false)
+  }
 
   return (
     <FormsContainer>
@@ -198,12 +200,12 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
       </FormNotActivateUser>
       <Toaster />
     </FormsContainer>
-  );
-};
+  )
+}
 
 const ButtonContainer = styled.div`
   text-align: center;
-`;
+`
 
 const ButtonSend = styled.button`
   font-family: ${FontFamily};
@@ -226,7 +228,7 @@ const ButtonSend = styled.button`
     cursor: pointer;
     background-color: ${primaryBlue};
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -240,20 +242,20 @@ const ErrorInput = styled.div`
     line-height: 1rem;
     margin-top: 1rem;
   }
-`;
+`
 
 const FormActivateUser = styled.form`
   .lds-ring {
-      margin-top: 1vw;
-      left: 48%;
-    }
-`;
+    margin-top: 1vw;
+    left: 48%;
+  }
+`
 
-const FormNotActivateUser = styled(FormActivateUser)``;
+const FormNotActivateUser = styled(FormActivateUser)``
 
-const FormsContainer = styled.div``;
+const FormsContainer = styled.div``
 
-const ForPartContainer = styled.div``;
+const ForPartContainer = styled.div``
 
 const ForText = styled.p`
   margin-left: 1rem;
@@ -268,7 +270,7 @@ const ForText = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`
 
 const ForTextContainer = styled.div`
   display: flex;
@@ -289,13 +291,13 @@ const ForTextContainer = styled.div`
     transform: scale(1.1);
     color: ${secondaryRed};
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
   line-height: 2.5rem;
-`;
+`
 
 const Label = styled.label`
   font-size: 1.3rem;
@@ -304,13 +306,13 @@ const Label = styled.label`
   @media screen and (max-width: 480px) {
     margin-left: -5vw;
   }
-`;
+`
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -353,7 +355,7 @@ const Select = styled.select`
   ::-ms-expand {
     display: none;
   }
-`;
+`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
@@ -361,4 +363,4 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 80vw;
   }
-`;
+`

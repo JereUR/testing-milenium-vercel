@@ -9,13 +9,24 @@ import { ViewUserInfo } from "./ViewUserInfo";
 import { FetchGetData } from "../helpers/FetchGetData";
 import routes from "../static/routes.json";
 
-const { primaryRed, primaryBlue } = Colors;
+const { errorInput, primaryRed, primaryBlue } = Colors;
 
 export const SeeUser = ({ users }) => {
   const [forData, setForData] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
+  const [errors, setErrors] = useState({});
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false)
+
+  const onValidate = () => {
+    let errors = {};
+
+    if (forData === null) {
+      errors.forData = "Debe especificar usuario.";
+    }
+
+    return errors;
+  };
 
   const handleFor = (e) => {
     setForData(e.target.value);
@@ -26,7 +37,11 @@ export const SeeUser = ({ users }) => {
     e.preventDefault();
     setLoading(true)
 
-    await FetchGetData(`${routes.USER_INFO}${forData}`)
+    const err = onValidate();
+    setErrors(err);
+
+    if (Object.keys(err).length === 0) {
+      await FetchGetData(`${routes.USER_INFO}${forData}`)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
@@ -43,8 +58,10 @@ export const SeeUser = ({ users }) => {
         });
       });
 
-    setViewDetails(true);
-    setLoading(false)
+      setViewDetails(true);
+    }
+
+    setLoading(false) 
   };
 
   return (
@@ -62,6 +79,9 @@ export const SeeUser = ({ users }) => {
                   </Option>
                 ))}
             </Select>
+            {errors.forData && (
+                <ErrorInput>{errors.forData}</ErrorInput>
+              )}
           </InputContainer>
         </ForPartContainer>
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
@@ -93,6 +113,20 @@ const ButtonSubmit = styled.button`
   :hover {
     cursor: pointer;
     background-color: ${primaryBlue};
+  }
+`;
+
+const ErrorInput = styled.div`
+  font-size: 12px;
+  color: ${errorInput};
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-left: 2rem;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 0 !important;
+    line-height: 1rem;
+    margin-top: 1rem;
   }
 `;
 

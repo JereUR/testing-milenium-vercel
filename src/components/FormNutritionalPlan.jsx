@@ -467,8 +467,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
           }
         })
       }
-      setLoading(false)
     }
+
+    setLoading(false)
   }
 
   useEffect(() => {
