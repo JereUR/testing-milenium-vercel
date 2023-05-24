@@ -70,7 +70,7 @@ export const ChangePassword = ({ username, email }) => {
         data: { userChange }
       })
 
-      if (!(res instanceof Error)) {
+      if (res.value === 0 && !(res instanceof Error)) {
         toast.success(`Contraseña actualizada con exito.`, {
           position: 'top-right',
           duration: 6000,
@@ -88,7 +88,7 @@ export const ChangePassword = ({ username, email }) => {
           password: userChange.newPassword
         }
 
-        const res = await FetchPostData({
+        const resLogin = await FetchPostData({
           path: routes.LOGIN,
           data: { user }
         })

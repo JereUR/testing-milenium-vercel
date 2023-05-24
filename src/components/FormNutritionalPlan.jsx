@@ -6,6 +6,7 @@ import { IoMdAddCircle } from 'react-icons/io'
 import { toast, Toaster } from 'react-hot-toast'
 
 import { Colors } from '../constants/Colors'
+import Loader from './Loader'
 import { FontFamily } from '../constants/Fonts'
 import { MealComponent } from './MealComponent'
 import { FetchPostData } from '../helpers/FetchPostData'
@@ -48,6 +49,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
   const [collation, setCollation] = useState(initialData)
   const [errorsPlan, setErrorsPlan] = useState({})
   const [errorsMeal, setErrorsMeal] = useState({})
+  const [loading, setLoading] = useState(false)
 
   const timeout = (delay) => {
     return new Promise((res) => setTimeout(res, delay))
@@ -415,6 +417,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
 
   const handleSubmitPlan = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     const err = onValidatePlan()
     setErrorsPlan(err)
@@ -452,6 +455,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
         })
 
         clearData()
+  
       } else {
         toast.error(res.message, {
           position: 'top-right',
@@ -463,6 +467,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
           }
         })
       }
+      setLoading(false)
     }
   }
 
@@ -879,6 +884,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
       )}
       {errorsPlan.planData && <ErrorInput>{errorsPlan.planData}</ErrorInput>}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
+      {loading && <Loader />}
       <Toaster />
     </Form>
   )
@@ -942,6 +948,11 @@ const ErrorInput = styled.div`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: 1vw;
+    left: 48%;
+  }
 `
 
 const ForPartContainer = styled.div``

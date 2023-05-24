@@ -21,11 +21,16 @@ export const FetchPutData = async ({ path, data }) => {
       throw new Error("Error en la respuesta del servidor");
     }
 
+    const dataRes = await resp.json();
+
     if (path === "login" || path === "signup") {
-      localStorage.setItem("token", resp.headers.get("Authorization"));
+      if (dataRes.value) {
+        if (dataRes.value === 0) {
+          localStorage.setItem("token", resp.headers.get("Authorization"));
+        }
+      }
     }
 
-    const dataRes = await resp.json();
     return dataRes;
   } catch (error) {
     return error;

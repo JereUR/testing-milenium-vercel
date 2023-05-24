@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
+import Loader from './Loader'
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
 import routes from "../static/routes.json";
@@ -17,6 +18,8 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
   const [forDataActivate, setForDataActivate] = useState(null);
   const [errorsActivate, setErrorsActivate] = useState({});
   const [errorsDesactivate, setErrorsDesactivate] = useState({});
+  const [loadingA, setLoadingA] = useState(false)
+  const [loadingD, setLoadingD] = useState(false)
   
   const onValidateActivate = () => {
     let errors = {};
@@ -40,6 +43,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
 
   const handleSubmitActivate = async  (e) => {
     e.preventDefault();
+    setLoadingA(true)
 
     const err = onValidateActivate();
     setErrorsActivate(err);
@@ -76,11 +80,13 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
               },
             });
           }
+      setLoadingA(false)
     }
   };
 
   const handleSubmitDesactivate = async (e) => {
     e.preventDefault();
+    setLoadingD(true)
 
     const err = onValidateDesactivate();
     setErrorsDesactivate(err);
@@ -117,6 +123,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
               },
             });
           }
+          setLoadingA(false)
     }
   };
 
@@ -151,6 +158,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
         </ForPartContainer>
         <ButtonContainer>
           <ButtonSend type="submit">Dar de Alta</ButtonSend>
+          {loadingA && <Loader />}
         </ButtonContainer>
       </FormActivateUser>
       <FormNotActivateUser onSubmit={handleSubmitDesactivate}>
@@ -185,6 +193,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
         </ForPartContainer>
         <ButtonContainer>
           <ButtonSend type="submit">Dar de Baja</ButtonSend>
+          {loadingD && <Loader />}
         </ButtonContainer>
       </FormNotActivateUser>
       <Toaster />
@@ -233,7 +242,12 @@ const ErrorInput = styled.div`
   }
 `;
 
-const FormActivateUser = styled.form``;
+const FormActivateUser = styled.form`
+  .lds-ring {
+      margin-top: 1vw;
+      left: 48%;
+    }
+`;
 
 const FormNotActivateUser = styled(FormActivateUser)``;
 

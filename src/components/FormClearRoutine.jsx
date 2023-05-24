@@ -5,6 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 import { toast, Toaster } from 'react-hot-toast'
 
 import { Colors } from '../constants/Colors'
+import Loader from './Loader'
 import { FontFamily } from '../constants/Fonts'
 import { ExerciseComponent } from './ExerciseComponent'
 import { FetchDeleteData } from '../helpers/FetchDeleteData'
@@ -225,6 +226,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       )}
       {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
+      {loading && <Loader />}
       <Toaster />
     </Form>
   )
