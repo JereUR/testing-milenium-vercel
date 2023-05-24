@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
+import Loader from './Loader'
 import { FontFamily } from "../constants/Fonts";
 import { MealComponent } from "./MealComponent";
 import { FetchGetData } from "../helpers/FetchGetData";
@@ -36,6 +37,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
   const [postWorkout, setPostWorkout] = useState(initialData);
   const [collation, setCollation] = useState(initialData);
   const [viewPlan, setViewPlan] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const clearData = () => {
     setForData(null);
@@ -284,6 +286,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const err = onValidateDelete();
     setErrors(err);
@@ -321,6 +324,8 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
           },
         });
       }
+
+      setLoading(false)
     }
   };
 
@@ -496,6 +501,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
       )}
       {errors.plan && <ErrorInput>{errors.plan}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
+      {loading && <Loader />}
       <Toaster />
     </Form>
   );
@@ -547,6 +553,11 @@ const ErrorInput = styled.div`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: 1vw;
+    left: 48%;
+  }
 `;
 
 const ForPartContainer = styled.div``;

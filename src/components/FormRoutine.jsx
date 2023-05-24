@@ -5,6 +5,7 @@ import { IoMdAddCircle } from 'react-icons/io'
 import { toast, Toaster } from 'react-hot-toast'
 
 import { Colors } from '../constants/Colors'
+import Loader from './Loader'
 import { FontFamily } from '../constants/Fonts'
 import { ExerciseComponent } from './ExerciseComponent'
 import { FetchPostData } from '../helpers/FetchPostData'
@@ -35,6 +36,7 @@ const FormRoutine = ({ users, dbLocal }) => {
   const [exercises, setExercises] = useState([])
   const [errorsExercises, setErrorsExercises] = useState({})
   const [errorsRoutine, setErrorsRoutine] = useState({})
+  const [loading, setLoading] = useState(false)
 
   const seeLogos = true
 
@@ -242,6 +244,7 @@ const FormRoutine = ({ users, dbLocal }) => {
 
   const handleSubmitRoutine = async (e) => {
     e.preventDefault()
+    setLoading(true)
 
     const err = onValidateRoutine()
     setErrorsRoutine(err)
@@ -281,6 +284,8 @@ const FormRoutine = ({ users, dbLocal }) => {
           }
         })
       }
+
+      setLoading(false)
     }
   }
 
@@ -487,6 +492,7 @@ const FormRoutine = ({ users, dbLocal }) => {
         </PhotoExampleContainer>
       )}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
+      {loading && <Loader />}
       <Toaster />
     </Form>
   )
@@ -552,6 +558,11 @@ const ExercisePhoto = styled.img``
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: 1vw;
+    left: 48%;
+  }
 `
 
 const ForPartContainer = styled.div``

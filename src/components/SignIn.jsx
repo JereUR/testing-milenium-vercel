@@ -7,6 +7,7 @@ import logo from '../assets/logo.png'
 import newEmail from '../assets/newEmail.png'
 import Loader from './Loader'
 import Modal from './Modal'
+import LoaderSignUp from './LoaderSignUp'
 import { Colors } from '../constants/Colors'
 import { FontFamily } from '../constants/Fonts'
 import { FetchPostData } from '../helpers/FetchPostData'
@@ -25,6 +26,7 @@ export const SignIn = ({ setUser }) => {
   const [remember, setRemember] = useState(false)
   const [emailRecover, setEmailRecover] = useState('')
   const [loading, setLoading] = useState(false)
+  const [loadingRecover, setLoadingRecover] = useState(false)
   const [credentials, setCredentials] = useState(initialData)
   const [viewPassword, setViewPassword] = useState(false)
   const [emailSended, setEmailSended] = useState(false)
@@ -124,6 +126,8 @@ export const SignIn = ({ setUser }) => {
   const handleSubmitRecover = async (e) => {
     e.preventDefault()
 
+    setLoadingRecover(true)
+
     const res = await FetchPostData({
       path: routes.RECOVER,
       data: { user: { email: emailRecover } }
@@ -143,6 +147,7 @@ export const SignIn = ({ setUser }) => {
       setEmailSended(true)
       clearRecoverForm()
       setForgotPassword(!forgotPassword)
+      setLoadingRecover(false)
     } else {
       toast.error(res.message, {
         position: 'top-right',
@@ -215,6 +220,7 @@ export const SignIn = ({ setUser }) => {
                   required
                 />
                 <ButtonRecover>Enviar</ButtonRecover>
+                {loadingRecover && <LoaderSignUp/>}
               </Form>
             </FormRecoverContainer>
           </Content>
@@ -333,6 +339,10 @@ const FormContainer = styled.div`
 
 const FormRecoverContainer = styled(FormContainer)`
   margin-top: 0;
+
+  .sign-up {
+    left: 40%;
+  }
 `
 
 const ImgNewEmail = styled.img`

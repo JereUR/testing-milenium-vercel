@@ -54,71 +54,99 @@ export const ChangePassword = ({ username, email }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
       const userChange = {
         currentPassword: dataUpdate.currentPassword,
-        newPassword: dataUpdate.newPassword,
-      };
+        newPassword: dataUpdate.newPassword
+      }
 
       const res = await FetchPutData({
         path: routes.SIGN_UP,
-        data: { userChange },
-      });
+        data: { userChange }
+      })
 
-      if (!(res instanceof Error)) {
+      if (res.value === 0 && !(res instanceof Error)) {
         toast.success(`Contraseña actualizada con exito.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
 
-        setDataUpdate(initialData);
+        setDataUpdate(initialData)
 
         const user = {
           email,
-          password: userChange.newPassword,
-        };
+          password: userChange.newPassword
+        }
 
-        const res = await FetchPostData({
+        const resLogin = await FetchPostData({
           path: routes.LOGIN,
-          data: { user },
-        });
+          data: { user }
+        })
 
-        if (!(res instanceof Error)) {
-          window.location.replace(`/`);
+        if (!(resLogin instanceof Error)) {
+          window.location.replace(`/`)
         } else {
-          toast.error(res.message, {
-            position: "top-right",
+          toast.error(resLogin.message, {
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
         }
       } else {
-        toast.error(res.message, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+        if (res.value) {
+          switch (res.value) {
+            case 2:
+              toast.error('Contraseña actual incorrecta.', {
+                position: 'top-right',
+                duration: 6000,
+                style: {
+                  background: 'rgba(250, 215, 215)',
+                  fontSize: '1rem',
+                  fontWeight: '500'
+                }
+              })
+              break
+
+            default:
+              toast.error(res.message, {
+                position: 'top-right',
+                duration: 6000,
+                style: {
+                  background: 'rgba(250, 215, 215)',
+                  fontSize: '1rem',
+                  fontWeight: '500'
+                }
+              })
+              break
+          }
+        } else {
+          toast.error(res.message, {
+            position: 'top-right',
+            duration: 6000,
+            style: {
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        }
       }
     }
-  };
+  }
 
   return (
     <FormContainer>

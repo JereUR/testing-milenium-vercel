@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
+import Loader from './Loader'
 import { FontFamily } from "../constants/Fonts";
 import { ExerciseComponent } from "./ExerciseComponent";
 import { FetchDeleteData } from "../helpers/FetchDeleteData";
@@ -20,6 +21,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const [dayData, setDayData] = useState(null);
   const [errors, setErrors] = useState({});
   const [viewRoutine, setViewRoutine] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const seeLogos = false;
 
@@ -122,6 +124,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const res = await FetchDeleteData({
       path: `${routes.USER_DELETE_ROUTINE}?email=${forData}&day=${dayData}`,
@@ -144,6 +147,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       );
 
       clearData();
+      
     } else {
       toast.error(res.message, {
         position: "top-right",
@@ -155,6 +159,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
         },
       });
     }
+
+    setLoading(false)
   };
 
   return (
@@ -225,6 +231,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       )}
       {errors.exercises && <ErrorInput>{errors.exercises}</ErrorInput>}
       <ButtonSubmit type="submit">Borrar</ButtonSubmit>
+      {loading && <Loader />}
       <Toaster />
     </Form>
   );
@@ -276,6 +283,11 @@ const ErrorInput = styled.div`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: 1vw;
+    left: 48%;
+  }
 `;
 
 const ForPartContainer = styled.div``;

@@ -6,6 +6,7 @@ import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
 
 import logo from "../assets/logo.png";
 import seal from "../assets/payment-seal.png";
+import Loader from './Loader'
 import { Colors } from "../constants/Colors";
 import { FontFamily } from "../constants/Fonts";
 import { FetchPostData } from "../helpers/FetchPostData";
@@ -27,6 +28,7 @@ export const FormBill = ({ users, dbLocal }) => {
   const [surname, setSurname] = useState(null);
   const [errors, setErrors] = useState({});
   const [viewPdf, setViewPdf] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const doc = (
     <Document>
@@ -252,6 +254,7 @@ export const FormBill = ({ users, dbLocal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const err = await onValidate();
     setErrors(err);
@@ -313,6 +316,8 @@ export const FormBill = ({ users, dbLocal }) => {
           },
         });
       }
+
+      setLoading(false)
     }
   };
 
@@ -414,6 +419,7 @@ export const FormBill = ({ users, dbLocal }) => {
           </PdfContainer>
         )}
         <ButtonSend type="submit">Enviar</ButtonSend>
+        {loading && <Loader />}
       </PaymentContainer>
       <Toaster />
     </FormAddBill>
@@ -477,6 +483,11 @@ const ErrorInput = styled.div`
 
 const FormAddBill = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: 1vw;
+    left: 48%;
+  }
 `;
 
 const ForPartContainer = styled.div``;

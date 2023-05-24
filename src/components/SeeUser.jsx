@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { toast, Toaster } from "react-hot-toast";
 
 import { Colors } from "../constants/Colors";
+import Loader from './Loader'
 import { FontFamily } from "../constants/Fonts";
 import { ViewUserInfo } from "./ViewUserInfo";
 import { FetchGetData } from "../helpers/FetchGetData";
@@ -14,6 +15,7 @@ export const SeeUser = ({ users }) => {
   const [forData, setForData] = useState(null);
   const [viewDetails, setViewDetails] = useState(false);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false)
 
   const handleFor = (e) => {
     setForData(e.target.value);
@@ -22,6 +24,7 @@ export const SeeUser = ({ users }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     await FetchGetData(`${routes.USER_INFO}${forData}`)
       .then((response) => response.json())
@@ -41,6 +44,7 @@ export const SeeUser = ({ users }) => {
       });
 
     setViewDetails(true);
+    setLoading(false)
   };
 
   return (
@@ -61,6 +65,7 @@ export const SeeUser = ({ users }) => {
           </InputContainer>
         </ForPartContainer>
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
+        {loading && <Loader />}
       </Form>
       {viewDetails && user !== null && <ViewUserInfo user={user} />}
       <Toaster />
@@ -93,6 +98,11 @@ const ButtonSubmit = styled.button`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
+
+  .lds-ring {
+    margin-top: -1vw;
+    left: 48%;
+  }
 `;
 
 const ForPartContainer = styled.div``;
