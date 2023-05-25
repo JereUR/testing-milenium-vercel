@@ -67,11 +67,15 @@ function App() {
       // localStorage.removeItem("token");
       setLogin(false);
     }
+
+    if (user.username === undefined) {
+      window.location.reload();
+    }
   }, [user]);
 
   return (
     <Container>
-      {user !== null && (
+      {user !== null && user.username!==undefined && (
         <Router>
           {login && (
             <Header username={user.username} login={login} admin={user.admin} />

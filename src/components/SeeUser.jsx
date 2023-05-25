@@ -41,7 +41,7 @@ export const SeeUser = ({ users }) => {
     setErrors(err);
 
     if (Object.keys(err).length === 0) {
-      await FetchGetData(`${routes.USER_INFO}${forData}`)
+      await FetchGetData(`${routes.USER_INFO}?email=${forData}`)
       .then((response) => response.json())
       .then((data) => {
         setUser(data);

@@ -9,7 +9,7 @@ import { FetchGetData } from "../helpers/FetchGetData";
 const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
 
 async function getUserPhoto(email) {
-  return await FetchGetData(`${routes.USER_PHOTO}/${email}`);
+  return await FetchGetData(`${routes.USER_PHOTO}?email=${email}`);
 }
 
 export const UserViewInfo = ({ user }) => {
@@ -29,7 +29,6 @@ export const UserViewInfo = ({ user }) => {
     getUserPhoto(user.email)
         .then((response) => response.blob())
         .then((data) => {
-          console.log({data})
           if (data.size !== 14) {
             const imageUrl = URL.createObjectURL(data);
             setPhoto(imageUrl);
@@ -39,7 +38,6 @@ export const UserViewInfo = ({ user }) => {
           console.error(e)
         });
   }, [])
-  
 
   return (
     <ProfileContainer>

@@ -117,7 +117,7 @@ const FormRoutine = ({ users, dbLocal }) => {
     setForData(e.target.value)
 
     const user = await FetchGetData(
-      `${routes.USER_WEIGHT_HEIGHT}${e.target.value}`
+      `${routes.USER_WEIGHT_HEIGHT}?email=${e.target.value}`
     )
       .then((response) => response.json())
       .then()
@@ -219,20 +219,20 @@ const FormRoutine = ({ users, dbLocal }) => {
     document.getElementById('seriesExercise').value = el.series
     document.getElementById('measureExercise').value = el.measure
     document.getElementById('countExercise').value = el.count
-    document.getElementById('zone').value = zone
-    document.getElementById('exercise').value = el.typeExercise
+    document.getElementById('zone').value = el.body_zone
+    document.getElementById('exercise').value = el.name
     document.getElementById('rest').value = el.rest
     document.getElementById('description').value = el.description
 
     setSeries(el.series)
     setMeasure(el.measure)
     setCount(el.count)
-    setTypeExercise(el.typeExercise)
+    setTypeExercise(el.name)
     setRest(el.rest)
     setDescription(el.description)
 
     const p = dbLocal.exercises[zone].find(
-      (ex) => ex.exercise === el.typeExercise
+      (ex) => ex.exercise === el.name
     ).photo
     setPhoto(p)
   }
@@ -262,7 +262,9 @@ const FormRoutine = ({ users, dbLocal }) => {
       })
 
       if (!(res instanceof Error)) {
-        toast.success(`Rutina enviada a ${forData}.`, {
+        const day = dbLocal.find(d => d.value === dayData).day
+
+        toast.success(`Rutina enviada a ${forData} para el dia ${day}.`, {
           position: 'top-right',
           duration: 6000,
           style: {

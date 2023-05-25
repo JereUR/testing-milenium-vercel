@@ -23,7 +23,7 @@ export const FetchPutData = async ({ path, data }) => {
 
     const dataRes = await resp.json();
 
-    if (path === "login" || path === "signup") {
+    if (path === routes.LOGIN || path === routes.SIGN_UP) {
       if (dataRes.value) {
         if (dataRes.value === 0) {
           localStorage.setItem("token", resp.headers.get("Authorization"));

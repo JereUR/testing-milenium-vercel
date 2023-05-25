@@ -111,6 +111,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
   const handleSeePlan = async () => {
     const err = onValidate();
     setErrors(err);
+    setLoading(true)
 
     if (Object.keys(err).length === 0) {
       let b = [];
@@ -282,6 +283,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
 
       setViewPlan(true);
     }
+    setLoading(false)
   };
 
   const handleSubmit = async (e) => {
@@ -379,6 +381,7 @@ export const FormClearNutritionalPlan = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeePlan}>
         Ver Plan Nutricional
       </ButtonSeeRoutine>
+      {loading && <Loader />}
       {breakfast[0].count !== null && (
         <MealContainer>
           <MealName>Desayuno:</MealName>

@@ -19,7 +19,9 @@ export const FetchDeleteData = async ({ path }) => {
       throw new Error("Error en la respuesta del servidor");
     }
 
-    localStorage.removeItem("token");
+    if (path === routes.LOGOUT) {
+      localStorage.removeItem("token");
+    }
 
     const dataRes = await resp.json();
     return dataRes;

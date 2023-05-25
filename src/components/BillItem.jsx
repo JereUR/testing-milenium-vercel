@@ -70,7 +70,7 @@ export const BillItem = ({ bill, user, months }) => {
               </Text>
 
               <Text style={{ textAlign: "justify", marginTop: "30px" }}>
-                Usuario: {user.first_name} {user.last_name}.
+                Usuario: {user.username} {user.surname}.
               </Text>
               <Text style={{ textAlign: "justify", marginTop: "30px" }}>
                 Email: {user.email}.

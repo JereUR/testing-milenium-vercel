@@ -44,7 +44,7 @@ async function getUser() {
 }
 
 async function getUserPhoto() {
-  return await FetchGetData(`${routes.USER_PHOTO}`);
+  return await FetchGetData(`${routes.PHOTO}`);
 }
 
 export const UserProfile = ({ email }) => {

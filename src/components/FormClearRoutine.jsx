@@ -65,6 +65,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const handleSeeRoutine = async () => {
     const err = onValidate();
     setErrors(err);
+    setLoading(true)
 
     if (Object.keys(err).length === 0) {
       let ex = [];
@@ -85,6 +86,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
                 break;
             }
           }
+
           return response.json();
         })
         .then((data) => {
@@ -109,7 +111,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           setViewRoutine(true);
         })
         .catch((e) => {
-          toast.error(e.messsage, {
+          toast.error(e.message, {
             position: "top-right",
             duration: 6000,
             style: {
@@ -120,6 +122,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           });
         });
     }
+    setLoading(false)
   };
 
   const handleSubmit = async (e) => {
@@ -213,6 +216,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
       <ButtonSeeRoutine type="button" onClick={handleSeeRoutine}>
         Ver Rutina
       </ButtonSeeRoutine>
+      {loading && <Loader />}
       {exercises.length > 0 && viewRoutine && (
         <ListContainer>
           {forData && dayData && (

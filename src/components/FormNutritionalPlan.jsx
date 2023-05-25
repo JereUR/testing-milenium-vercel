@@ -137,7 +137,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     setForData(e.target.value)
 
     const user = await FetchGetData(
-      `${routes.USER_WEIGHT_HEIGHT}${e.target.value}`
+      `${routes.USER_WEIGHT_HEIGHT}?email=${e.target.value}`
     )
       .then((response) => response.json())
       .then()
