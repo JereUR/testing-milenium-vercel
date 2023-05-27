@@ -175,7 +175,7 @@ export const UserProfile = ({ email }) => {
       formData.append("image", photoToSend);
 
       const res = await FetchPostImage({
-        path: routes.USER_PHOTO,
+        path: routes.PHOTO,
         data: formData,
       });
 

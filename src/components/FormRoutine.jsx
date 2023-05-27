@@ -37,6 +37,7 @@ const FormRoutine = ({ users, dbLocal }) => {
   const [errorsExercises, setErrorsExercises] = useState({})
   const [errorsRoutine, setErrorsRoutine] = useState({})
   const [loading, setLoading] = useState(false)
+  const [noData, setNoData] = useState(false)
 
   const seeLogos = true
 
@@ -151,7 +152,11 @@ const FormRoutine = ({ users, dbLocal }) => {
   }
 
   const handleChangeDay = () => {
-    setDayData(null)
+    let decision = confirm("Al cambiar el día tu progreso será reemplazado por la rutina del día que selecciones a continuación. ¿Estás seguro de cambiar el día?");
+
+    if (decision) {
+      setDayData(null)
+    }
   }
 
   const handleMeasure = (e) => {
@@ -262,7 +267,7 @@ const FormRoutine = ({ users, dbLocal }) => {
       })
 
       if (!(res instanceof Error)) {
-        const day = dbLocal.find(d => d.value === dayData).day
+        const day = dbLocal.days.find(d => d.value === dayData).day
 
         toast.success(`Rutina enviada a ${forData} para el dia ${day}.`, {
           position: 'top-right',
@@ -300,35 +305,34 @@ const FormRoutine = ({ users, dbLocal }) => {
       FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
         .then((response) => response.json())
         .then((data) => {
-          if (data.length > 0) {
-            data.forEach((el) => {
-              const e = {
-                series: el.series,
-                measure: el.measure,
-                count: el.count,
-                name: el.name,
-                body_zone: el.zone,
-                photo: el.photo,
-                rest: el.rest,
-                description: el.description,
-                id: 'exercise_' + Math.floor(Math.random() * 10000)
-              }
-              ex.push(e)
-            })
+          if(data.error){
+            setNoData(true)
+          } else {
+            setNoData(false)
+
+            if (data.length > 0) {
+              data.forEach((el) => {
+                const e = {
+                  series: el.series,
+                  measure: el.measure,
+                  count: el.count,
+                  name: el.name,
+                  body_zone: el.zone,
+                  photo: el.photo,
+                  rest: el.rest,
+                  description: el.description,
+                  id: 'exercise_' + Math.floor(Math.random() * 10000)
+                }
+                ex.push(e)
+              })
           }
 
           setExercises(ex)
+          }
+          
         })
         .catch((e) => {
-          toast.error(e.messsage, {
-            position: 'top-right',
-            duration: 6000,
-            style: {
-              background: 'rgba(250, 215, 215)',
-              fontSize: '1rem',
-              fontWeight: '500'
-            }
-          })
+          console.error(e)
         })
     }
   }, [forData, dayData])
@@ -484,6 +488,7 @@ const FormRoutine = ({ users, dbLocal }) => {
           ))}
         </List>
       )}
+      {noData && (<TextNoData>Sin rutina para el día {dbLocal.days.find(d => d.value === dayData).day}.</TextNoData>)}
       {errorsRoutine.exercises && (
         <ErrorInput>{errorsRoutine.exercises}</ErrorInput>
       )}
@@ -720,5 +725,19 @@ const TextArea = styled.textarea`
     width: 55vw;
   }
 `
+
+const TextNoData = styled.p`
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+
+  @media screen and (max-width: 1380px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+`;
 
 export default FormRoutine

@@ -21,6 +21,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   const [dayData, setDayData] = useState(null)
   const [errors, setErrors] = useState({})
   const [viewRoutine, setViewRoutine] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const seeLogos = false
 
@@ -62,14 +63,9 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   }
 
   const handleSeeRoutine = async () => {
-<<<<<<< HEAD
     const err = onValidate();
     setErrors(err);
     setLoading(true)
-=======
-    const err = onValidate()
-    setErrors(err)
->>>>>>> 3a8c3d3f3183eb82ab8c814b2f3c205830234466
 
     if (Object.keys(err).length === 0) {
       let ex = []
@@ -90,12 +86,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
                 break
             }
           }
-<<<<<<< HEAD
 
           return response.json();
-=======
-          return response.json()
->>>>>>> 3a8c3d3f3183eb82ab8c814b2f3c205830234466
         })
         .then((data) => {
           if (data.length > 0) {
@@ -119,13 +111,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           setViewRoutine(true)
         })
         .catch((e) => {
-<<<<<<< HEAD
           toast.error(e.message, {
             position: "top-right",
-=======
-          toast.error(e.messsage, {
-            position: 'top-right',
->>>>>>> 3a8c3d3f3183eb82ab8c814b2f3c205830234466
             duration: 6000,
             style: {
               background: 'rgba(250, 215, 215)',
@@ -135,12 +122,8 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
           })
         })
     }
-<<<<<<< HEAD
     setLoading(false)
   };
-=======
-  }
->>>>>>> 3a8c3d3f3183eb82ab8c814b2f3c205830234466
 
   const handleSubmit = async (e) => {
     e.preventDefault()

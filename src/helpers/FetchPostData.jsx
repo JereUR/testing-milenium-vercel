@@ -4,9 +4,7 @@ export const FetchPostData = async ({ path, data }) => {
   const token = localStorage.getItem("token");
   let headers = {};
 
-  //console.log(data)
-
-  if (path === "signup" || path === "login") {
+  if (path === routes.SIGN_UP || path === routes.LOGIN) {
     headers = {
       "Content-Type": "application/json",
       Origin: routes.BASE_URL,
@@ -14,13 +12,24 @@ export const FetchPostData = async ({ path, data }) => {
       credentials: "include",
     };
   } else {
-    headers = {
-      "Content-Type": "application/json",
-      Origin: routes.BASE_URL,
-      "X-Requested-With": "XMLHttpRequest",
-      credentials: "include",
-      Authorization: `${token}`,
-    };
+    if (path === routes.RECOVER) {
+      headers = {
+        "Content-Type": "application/json",
+        Origin: routes.BASE_URL,
+        "X-Requested-With": "XMLHttpRequest",
+        credentials: "include",
+        Authorization: `${data.user.reset_password_token}`,
+      };
+    }
+    else{
+      headers = {
+        "Content-Type": "application/json",
+        Origin: routes.BASE_URL,
+        "X-Requested-With": "XMLHttpRequest",
+        credentials: "include",
+        Authorization: `${token}`,
+      };
+    }
   }
 
   try {
@@ -32,10 +41,18 @@ export const FetchPostData = async ({ path, data }) => {
     });
 
     if (!resp.ok) {
-      throw new Error("Error en la respuesta del servidor");
+      if (resp.status === 422) {
+        throw new Error(`El email ingresado no existe en la base de datos.`);
+      }
+
+      if (resp.status === 401) {
+        throw new Error(`Usuario y/o contraseña incorrectas.`);
+      }
+      
+      throw new Error("Error en la respuesta del servidor");  
     }
 
-    if (path === "login" || path === "signup") {
+    if (path === routes.LOGIN || path === routes.SIGN_UP) {
       localStorage.setItem("token", resp.headers.get("Authorization"));
     }
 

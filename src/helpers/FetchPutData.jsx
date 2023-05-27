@@ -18,6 +18,10 @@ export const FetchPutData = async ({ path, data }) => {
     });
 
     if (!resp.ok) {
+      if (resp.status === 422) {
+        throw new Error(`La contraseña actual es incorrecta.`);
+      }
+
       throw new Error("Error en la respuesta del servidor");
     }
 

@@ -93,10 +93,12 @@ export const Home = ({ months, weight, height }) => {
           setDebtor(true);
         }
 
-        if (weight === null || height === null) {
-          setAddInfo(true);
-        }
+        
       }
+    }
+
+    if (weight === null || height === null) {
+      setAddInfo(true);
     }
   }, [nextPayment, weight, height]);
 

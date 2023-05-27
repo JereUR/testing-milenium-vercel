@@ -24,8 +24,6 @@ export const ResetPassword = () => {
   const { search } = useLocation()
   const token = new URLSearchParams(search).get('reset_password_token')
 
-  console.log({ token })
-
   const onValidate = () => {
     let errorsForm = {}
 
@@ -58,8 +56,6 @@ export const ResetPassword = () => {
         password: dataRecovery.newPassword,
         password_confirmation: dataRecovery.confirmPassword
       }
-
-      console.log({ user })
 
       const res = await FetchPostData({
         path: routes.RECOVER,
