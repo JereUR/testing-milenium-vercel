@@ -1,23 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import { Colors } from "../constants/Colors";
+import styled from 'styled-components'
+import { Colors } from '../constants/Colors'
 
-const { secondaryBlue } = Colors;
+const { secondaryBlue } = Colors
 
 export const BurgerButton = (props) => {
   return (
     <Burger>
       <Div
         onClick={props.handleClick}
-        className={`icon nav-icon-5 ${props.clicked ? "open" : ""}`}
+        className={`icon nav-icon-5 ${props.clicked ? 'open' : ''}`}
       >
         <Span></Span>
         <Span></Span>
         <Span></Span>
       </Div>
     </Burger>
-  );
-};
+  )
+}
 
 const Burger = styled.div`
   z-index: 2;
@@ -72,7 +71,7 @@ const Burger = styled.div`
     transform: rotate(-45deg);
     top: 13px;
   }
-`;
+`
 
 const Div = styled.div`
   z-index: 2;
@@ -85,6 +84,6 @@ const Div = styled.div`
   @media screen and (max-width: 900px) {
     top: -8vw !important;
   }
-`;
+`
 
-const Span = styled.span``;
+const Span = styled.span``

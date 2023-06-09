@@ -1,10 +1,9 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 
-import { SesionPage } from "./SesionPage";
+import { SesionPage } from './SesionPage'
 
 const LoginRoute = ({ login }) => {
-  return login ? <Outlet /> : <SesionPage />;
-};
+  return login ? <Outlet /> : <SesionPage />
+}
 
-export default LoginRoute;
+export default LoginRoute

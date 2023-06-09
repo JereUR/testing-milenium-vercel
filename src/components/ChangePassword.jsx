@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { toast, Toaster } from 'react-hot-toast'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
@@ -7,7 +7,6 @@ import { Colors } from '../constants/Colors'
 import { FontFamily } from '../constants/Fonts'
 import { FetchPutData } from '../helpers/FetchPutData'
 import { FetchPostData } from '../helpers/FetchPostData'
-import routes from '../static/routes.json'
 
 const initialData = {
   currentPassword: '',
@@ -66,7 +65,7 @@ export const ChangePassword = ({ username, email }) => {
       }
 
       const res = await FetchPutData({
-        path: routes.SIGN_UP,
+        path: import.meta.env.VITE_SIGN_UP,
         data: { userChange }
       })
 
@@ -89,14 +88,14 @@ export const ChangePassword = ({ username, email }) => {
         }
 
         const resLogin = await FetchPostData({
-          path: routes.LOGIN,
+          path: import.meta.env.VITE_LOGIN,
           data: { user }
         })
 
-        if (!(res instanceof Error)) {
+        if (!(resLogin instanceof Error)) {
           window.location.replace(`/`)
         } else {
-          toast.error(res.message, {
+          toast.error(resLogin.message, {
             position: 'top-right',
             duration: 6000,
             style: {

@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { IoMdAddCircle } from "react-icons/io";
-import { FaTrashAlt } from "react-icons/fa";
+import styled from 'styled-components'
+import { IoMdAddCircle } from 'react-icons/io'
+import { FaTrashAlt } from 'react-icons/fa'
 
-import { FontFamily } from "../constants/Fonts";
-import { Colors } from "../constants/Colors";
+import { FontFamily } from '../constants/Fonts'
+import { Colors } from '../constants/Colors'
 
 const {
   primaryBlue,
@@ -14,8 +13,8 @@ const {
   success,
   errorInput,
   backgroundSuccess,
-  colorText,
-} = Colors;
+  colorText
+} = Colors
 
 export const FormAditionalInfo = ({
   handleChange,
@@ -38,7 +37,7 @@ export const FormAditionalInfo = ({
   errorDisease,
   newDiseases,
   deleteDisease,
-  handleSubmit,
+  handleSubmit
 }) => {
   return (
     <Form onSubmit={handleSubmit}>
@@ -49,7 +48,7 @@ export const FormAditionalInfo = ({
             type="number"
             name="weight"
             onChange={handleChange}
-            value={form.weight ? form.weight : ""}
+            value={form.weight ? form.weight : ''}
           />
           {errors.weight && (
             <ErrorInput className="error-input">{errors.weight}</ErrorInput>
@@ -61,7 +60,7 @@ export const FormAditionalInfo = ({
             type="number"
             name="height"
             onChange={handleChange}
-            value={form.height ? form.height : ""}
+            value={form.height ? form.height : ''}
           />
           {errors.height && (
             <ErrorInput className="error-input">{errors.height}</ErrorInput>
@@ -148,8 +147,8 @@ export const FormAditionalInfo = ({
             {newInjuries.map((el, index) => (
               <InjuryContainer key={index}>
                 <InjuryItem>
-                  {el.injury} -{" "}
-                  {el.treatment ? `${el.treatment}` : "Sin tratamiento"}
+                  {el.injury} -{' '}
+                  {el.treatment ? `${el.treatment}` : 'Sin tratamiento'}
                 </InjuryItem>
                 <FaTrashAlt
                   fontSize="1.1rem"
@@ -206,8 +205,8 @@ export const FormAditionalInfo = ({
             {newDiseases.map((el, index) => (
               <DiseaseContainer key={index}>
                 <DiseaseItem>
-                  {el.disease} -{" "}
-                  {el.medication ? `${el.medication}` : "Sin tratamiento"}
+                  {el.disease} -{' '}
+                  {el.medication ? `${el.medication}` : 'Sin tratamiento'}
                 </DiseaseItem>
                 <FaTrashAlt
                   fontSize="1.1rem"
@@ -223,8 +222,8 @@ export const FormAditionalInfo = ({
       </DiseasesForm>
       <ButtonSend type="submit">Guardar Cambios</ButtonSend>
     </Form>
-  );
-};
+  )
+}
 
 const ButtonSend = styled.button`
   font-family: ${FontFamily};
@@ -245,7 +244,7 @@ const ButtonSend = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const DiseasesForm = styled.div`
   input {
@@ -342,7 +341,7 @@ const DiseasesForm = styled.div`
       margin-top: -10vw;
     }
   }
-`;
+`
 
 const DiseaseContainer = styled.div`
   display: flex;
@@ -373,7 +372,7 @@ const DiseaseContainer = styled.div`
   svg:hover {
     cursor: pointer;
   }
-`;
+`
 
 const DiseaseItem = styled.div`
   font-size: 1.1rem;
@@ -387,7 +386,7 @@ const DiseaseItem = styled.div`
     font-weight: bold;
     color: ${secondaryRed};
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -395,23 +394,23 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 2rem;
-`;
+`
 
 const FirstPart = styled.div`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const Form = styled.form`
   display: grid;
   margin: 1rem 0 0 1rem;
-`;
+`
 
-const InjuriesForm = styled(DiseasesForm)``;
+const InjuriesForm = styled(DiseasesForm)``
 
-const InjuryContainer = styled(DiseaseContainer)``;
+const InjuryContainer = styled(DiseaseContainer)``
 
-const InjuryItem = styled(DiseaseItem)``;
+const InjuryItem = styled(DiseaseItem)``
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -437,7 +436,7 @@ const Input = styled.input`
   @media screen and (max-width: 400px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: block;
@@ -469,7 +468,7 @@ const InputContainer = styled.div`
       left: 65vw;
     }
   }
-`;
+`
 
 const InputContainerTwo = styled(InputContainer)`
   display: grid;
@@ -484,12 +483,12 @@ const InputContainerTwo = styled(InputContainer)`
       margin-left: 0;
     }
   }
-`;
+`
 
 const InputForm = styled(Input)`
   width: 80%;
   margin-top: 0.5vw;
-`;
+`
 
 const LabelForm = styled.label`
   margin: 0 0 1vw 0;
@@ -500,13 +499,13 @@ const LabelForm = styled.label`
     margin-left: 8vw;
     margin-bottom: 1rem;
   }
-`;
+`
 
-const List = styled.ol``;
+const List = styled.ol``
 
-const MedicationContainer = styled(InjuryContainer)``;
+const MedicationContainer = styled(InjuryContainer)``
 
-const MedicationItem = styled(InjuryItem)``;
+const MedicationItem = styled(InjuryItem)``
 
 const MedicationForm = styled.div`
   .error-input {
@@ -563,7 +562,7 @@ const MedicationForm = styled.div`
       opacity: 0.6;
     }
   }
-`;
+`
 
 const NoData = styled.p`
   text-align: center;
@@ -574,9 +573,9 @@ const NoData = styled.p`
   @media screen and (max-width: 400px) {
     margin-top: -17vw;
   }
-`;
+`
 
 const Title = styled.h2`
   color: rgb(130, 130, 130);
   margin-bottom: 0;
-`;
+`

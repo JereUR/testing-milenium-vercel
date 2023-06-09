@@ -1,47 +1,46 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { AiOutlineArrowUp } from 'react-icons/ai';
+import { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { AiOutlineArrowUp } from 'react-icons/ai'
 
-import homeHour from '../assets/home-hour.gif';
-import homeSlogan from '../assets/home-slogan.gif';
-import homeInfo from '../assets/home-info.gif';
-import { NutritionalPlan } from './NutritionalPlan';
-import { Routine } from './Routine';
-import { Colors } from '../constants/Colors';
-import { FetchGetData } from '../helpers/FetchGetData';
-import { toast, Toaster } from 'react-hot-toast';
-import routes from '../static/routes.json';
-import { Carousel } from './Carousel';
+import homeHour from '../assets/home-hour.gif'
+import homeSlogan from '../assets/home-slogan.gif'
+import homeInfo from '../assets/home-info.gif'
+import { NutritionalPlan } from './NutritionalPlan'
+import { Routine } from './Routine'
+import { Colors } from '../constants/Colors'
+import { FetchGetData } from '../helpers/FetchGetData'
+import { toast, Toaster } from 'react-hot-toast'
+import { Carousel } from './Carousel'
 
-const { secondaryBlue, secondaryRed } = Colors;
+const { secondaryBlue, secondaryRed } = Colors
 
 async function getNextPayment() {
-  return await FetchGetData(routes.CURRENT_USER_NEXT_PAYMENT);
+  return await FetchGetData(import.meta.env.VITE_CURRENT_USER_NEXT_PAYMENT)
 }
 
 export const Home = ({ months, weight, height }) => {
-  const [nextPayment, setNextPayment] = useState(null);
-  const [debtor, setDebtor] = useState(false);
-  const [addInfo, setAddInfo] = useState(false);
-  const [scrollTop, setScrollTop] = useState(0);
+  const [nextPayment, setNextPayment] = useState(null)
+  const [debtor, setDebtor] = useState(false)
+  const [addInfo, setAddInfo] = useState(false)
+  const [scrollTop, setScrollTop] = useState(0)
 
-  const images = [homeHour, homeInfo, homeSlogan];
+  const images = [homeHour, homeInfo, homeSlogan]
 
   const handleNavigation = (scroll) => {
-    const $scrollBtn = document.querySelector('.scroll-top-btn');
+    const $scrollBtn = document.querySelector('.scroll-top-btn')
 
     if ($scrollBtn !== null) {
       if (scroll > 2000) {
         if ($scrollBtn.classList.contains('hidden')) {
-          $scrollBtn.classList.remove('hidden');
+          $scrollBtn.classList.remove('hidden')
         }
       } else {
         if (!$scrollBtn.classList.contains('hidden')) {
-          $scrollBtn.classList.add('hidden');
+          $scrollBtn.classList.add('hidden')
         }
       }
     }
-  };
+  }
 
   useEffect(() => {
     getNextPayment()
@@ -56,55 +55,53 @@ export const Home = ({ months, weight, height }) => {
             fontSize: '1rem',
             fontWeight: '500'
           }
-        });
-      });
-  }, []);
+        })
+      })
+  }, [])
 
   useEffect(() => {
     const onScroll = (event) => {
-      setScrollTop(event.target.documentElement.scrollTop);
-    };
+      setScrollTop(event.target.documentElement.scrollTop)
+    }
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll)
 
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
-    window.addEventListener('scroll', () => handleNavigation(scrollTop));
+    window.addEventListener('scroll', () => handleNavigation(scrollTop))
 
     return () => {
-      window.removeEventListener('scroll', () => handleNavigation(scrollTop));
-    };
-  }, [scrollTop]);
+      window.removeEventListener('scroll', () => handleNavigation(scrollTop))
+    }
+  }, [scrollTop])
 
   useEffect(() => {
     if (nextPayment !== null && nextPayment !== undefined) {
       if (nextPayment.payment !== null && nextPayment.payment !== undefined) {
-        let today = new Date();
+        let today = new Date()
 
         let userDate = new Date(
           nextPayment.payment.yearNext,
           nextPayment.payment.monthNext,
           nextPayment.payment.dayNext
-        );
+        )
 
         if (userDate < today) {
-          setDebtor(true);
+          setDebtor(true)
         }
-
-        
       }
     }
 
     if (weight === null || height === null) {
-      setAddInfo(true);
+      setAddInfo(true)
     }
-  }, [nextPayment, weight, height]);
+  }, [nextPayment, weight, height])
 
   const handleClickScroll = () => {
-    document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
-  };
+    document.querySelector('header').scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <HomeContainer>
@@ -135,19 +132,19 @@ export const Home = ({ months, weight, height }) => {
       </ButtonUp>
       <Toaster />
     </HomeContainer>
-  );
-};
+  )
+}
 
 const Banner = styled.img`
   width: 100%;
   height: auto;
   box-shadow: 5px 5px 5px #ccc;
-`;
+`
 
 const BannerContainer = styled.div`
   margin: 2vw 0vw 3vw 0vw;
   text-align: center;
-`;
+`
 
 const ButtonUp = styled.button`
   position: fixed;
@@ -183,7 +180,7 @@ const ButtonUp = styled.button`
     right: calc(2rem + 1vw);
     font-size: 2.5rem;
   }
-`;
+`
 
 const HomeContainer = styled.div`
   overflow-x: hidden;
@@ -192,7 +189,7 @@ const HomeContainer = styled.div`
     visibility: hidden;
     opacity: 0;
   }
-`;
+`
 
 const Hr = styled.hr`
   width: 95%;
@@ -204,7 +201,7 @@ const Hr = styled.hr`
   @media screen and (max-width: 480px) {
     width: 85%;
   }
-`;
+`
 
 const MessageDebtor = styled.p`
   font-size: 1.5rem;
@@ -215,7 +212,7 @@ const MessageDebtor = styled.p`
     font-size: 1.1rem;
     margin: 1vw 5vw;
   }
-`;
+`
 
 const NutritionalPlanContainer = styled.div`
   text-align: center;
@@ -223,7 +220,7 @@ const NutritionalPlanContainer = styled.div`
   @media screen and (max-width: 1050px) {
     margin: 0vw 4vw 5vw 4vw;
   }
-`;
+`
 
 const ReportPaymentContainer = styled.div`
   background-color: #ffc107;
@@ -234,7 +231,7 @@ const ReportPaymentContainer = styled.div`
   @media screen and (max-width: 480px) {
     margin-bottom: 0;
   }
-`;
+`
 
 const RutineContainer = styled.div`
   text-align: center;
@@ -246,4 +243,4 @@ const RutineContainer = styled.div`
   @media screen and (max-width: 900px) {
     margin: 8vw 4vw 5vw 4vw;
   }
-`;
+`

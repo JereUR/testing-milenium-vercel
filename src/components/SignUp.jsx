@@ -1,129 +1,127 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { toast, Toaster } from "react-hot-toast";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { toast, Toaster } from 'react-hot-toast'
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-import Modal from "./Modal";
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
+import Modal from './Modal'
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
 import LoaderSignUp from './LoaderSignUp'
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
+import { FetchPostData } from '../helpers/FetchPostData'
 
-const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } =
-  Colors;
+const { primaryBlue, primaryRed, secondaryBlue, colorText, errorInput } = Colors
 
 const initialData = {
-  name: "",
-  surname: "",
-  email: "",
-  gender: "",
-  date: "",
-  password: "",
-  confirmPassword: "",
-};
+  name: '',
+  surname: '',
+  email: '',
+  gender: '',
+  date: '',
+  password: '',
+  confirmPassword: ''
+}
 
 export const SignUp = ({ setUser }) => {
-  const [register, setRegister] = useState(false);
-  const [dataRegister, setDataRegister] = useState(initialData);
-  const [errors, setErrors] = useState({});
+  const [register, setRegister] = useState(false)
+  const [dataRegister, setDataRegister] = useState(initialData)
+  const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
-  const [viewPassword, setViewPassword] = useState(false);
+  const [viewPassword, setViewPassword] = useState(false)
 
   const onValidate = () => {
-    let errorsForm = {};
-    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-    const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+    let errorsForm = {}
+    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/
+    const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/
 
     if (!dataRegister.name.trim()) {
-      errorsForm.name = `Este campo no debe ser vacío.`;
+      errorsForm.name = `Este campo no debe ser vacío.`
     } else if (!regexName.test(dataRegister.name)) {
-      errorsForm.name = "Este campo solo acepta letras y espacios.";
+      errorsForm.name = 'Este campo solo acepta letras y espacios.'
     }
 
     if (!dataRegister.surname.trim()) {
-      errorsForm.surname = `Este campo no debe ser vacío.`;
+      errorsForm.surname = `Este campo no debe ser vacío.`
     } else if (!regexName.test(dataRegister.surname)) {
-      errorsForm.surname = "Este campo solo acepta letras y espacios.";
+      errorsForm.surname = 'Este campo solo acepta letras y espacios.'
     }
 
     if (!dataRegister.email.trim()) {
-      errorsForm.email = `Este campo no debe ser vacío.`;
+      errorsForm.email = `Este campo no debe ser vacío.`
     } else if (!regexEmail.test(dataRegister.email)) {
-      errorsForm.email = "Correo no válido.";
+      errorsForm.email = 'Correo no válido.'
     }
 
-    if (dataRegister.gender === "") {
-      errorsForm.gender = `Este campo no debe ser vacío.`;
+    if (dataRegister.gender === '') {
+      errorsForm.gender = `Este campo no debe ser vacío.`
     }
 
     if (!dataRegister.date.trim()) {
-      errorsForm.date = `Este campo no debe ser vacío.`;
+      errorsForm.date = `Este campo no debe ser vacío.`
     }
 
     if (dataRegister.password.length < 8) {
-      errorsForm.password = `La contraseña debe tener más de 8 caracteres.`;
+      errorsForm.password = `La contraseña debe tener más de 8 caracteres.`
     }
 
     if (dataRegister.password !== dataRegister.confirmPassword) {
-      errorsForm.password = `La contraseña y su confirmación no coinciden.`;
-      errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`;
+      errorsForm.password = `La contraseña y su confirmación no coinciden.`
+      errorsForm.confirmPassword = `La contraseña y su confirmación no coinciden.`
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const handleRegisterModal = () => {
-    setRegister(!register);
-    setErrors({});
-    setDataRegister(initialData);
-  };
+    setRegister(!register)
+    setErrors({})
+    setDataRegister(initialData)
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDataRegister({ ...dataRegister, [name]: value });
-  };
+    const { name, value } = e.target
+    setDataRegister({ ...dataRegister, [name]: value })
+  }
 
   const handleSubmitRegister = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
       setLoading(true)
       const res = await FetchPostData({
-        path: routes.SIGN_UP,
-        data: { user: dataRegister },
-      });
+        path: import.meta.env.VITE_SIGN_UP,
+        data: { user: dataRegister }
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Registro exitoso.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-        setUser(res);
-        setDataRegister(initialData);
-        setRegister(false);
-        setLoading(false);
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+        setUser(res)
+        setDataRegister(initialData)
+        setRegister(false)
+        setLoading(false)
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
-  };
+  }
 
   return (
     <FormContainer>
@@ -217,7 +215,7 @@ export const SignUp = ({ setUser }) => {
               <InputContainer>
                 <InputContainerPassword>
                   <Input
-                    type={viewPassword ? "text" : "password"}
+                    type={viewPassword ? 'text' : 'password'}
                     placeholder="Ingrese su contraseña"
                     name="password"
                     value={dataRegister.passwordRegister}
@@ -235,7 +233,7 @@ export const SignUp = ({ setUser }) => {
               <InputContainer>
                 <InputContainerPassword>
                   <Input
-                    type={viewPassword ? "text" : "password"}
+                    type={viewPassword ? 'text' : 'password'}
                     placeholder="Confirme su contraseña"
                     name="confirmPassword"
                     value={dataRegister.confirmPassword}
@@ -253,15 +251,15 @@ export const SignUp = ({ setUser }) => {
                 )}
               </InputContainer>
               <ButtonSignUpModal>Registrarte</ButtonSignUpModal>
-              {loading && <LoaderSignUp/>}
+              {loading && <LoaderSignUp />}
             </Form>
           </FormContainer>
         </Content>
       </Modal>
       <Toaster />
     </FormContainer>
-  );
-};
+  )
+}
 
 const ButtonSignUp = styled.button`
   font-family: ${FontFamily};
@@ -284,7 +282,7 @@ const ButtonSignUp = styled.button`
     margin-top: 5vw;
     margin-left: 1.2rem;
   }
-`;
+`
 
 const ButtonSignUpModal = styled(ButtonSignUp)`
   @media screen and (max-width: 480px) {
@@ -296,7 +294,7 @@ const ButtonSignUpModal = styled(ButtonSignUp)`
   @media screen and (max-width: 400px) {
     margin-top: 1.5vh;
   }
-`;
+`
 
 const Content = styled.div`
   display: flex;
@@ -319,7 +317,7 @@ const Content = styled.div`
     vertical-align: top;
     border-radius: 3px;
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -327,7 +325,7 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 2rem;
-`;
+`
 
 const ErrorInputNameSurname = styled.div`
   font-size: 12px;
@@ -335,7 +333,7 @@ const ErrorInputNameSurname = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 1rem;
-`;
+`
 
 const Form = styled.form`
   display: grid;
@@ -344,12 +342,12 @@ const Form = styled.form`
   .sign-up {
     left: 45%;
   }
-`;
+`
 
 const FormContainer = styled.div`
   display: block;
   text-align: center;
-`;
+`
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -375,7 +373,7 @@ const Input = styled.input`
   @media screen and (max-width: 400px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const InputRadio = styled.input`
   font-family: ${FontFamily};
@@ -390,19 +388,19 @@ const InputRadio = styled.input`
   :hover {
     cursor: pointer;
   }
-`;
+`
 
-const InputContainer = styled.div``;
+const InputContainer = styled.div``
 
 const InputContainerPassword = styled.div`
   position: relative;
   width: 100%;
-`;
+`
 
 const InputRadioContainer = styled.div`
   display: flex;
   margin: 1rem 0;
-`;
+`
 
 const InputName = styled.input`
   font-family: ${FontFamily};
@@ -424,7 +422,7 @@ const InputName = styled.input`
   @media screen and (max-width: 400px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const Label = styled.label`
   font-size: 1.2rem;
@@ -437,20 +435,20 @@ const Label = styled.label`
     margin-left: 8vw;
     margin-bottom: 1rem;
   }
-`;
+`
 
-const LabelRadio = styled.div``;
+const LabelRadio = styled.div``
 
 const NameAndSurnameContainer = styled.div`
   display: flex;
   margin-left: 0.9rem;
   margin-right: 0.9rem;
-`;
+`
 
 const Span = styled.span`
   font-weight: 500;
   color: rgb(130, 130, 130);
-`;
+`
 
 const ViewPasswordButton = styled.button`
   position: absolute;
@@ -465,4 +463,4 @@ const ViewPasswordButton = styled.button`
   @media screen and (max-width: 480px) {
     right: 10px;
   }
-`;
+`

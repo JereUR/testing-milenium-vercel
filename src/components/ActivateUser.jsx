@@ -1,14 +1,12 @@
-import React from 'react'
 import styled from 'styled-components'
 import { FaEdit } from 'react-icons/fa'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { toast, Toaster } from 'react-hot-toast'
 
 import { Colors } from '../constants/Colors'
 import Loader from './Loader'
 import { FontFamily } from '../constants/Fonts'
 import { FetchPostData } from '../helpers/FetchPostData'
-import routes from '../static/routes.json'
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors
@@ -50,7 +48,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: routes.USER_ACTIVATE,
+        path: import.meta.env.VITE_USER_ACTIVATE,
         data: { email: forDataActivate }
       })
 
@@ -94,7 +92,7 @@ export const ActivateUser = ({ activeUsers, notActiveUsers }) => {
 
     if (Object.keys(err).length === 0) {
       const res = await FetchPostData({
-        path: routes.USER_DESACTIVATE,
+        path: import.meta.env.VITE_USER_DESACTIVATE,
         data: { email: forDataDesactivate }
       })
 

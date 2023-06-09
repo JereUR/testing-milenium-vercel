@@ -1,29 +1,28 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
-import styled from "styled-components";
-import { toast, Toaster } from "react-hot-toast";
+import { useState, useLayoutEffect, useEffect } from 'react'
+import styled from 'styled-components'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
-import { FormBill } from "./FormBill";
-import { FormNutritionalPlan } from "./FormNutritionalPlan";
-import FormRoutine from "./FormRoutine";
-import { SeeUser } from "./SeeUser";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { DebtorsSection } from "./DebtorsSection";
-import { FormClearRoutine } from "./FormClearRoutine";
-import { FormClearNutritionalPlan } from "./FormClearNutritionalPlan";
-import { ActivateUser } from "./ActivateUser";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FormBill } from './FormBill'
+import { FormNutritionalPlan } from './FormNutritionalPlan'
+import FormRoutine from './FormRoutine'
+import { SeeUser } from './SeeUser'
+import { FetchGetData } from '../helpers/FetchGetData'
+import { DebtorsSection } from './DebtorsSection'
+import { FormClearRoutine } from './FormClearRoutine'
+import { FormClearNutritionalPlan } from './FormClearNutritionalPlan'
+import { ActivateUser } from './ActivateUser'
 
-const { secondaryBlue, backgroundText } = Colors;
+const { secondaryBlue, backgroundText } = Colors
 
 async function getUsers() {
-  return await FetchGetData(routes.ADMIN_USER);
+  return await FetchGetData(import.meta.env.VITE_ADMIN_USER)
 }
 
 export const AdminPage = ({ dbLocal }) => {
-  const [users, setUsers] = useState(null);
-  const [activeUsers, setActiveUsers] = useState([]);
-  const [notActiveUsers, setNotActiveUsers] = useState([]);
+  const [users, setUsers] = useState(null)
+  const [activeUsers, setActiveUsers] = useState([])
+  const [notActiveUsers, setNotActiveUsers] = useState([])
 
   useLayoutEffect(() => {
     getUsers()
@@ -31,23 +30,23 @@ export const AdminPage = ({ dbLocal }) => {
       .then((data) => setUsers(data))
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
-  }, []);
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      })
+  }, [])
 
   useEffect(() => {
     if (users !== null) {
-      setActiveUsers(users.filter((user) => user.active));
-      setNotActiveUsers(users.filter((user) => !user.active));
+      setActiveUsers(users.filter((user) => user.active))
+      setNotActiveUsers(users.filter((user) => !user.active))
     }
-  }, [users]);
+  }, [users])
 
   return (
     <AdminContainer>
@@ -91,10 +90,10 @@ export const AdminPage = ({ dbLocal }) => {
       </ActivateContainer>
       <Toaster />
     </AdminContainer>
-  );
-};
+  )
+}
 
-const AdminContainer = styled.div``;
+const AdminContainer = styled.div``
 
 const ActivateContainer = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -105,17 +104,17 @@ const ActivateContainer = styled.div`
   @media (max-width: 480px) {
     margin: 7vw 4vw 7vw 4vw;
   }
-`;
+`
 
-const AddRoutineContainer = styled(ActivateContainer)``;
+const AddRoutineContainer = styled(ActivateContainer)``
 
-const ClearPlanContainer = styled(AddRoutineContainer)``;
+const ClearPlanContainer = styled(AddRoutineContainer)``
 
-const ClearRoutineContainer = styled(AddRoutineContainer)``;
+const ClearRoutineContainer = styled(AddRoutineContainer)``
 
-const AddNutritionalPlan = styled(AddRoutineContainer)``;
+const AddNutritionalPlan = styled(AddRoutineContainer)``
 
-const BillSection = styled(AddRoutineContainer)``;
+const BillSection = styled(AddRoutineContainer)``
 
 const DebtorsContainer = styled(AddRoutineContainer)`
   text-align: center;
@@ -123,7 +122,7 @@ const DebtorsContainer = styled(AddRoutineContainer)`
   p {
     text-align: start;
   }
-`;
+`
 
 const Hr = styled.hr`
   background-color: ${backgroundText};
@@ -131,9 +130,9 @@ const Hr = styled.hr`
   height: 0.1rem;
   width: 90%;
   border-radius: 100px;
-`;
+`
 
-const SeeUserSection = styled(AddRoutineContainer)``;
+const SeeUserSection = styled(AddRoutineContainer)``
 
 const Title = styled.p`
   font-size: 2.1rem;
@@ -141,4 +140,4 @@ const Title = styled.p`
   color: ${secondaryBlue};
   margin-left: 1vw;
   border-radius: 1rem;
-`;
+`

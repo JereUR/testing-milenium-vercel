@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Toaster, toast } from 'react-hot-toast'
@@ -6,12 +5,11 @@ import { Toaster, toast } from 'react-hot-toast'
 import { Colors } from '../constants/Colors'
 import { BillItem } from './BillItem'
 import { FetchGetData } from '../helpers/FetchGetData'
-import routes from '../static/routes.json'
 
 const { primaryRed, primaryBlue, secondaryBlue, secondaryRed } = Colors
 
 async function getPayment() {
-  return await FetchGetData(routes.GET_PAYMENTS)
+  return await FetchGetData(import.meta.env.VITE_GET_PAYMENTS)
 }
 
 export const Bill = ({ user, months }) => {

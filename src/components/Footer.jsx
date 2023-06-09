@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import linkedin from '../assets/linkedin.png';
-import logo from '../assets/logo.png';
-import { Colors } from '../constants/Colors';
+import linkedin from '../assets/linkedin.png'
+import logo from '../assets/logo.png'
+import { Colors } from '../constants/Colors'
 
-const { primaryBlue } = Colors;
+const { primaryBlue } = Colors
 
 export const Footer = () => {
   return (
@@ -40,8 +39,8 @@ export const Footer = () => {
         </ByContent>
       </RightContent>
     </FooterContainer>
-  );
-};
+  )
+}
 
 const ByContent = styled.div`
   margin-right: 5vh;
@@ -49,14 +48,14 @@ const ByContent = styled.div`
   @media screen and (max-width: 480px) {
     margin-right: 2vh;
   }
-`;
+`
 
 const CenterContent = styled.div`
   @media screen and (max-width: 480px) {
     margin-top: 5vw;
     margin-left: 2vw;
   }
-`;
+`
 
 const FooterContainer = styled.div`
   display: flex;
@@ -67,20 +66,20 @@ const FooterContainer = styled.div`
     grid-template-rows: 1fr auto;
     margin-top: 5vw;
   }
-`;
+`
 
 const IconLinkedin = styled.a`
   @media screen and (max-width: 480px) {
     margin-right: 1vw;
     margin-left: 2vw;
   }
-`;
+`
 
 const Img = styled.img`
   width: 25px;
   border-radius: 50px;
   margin: 5px;
-`;
+`
 
 const Info = styled.p`
   font-size: 0.8rem;
@@ -91,7 +90,7 @@ const Info = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 0.7rem;
   }
-`;
+`
 
 const LeftContent = styled.div`
   flex: 1;
@@ -103,7 +102,7 @@ const LeftContent = styled.div`
     grid-column: 1 / span 2;
     grid-row: 1;
   }
-`;
+`
 
 const Logo = styled.img`
   width: 200px;
@@ -113,7 +112,7 @@ const Logo = styled.img`
   @media screen and (max-width: 480px) {
     margin-left: 35%;
   }
-`;
+`
 
 const NameGym = styled.p`
   color: ${primaryBlue};
@@ -124,7 +123,7 @@ const NameGym = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 0.9rem;
   }
-`;
+`
 
 const PoweredBy = styled.p`
   font-size: 0.9rem;
@@ -136,7 +135,7 @@ const PoweredBy = styled.p`
     width: 100%;
     margin-top: 2vw;
   }
-`;
+`
 
 const RightContent = styled.div`
   flex: 1;
@@ -146,4 +145,4 @@ const RightContent = styled.div`
   @media screen and (max-width: 480px) {
     margin-top: -23vw;
   }
-`;
+`

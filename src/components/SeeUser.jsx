@@ -1,68 +1,67 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { toast, Toaster } from "react-hot-toast";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
+import { Colors } from '../constants/Colors'
 import Loader from './Loader'
-import { FontFamily } from "../constants/Fonts";
-import { ViewUserInfo } from "./ViewUserInfo";
-import { FetchGetData } from "../helpers/FetchGetData";
-import routes from "../static/routes.json";
+import { FontFamily } from '../constants/Fonts'
+import { ViewUserInfo } from './ViewUserInfo'
+import { FetchGetData } from '../helpers/FetchGetData'
 
-const { errorInput, primaryRed, primaryBlue } = Colors;
+const { errorInput, primaryRed, primaryBlue } = Colors
 
 export const SeeUser = ({ users }) => {
-  const [forData, setForData] = useState(null);
-  const [viewDetails, setViewDetails] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [user, setUser] = useState(null);
+  const [forData, setForData] = useState(null)
+  const [viewDetails, setViewDetails] = useState(false)
+  const [errors, setErrors] = useState({})
+  const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
 
   const onValidate = () => {
-    let errors = {};
+    let errors = {}
 
     if (forData === null) {
-      errors.forData = "Debe especificar usuario.";
+      errors.forData = 'Debe especificar usuario.'
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const handleFor = (e) => {
-    setForData(e.target.value);
-    setViewDetails(false);
-  };
+    setForData(e.target.value)
+    setViewDetails(false)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setLoading(true)
 
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
-      await FetchGetData(`${routes.USER_INFO}?email=${forData}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setUser(data);
-      })
-      .catch((e) => {
-        toast.error(e.messsage, {
-          position: "top-right",
-          duration: 6000,
-          style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
+      await FetchGetData(`${import.meta.env.VITE_USER_INFO}?email=${forData}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data)
+        })
+        .catch((e) => {
+          toast.error(e.messsage, {
+            position: 'top-right',
+            duration: 6000,
+            style: {
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        })
 
-      setViewDetails(true);
+      setViewDetails(true)
     }
 
-    setLoading(false) 
-  };
+    setLoading(false)
+  }
 
   return (
     <UserInfo>
@@ -79,9 +78,7 @@ export const SeeUser = ({ users }) => {
                   </Option>
                 ))}
             </Select>
-            {errors.forData && (
-                <ErrorInput>{errors.forData}</ErrorInput>
-              )}
+            {errors.forData && <ErrorInput>{errors.forData}</ErrorInput>}
           </InputContainer>
         </ForPartContainer>
         <ButtonSubmit type="submit">Ver Información</ButtonSubmit>
@@ -90,8 +87,8 @@ export const SeeUser = ({ users }) => {
       {viewDetails && user !== null && <ViewUserInfo user={user} />}
       <Toaster />
     </UserInfo>
-  );
-};
+  )
+}
 
 const ButtonSubmit = styled.button`
   font-family: ${FontFamily};
@@ -114,7 +111,7 @@ const ButtonSubmit = styled.button`
     cursor: pointer;
     background-color: ${primaryBlue};
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -128,7 +125,7 @@ const ErrorInput = styled.div`
     line-height: 1rem;
     margin-top: 1rem;
   }
-`;
+`
 
 const Form = styled.form`
   padding: 0 5vw 0 5vw;
@@ -137,26 +134,26 @@ const Form = styled.form`
     margin-top: -1vw;
     left: 48%;
   }
-`;
+`
 
-const ForPartContainer = styled.div``;
+const ForPartContainer = styled.div``
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
   line-height: 2.5rem;
-`;
+`
 
 const Label = styled.label`
   font-size: 1.3rem;
   font-weight: 500;
-`;
+`
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -199,6 +196,6 @@ const Select = styled.select`
   ::-ms-expand {
     display: none;
   }
-`;
+`
 
-const UserInfo = styled.div``;
+const UserInfo = styled.div``

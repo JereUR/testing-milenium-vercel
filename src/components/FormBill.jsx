@@ -1,33 +1,32 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import { toast, Toaster } from "react-hot-toast";
-import { Document, Page, Text, View, Image, usePDF } from "@react-pdf/renderer";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import { toast, Toaster } from 'react-hot-toast'
+import { Document, Page, Text, View, Image, usePDF } from '@react-pdf/renderer'
 
-import logo from "../assets/logo.png";
-import seal from "../assets/payment-seal.png";
+import logo from '../assets/logo.png'
+import seal from '../assets/payment-seal.png'
 import Loader from './Loader'
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { FetchPostData } from "../helpers/FetchPostData";
-import { FetchGetData } from "../helpers/FetchGetData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { FetchPostData } from '../helpers/FetchPostData'
+import { FetchGetData } from '../helpers/FetchGetData'
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
-  Colors;
+  Colors
 
 export const FormBill = ({ users, dbLocal }) => {
-  const [forData, setForData] = useState(null);
-  const [day, setDay] = useState(null);
-  const [month, setMonth] = useState(null);
-  const [year, setYear] = useState(null);
-  const [mount, setMount] = useState(null);
-  const [monthNext, setMonthNext] = useState(null);
+  const [forData, setForData] = useState(null)
+  const [day, setDay] = useState(null)
+  const [month, setMonth] = useState(null)
+  const [year, setYear] = useState(null)
+  const [mount, setMount] = useState(null)
+  const [monthNext, setMonthNext] = useState(null)
   const [monthText, setMonthText] = useState(null)
-  const [name, setName] = useState(null);
-  const [surname, setSurname] = useState(null);
-  const [errors, setErrors] = useState({});
-  const [viewPdf, setViewPdf] = useState(false);
+  const [name, setName] = useState(null)
+  const [surname, setSurname] = useState(null)
+  const [errors, setErrors] = useState({})
+  const [viewPdf, setViewPdf] = useState(false)
   const [loading, setLoading] = useState(false)
 
   const doc = (
@@ -35,132 +34,134 @@ export const FormBill = ({ users, dbLocal }) => {
       <Page
         size="A5"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "white",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'white'
         }}
       >
         <View
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            textAlign: "center",
-            backgroundColor: "white",
-            padding: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-start',
+            textAlign: 'center',
+            backgroundColor: 'white',
+            padding: 1
           }}
         >
           <Image
             src={logo}
             alt="random image"
-            style={{ maxWidth: "150px", maxHeight: "auto", top: "-10vw" }}
+            style={{ maxWidth: '150px', maxHeight: 'auto', top: '-10vw' }}
           />
           <Text
             style={{
               color: `${primaryBlue}`,
-              fontSize: "36px",
-              alignItems: "center",
-              margin: "auto auto 10vw auto",
-              fontWeight: "bold",
+              fontSize: '36px',
+              alignItems: 'center',
+              margin: 'auto auto 10vw auto',
+              fontWeight: 'bold'
             }}
           >
             Pago {monthText} - {year}
           </Text>
 
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+          <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
             Usuario: {name} {surname}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+          <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
             Email: {forData}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+          <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
             Fecha: {day} de {monthText} del {year}.
           </Text>
-          <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+          <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
             Monto: ${mount}.
           </Text>
           <Image
             src={seal}
             alt="random image"
             style={{
-              maxWidth: "120px",
-              maxHeight: "120px",
-              marginLeft: "60%",
-              top: "10vw",
-              transform: "rotate(-15)",
+              maxWidth: '120px',
+              maxHeight: '120px',
+              marginLeft: '60%',
+              top: '10vw',
+              transform: 'rotate(-15)'
             }}
           />
         </View>
       </Page>
     </Document>
-  );
+  )
 
-  const [instance, updateInstance] = usePDF({ document: doc });
+  const [instance, updateInstance] = usePDF({ document: doc })
 
   const getYearNow = () => {
-    return new Date().getFullYear();
-  };
+    return new Date().getFullYear()
+  }
 
   function getDayNow() {
-    const now = new Date();
-    return now.getDate();
+    const now = new Date()
+    return now.getDate()
   }
 
   function getMonthNow() {
-    return new Date().getMonth();
+    return new Date().getMonth()
   }
 
   const getMonthCustom = (month) => {
     // console.log(month)
-    return dbLocal.months.find((m) => m.month === month).value;
-  };
+    return dbLocal.months.find((m) => m.month === month).value
+  }
 
   const clearForm = () => {
-    document.getElementById("day").value = null;
-    document.getElementById("month").value = null;
-    document.getElementById("year").value = null;
-    document.getElementById("mount").value = null;
+    document.getElementById('day').value = null
+    document.getElementById('month').value = null
+    document.getElementById('year').value = null
+    document.getElementById('mount').value = null
 
-    setForData(null);
-    setDay(null);
-    setMonth(null);
-    setYear(null);
-    setMount(null);
-    setErrors({});
-    setViewPdf(false);
-  };
+    setForData(null)
+    setDay(null)
+    setMonth(null)
+    setYear(null)
+    setMount(null)
+    setErrors({})
+    setViewPdf(false)
+  }
 
   const onValidate = async () => {
-    const errorsForm = {};
+    const errorsForm = {}
 
-    const payment = await FetchGetData(`${routes.USER_PAYMENTS}?email=${forData}`)
+    const payment = await FetchGetData(
+      `${import.meta.env.VITE_USER_PAYMENTS}?email=${forData}`
+    )
       .then((response) => response.json())
       .then()
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      })
 
     if (getYearNow() === year) {
       if (getMonthNow() < month) {
         errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${
           dbLocal.months.find((m) => m.value === month).month
-        } del ${year})`;
+        } del ${year})`
       }
       if (getMonthNow() === month) {
         if (getDayNow() < day) {
           errorsForm.form = `La fecha determinada todavía no ha llegado (${day} de ${
             dbLocal.months.find((m) => m.value === month).month
-          } del ${year})`;
+          } del ${year})`
         }
       }
     }
@@ -170,97 +171,97 @@ export const FormBill = ({ users, dbLocal }) => {
         if (p.month === month && p.year === year) {
           errorsForm.form = `Ya se ha agregado un pago para el mes ${
             dbLocal.months.find((m) => m.value === month).month
-          } del año ${year} a ${forData}`;
+          } del año ${year} a ${forData}`
         }
-      });
+      })
     }
 
     if (forData === null) {
-      errorsForm.forData = "Debe especificar destinatario.";
+      errorsForm.forData = 'Debe especificar destinatario.'
     }
 
     if (day === null) {
-      errorsForm.day = "Debe especificar día de pago realizado.";
+      errorsForm.day = 'Debe especificar día de pago realizado.'
     }
 
     if (month === null) {
-      errorsForm.month = "Debe especificar mes de pago realizado.";
+      errorsForm.month = 'Debe especificar mes de pago realizado.'
     }
 
     if (year === null) {
-      errorsForm.year = "Debe especificar año de pago realizado.";
+      errorsForm.year = 'Debe especificar año de pago realizado.'
     }
 
     if (isNaN(mount)) {
-      errorsForm.mount = "Debe ingresar un monto válido.";
+      errorsForm.mount = 'Debe ingresar un monto válido.'
     }
 
     if (mount <= 0) {
-      errorsForm.mount = "El monto debe ser mayor 0.";
+      errorsForm.mount = 'El monto debe ser mayor 0.'
     }
 
     if (mount === null) {
-      errorsForm.mount = "Debe especificar monto de pago realizado.";
+      errorsForm.mount = 'Debe especificar monto de pago realizado.'
     }
 
-    return errorsForm;
-  };
+    return errorsForm
+  }
 
   const handleFor = async (e) => {
-    setForData(e.target.value);
-    const user = users.find((u) => u.email === e.target.value);
+    setForData(e.target.value)
+    const user = users.find((u) => u.email === e.target.value)
 
-    setName(user.username);
-    setSurname(user.surname);
-  };
+    setName(user.username)
+    setSurname(user.surname)
+  }
 
   const handleChangeFor = () => {
-    setForData(null);
-  };
+    setForData(null)
+  }
 
   const handleDay = (e) => {
-    setDay(parseInt(e.target.value));
-  };
+    setDay(parseInt(e.target.value))
+  }
 
   const handleMonth = (e) => {
-    const numberMonth = getMonthCustom(e.target.value);
-    setMonth(numberMonth);
+    const numberMonth = getMonthCustom(e.target.value)
+    setMonth(numberMonth)
     setMonthText(e.target.value)
 
-    if (e.target.value === "Diciembre") {
-      setMonthNext(0);
+    if (e.target.value === 'Diciembre') {
+      setMonthNext(0)
     } else {
-      setMonthNext(numberMonth + 1);
+      setMonthNext(numberMonth + 1)
     }
-  };
+  }
 
   const handleYear = (e) => {
-    setYear(parseInt(e.target.value));
-  };
+    setYear(parseInt(e.target.value))
+  }
 
   const handleMount = (e) => {
-    setMount(parseFloat(e.target.value.replace(",", ".")));
-  };
+    setMount(parseFloat(e.target.value.replace(',', '.')))
+  }
 
   const handlePdf = () => {
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
-      updateInstance({ document: doc });
-      setViewPdf(true);
+      updateInstance({ document: doc })
+      setViewPdf(true)
     }
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     setLoading(true)
 
-    const err = await onValidate();
-    setErrors(err);
+    const err = await onValidate()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
-      let payment;
+      let payment
 
       if (monthNext === 0) {
         payment = {
@@ -271,8 +272,8 @@ export const FormBill = ({ users, dbLocal }) => {
           mount,
           dayNext: day,
           monthNext,
-          yearNext: (parseInt(year) + 1).toString(),
-        };
+          yearNext: (parseInt(year) + 1).toString()
+        }
       } else {
         payment = {
           forData,
@@ -282,44 +283,44 @@ export const FormBill = ({ users, dbLocal }) => {
           mount,
           dayNext: day,
           monthNext,
-          yearNext: year,
-        };
+          yearNext: year
+        }
       }
 
       // console.log(payment);
 
       const res = await FetchPostData({
-        path: routes.CREATE_PAYMENT,
-        data: { payment },
-      });
+        path: import.meta.env.VITE_CREATE_PAYMENT,
+        data: { payment }
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Pago enviado a ${forData}`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
 
-        clearForm();
+        clearForm()
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
 
     setLoading(false)
-  };
+  }
 
   return (
     <FormAddBill onSubmit={handleSubmit}>
@@ -423,8 +424,8 @@ export const FormBill = ({ users, dbLocal }) => {
       </PaymentContainer>
       <Toaster />
     </FormAddBill>
-  );
-};
+  )
+}
 
 const ButtonPdf = styled.button`
   font-family: ${FontFamily};
@@ -447,7 +448,7 @@ const ButtonPdf = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const ButtonSend = styled(ButtonPdf)`
   background-color: ${primaryRed};
@@ -456,7 +457,7 @@ const ButtonSend = styled(ButtonPdf)`
     cursor: pointer;
     background-color: ${primaryBlue};
   }
-`;
+`
 
 const DayContainer = styled.div`
   display: inline-grid;
@@ -465,7 +466,7 @@ const DayContainer = styled.div`
   @media screen and (max-width: 480px) {
     margin: 0 1rem 0 0;
   }
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -479,7 +480,7 @@ const ErrorInput = styled.div`
     line-height: 1rem;
     margin-top: 1rem;
   }
-`;
+`
 
 const FormAddBill = styled.form`
   padding: 0 5vw 0 5vw;
@@ -488,9 +489,9 @@ const FormAddBill = styled.form`
     margin-top: 1vw;
     left: 48%;
   }
-`;
+`
 
-const ForPartContainer = styled.div``;
+const ForPartContainer = styled.div``
 
 const ForText = styled.p`
   margin-left: 1rem;
@@ -505,7 +506,7 @@ const ForText = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`
 
 const ForTextContainer = styled.div`
   display: flex;
@@ -526,7 +527,7 @@ const ForTextContainer = styled.div`
     transform: scale(1.1);
     color: ${secondaryRed};
   }
-`;
+`
 
 const Input = styled.input`
   font-family: ${FontFamily};
@@ -547,13 +548,13 @@ const Input = styled.input`
     border-color: ${primaryRed};
     box-shadow: 0 0 0 3px rgba(65, 157, 199, 0.5);
   }
-`;
+`
 
 const InputContainer = styled.div`
   display: inline-grid;
   margin: 1rem;
   line-height: 2.5rem;
-`;
+`
 
 const Label = styled.label`
   font-size: 1.3rem;
@@ -562,28 +563,28 @@ const Label = styled.label`
   @media screen and (max-width: 480px) {
     margin-left: -5vw;
   }
-`;
+`
 
-const MonthContainer = styled(DayContainer)``;
+const MonthContainer = styled(DayContainer)``
 
-const MountContainer = styled(DayContainer)``;
+const MountContainer = styled(DayContainer)``
 
 const Option = styled.option`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
-const PaymentContainer = styled.div``;
+const PaymentContainer = styled.div``
 
 const Pdf = styled.embed`
   width: 80vw;
   height: 40vw;
-`;
+`
 
 const PdfContainer = styled.div`
   text-align: center;
-`;
+`
 
 const Select = styled.select`
   -webkit-appearance: none;
@@ -626,7 +627,7 @@ const Select = styled.select`
   ::-ms-expand {
     display: none;
   }
-`;
+`
 
 const SelectFirst = styled(Select)`
   width: 30vw;
@@ -634,6 +635,6 @@ const SelectFirst = styled(Select)`
   @media screen and (max-width: 480px) {
     width: 80vw;
   }
-`;
+`
 
-const YearContainer = styled(DayContainer)``;
+const YearContainer = styled(DayContainer)``

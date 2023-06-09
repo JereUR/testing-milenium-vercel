@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { GrDocumentPdf } from "react-icons/gr";
-import { FiDownload } from "react-icons/fi";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { GrDocumentPdf } from 'react-icons/gr'
+import { FiDownload } from 'react-icons/fi'
 import {
   Document,
   Page,
@@ -9,24 +9,24 @@ import {
   View,
   Image,
   usePDF,
-  PDFDownloadLink,
-} from "@react-pdf/renderer";
+  PDFDownloadLink
+} from '@react-pdf/renderer'
 
-import logo from "../assets/logo.png";
-import seal from "../assets/payment-seal.png";
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { useEffect } from "react";
+import logo from '../assets/logo.png'
+import seal from '../assets/payment-seal.png'
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { useEffect } from 'react'
 
-const { primaryBlue, secondaryBlue, colorText } = Colors;
+const { primaryBlue, secondaryBlue, colorText } = Colors
 
 export const BillItem = ({ bill, user, months }) => {
-  const [viewPdf, setViewPdf] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [mobile, setMobile] = useState(windowWidth < 800);
-  const month = months.find((m) => m.value === bill.month).month;
-  const [doc, setDoc] = useState(null);
-  const [instance, updateInstance] = usePDF({ document: doc });
+  const [viewPdf, setViewPdf] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [mobile, setMobile] = useState(windowWidth < 800)
+  const month = months.find((m) => m.value === bill.month).month
+  const [doc, setDoc] = useState(null)
+  const [instance, updateInstance] = usePDF({ document: doc })
 
   useEffect(() => {
     if (user) {
@@ -35,91 +35,91 @@ export const BillItem = ({ bill, user, months }) => {
           <Page
             size="A5"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "white",
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: 'white'
             }}
           >
             <View
               style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                textAlign: "center",
-                backgroundColor: "white",
-                padding: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                textAlign: 'center',
+                backgroundColor: 'white',
+                padding: 1
               }}
             >
               <Image
                 src={logo}
                 alt="random image"
-                style={{ maxWidth: "150px", maxHeight: "auto", top: "-10vw" }}
+                style={{ maxWidth: '150px', maxHeight: 'auto', top: '-10vw' }}
               />
               <Text
                 style={{
                   color: `${primaryBlue}`,
-                  fontSize: "36px",
-                  alignItems: "center",
-                  margin: "auto auto 10vw auto",
-                  fontWeight: "bold",
+                  fontSize: '36px',
+                  alignItems: 'center',
+                  margin: 'auto auto 10vw auto',
+                  fontWeight: 'bold'
                 }}
               >
                 Pago {month} - {bill.year}
               </Text>
 
-              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+              <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
                 Usuario: {user.username} {user.surname}.
               </Text>
-              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+              <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
                 Email: {user.email}.
               </Text>
-              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+              <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
                 Fecha: {bill.day} de {month} del {bill.year}.
               </Text>
-              <Text style={{ textAlign: "justify", marginTop: "30px" }}>
+              <Text style={{ textAlign: 'justify', marginTop: '30px' }}>
                 Monto: ${bill.mount}.
               </Text>
               <Image
                 src={seal}
                 alt="random image"
                 style={{
-                  maxWidth: "120px",
-                  maxHeight: "120px",
-                  marginLeft: "60%",
-                  top: "10vw",
-                  transform: "rotate(-15)",
+                  maxWidth: '120px',
+                  maxHeight: '120px',
+                  marginLeft: '60%',
+                  top: '10vw',
+                  transform: 'rotate(-15)'
                 }}
               />
             </View>
           </Page>
         </Document>
-      );
-      setDoc(newDoc);
+      )
+      setDoc(newDoc)
     }
-  }, [user, bill, month]);
+  }, [user, bill, month])
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+      setWindowWidth(window.innerWidth)
+    }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
-    setMobile(windowWidth < 800);
-  }, [windowWidth]);
+    setMobile(windowWidth < 800)
+  }, [windowWidth])
 
   const handlePdf = () => {
-    updateInstance({ document: doc });
-    setViewPdf(!viewPdf);
-  };
+    updateInstance({ document: doc })
+    setViewPdf(!viewPdf)
+  }
 
   return (
     <Container>
@@ -130,7 +130,7 @@ export const BillItem = ({ bill, user, months }) => {
         </Namebill>
         {!mobile ? (
           <BillButton type="button" onClick={handlePdf}>
-            {viewPdf ? "X" : "Ver/Descargar PDF"}
+            {viewPdf ? 'X' : 'Ver/Descargar PDF'}
           </BillButton>
         ) : (
           <DownloadButton>
@@ -139,7 +139,7 @@ export const BillItem = ({ bill, user, months }) => {
               fileName={`Pago ${month} ${bill.year} - ${user.first_name} ${user.last_name}`}
             >
               {({ blob, url, loading, error }) =>
-                loading ? "Cargando documento..." : <FiDownload />
+                loading ? 'Cargando documento...' : <FiDownload />
               }
             </PDFDownloadLink>
           </DownloadButton>
@@ -151,8 +151,8 @@ export const BillItem = ({ bill, user, months }) => {
         </PdfContainer>
       )}
     </Container>
-  );
-};
+  )
+}
 
 const BillButton = styled.button`
   font-family: ${FontFamily};
@@ -173,7 +173,7 @@ const BillButton = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const BillItemContainer = styled.div`
   display: flex;
@@ -187,9 +187,9 @@ const BillItemContainer = styled.div`
   @media screen and (max-width: 480px) {
     margin: 8vw 1vw 5vw 1vw;
   }
-`;
+`
 
-const Container = styled.div``;
+const Container = styled.div``
 
 const DownloadButton = styled.div`
   margin: 3vw 2vw 0vw 0vw;
@@ -201,7 +201,7 @@ const DownloadButton = styled.div`
   svg {
     font-size: 1.5rem;
   }
-`;
+`
 
 const Namebill = styled.p`
   font-size: 1.3rem;
@@ -217,7 +217,7 @@ const Namebill = styled.p`
   svg {
     margin-right: 0.5rem;
   }
-`;
+`
 
 const Pdf = styled.embed`
   width: 50vw;
@@ -232,8 +232,8 @@ const Pdf = styled.embed`
     width: 70vw;
     height: 35vw;
   }
-`;
+`
 
 const PdfContainer = styled.div`
   text-align: center;
-`;
+`

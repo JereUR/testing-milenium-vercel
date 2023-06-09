@@ -1,53 +1,52 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
+import { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { RiErrorWarningLine } from 'react-icons/ri'
+import { BsArrowBarUp, BsArrowBarDown } from 'react-icons/bs'
 
-import { getDayNow } from "../helpers/GetDay";
-import { Colors } from "../constants/Colors";
-import { UseIntersection } from "../helpers/UseIntersection";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { toast, Toaster } from "react-hot-toast";
-import routes from "../static/routes.json";
+import { getDayNow } from '../helpers/GetDay'
+import { Colors } from '../constants/Colors'
+import { UseIntersection } from '../helpers/UseIntersection'
+import { FetchGetData } from '../helpers/FetchGetData'
+import { toast, Toaster } from 'react-hot-toast'
 
-const { primaryBlue, secondaryBlue, primaryRed } = Colors;
+const { primaryBlue, secondaryBlue, primaryRed } = Colors
 
 async function getPlan() {
-  return await FetchGetData(routes.GET_PLANS);
+  return await FetchGetData(import.meta.env.VITE_GET_PLANS)
 }
 
 export const NutritionalPlan = ({ email, title, addInfo }) => {
-  const [viewData, setViewData] = useState(true);
-  const [plan, setPlan] = useState({});
-  const [loading, setLoading] = useState(false);
-  const day = getDayNow();
+  const [viewData, setViewData] = useState(true)
+  const [plan, setPlan] = useState({})
+  const [loading, setLoading] = useState(false)
+  const day = getDayNow()
 
-  const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
+  const [planRef, isIntersecting] = UseIntersection({ threshold: 0.5 })
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     getPlan()
       .then((response) => response.json())
       .then((data) => {
-        setPlan(data);
-        setLoading(false);
+        setPlan(data)
+        setLoading(false)
       })
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
-  }, [email]);
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      })
+  }, [email])
 
   const handleView = () => {
-    setViewData(!viewData);
-  };
+    setViewData(!viewData)
+  }
 
   return (
     <PlanContainer>
@@ -58,13 +57,13 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
               <BsArrowBarUp onClick={handleView} />
             ) : (
               <BsArrowBarDown onClick={handleView} />
-            )}{" "}
-            {title}{" "}
+            )}{' '}
+            {title}{' '}
           </Title>
         </TextDiv>
         {addInfo && (
           <LogoContainer>
-            <RiErrorWarningLine className="report" />{" "}
+            <RiErrorWarningLine className="report" />{' '}
             <Span className="tooltip">
               Debes completar tu información en "Mi Perfil"
             </Span>
@@ -79,7 +78,7 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
       {viewData && Object.keys(plan).length !== 0 && (
         <PlanData
           ref={planRef}
-          className={isIntersecting ? "visible" : "right"}
+          className={isIntersecting ? 'visible' : 'right'}
         >
           <PlanDay>
             {day === 1 ? (
@@ -880,14 +879,14 @@ export const NutritionalPlan = ({ email, title, addInfo }) => {
             )}
           </PlanDay>
         </PlanData>
-      )}{" "}
+      )}{' '}
       {viewData && Object.keys(plan).length === 0 && (
         <NoPlan>Sin Información.</NoPlan>
       )}
       <Toaster />
     </PlanContainer>
-  );
-};
+  )
+}
 
 const DayWeek = styled.p`
   font-size: 2rem;
@@ -896,13 +895,13 @@ const DayWeek = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
-`;
+`
 
 const DayWeekNow = styled(DayWeek)`
   color: ${primaryRed};
-`;
+`
 
-const Hr = styled.hr``;
+const Hr = styled.hr``
 
 const InfoItem = styled.li`
   color: rgb(30, 30, 30);
@@ -914,9 +913,9 @@ const InfoItem = styled.li`
   @media screen and (max-width: 1380px) {
     font-size: 1.1rem;
   }
-`;
+`
 
-const List = styled.div``;
+const List = styled.div``
 
 const LogoContainer = styled.div`
   svg {
@@ -969,13 +968,13 @@ const LogoContainer = styled.div`
   :hover .tooltip {
     visibility: visible;
   }
-`;
+`
 
 const NoData = styled.div`
   text-align: center;
   color: rgb(30, 30, 30);
   font-style: italic;
-`;
+`
 
 const NoPlan = styled.p`
   font-size: 2rem;
@@ -985,7 +984,7 @@ const NoPlan = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.4rem;
   }
-`;
+`
 
 const PlanContainer = styled.div`
   align-content: center;
@@ -1008,7 +1007,7 @@ const PlanContainer = styled.div`
   .right {
     transform: translateX(200px);
   }
-`;
+`
 
 const PlanData = styled.div`
   display: grid;
@@ -1030,7 +1029,7 @@ const PlanData = styled.div`
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
-`;
+`
 
 const PlanDay = styled.div`
   color: ${primaryBlue};
@@ -1051,9 +1050,9 @@ const PlanDay = styled.div`
     margin: 10vw -8vw 0.5vw 2vw;
     padding: 2vw;
   }
-`;
+`
 
-const Span = styled.span``;
+const Span = styled.span``
 
 const TextMeal = styled.p`
   font-weight: bold;
@@ -1062,9 +1061,9 @@ const TextMeal = styled.p`
   @media screen and (max-width: 1380px) {
     font-size: 1.3rem;
   }
-`;
+`
 
-const TextDiv = styled.div``;
+const TextDiv = styled.div``
 
 const TextNoData = styled.p`
   font-size: 1.4rem;
@@ -1076,7 +1075,7 @@ const TextNoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`
 
 const Title = styled.p`
   display: flex;
@@ -1121,10 +1120,10 @@ const Title = styled.p`
     font-size: 1.9rem;
     margin-left: 18vw;
   }
-`;
+`
 
 const TitleContainer = styled.div`
   display: flex;
-`;
+`
 
-const Today = styled.i``;
+const Today = styled.i``

@@ -1,53 +1,52 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { BsArrowBarUp, BsArrowBarDown } from "react-icons/bs";
+import { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { RiErrorWarningLine } from 'react-icons/ri'
+import { BsArrowBarUp, BsArrowBarDown } from 'react-icons/bs'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { getDayNow } from "../helpers/GetDay";
-import { Colors } from "../constants/Colors";
-import { UseIntersection } from "../helpers/UseIntersection";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { toast, Toaster } from "react-hot-toast";
-import routes from "../static/routes.json";
+import { getDayNow } from '../helpers/GetDay'
+import { Colors } from '../constants/Colors'
+import { UseIntersection } from '../helpers/UseIntersection'
+import { FetchGetData } from '../helpers/FetchGetData'
 
-const { primaryRed, primaryBlue, secondaryBlue } = Colors;
+const { primaryRed, primaryBlue, secondaryBlue } = Colors
 
 async function getRoutine() {
-  return await FetchGetData(routes.GET_ROUTINES);
+  return await FetchGetData(import.meta.env.VITE_GET_ROUTINES)
 }
 
 export const Routine = ({ email, title, addInfo }) => {
-  const [viewData, setViewData] = useState(true);
-  const [routine, setRoutine] = useState({});
-  const [loading, setLoading] = useState(false);
-  const day = getDayNow();
+  const [viewData, setViewData] = useState(true)
+  const [routine, setRoutine] = useState({})
+  const [loading, setLoading] = useState(false)
+  const day = getDayNow()
 
-  const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 });
+  const [routineRef, isIntersecting] = UseIntersection({ threshold: 0.5 })
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     getRoutine()
       .then((response) => response.json())
       .then((data) => {
-        setRoutine(data);
-        setLoading(false);
+        setRoutine(data)
+        setLoading(false)
       })
       .catch((e) => {
         toast.error(e.messsage, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
-      });
-  }, [email]);
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
+      })
+  }, [email])
 
   const handleView = () => {
-    setViewData(!viewData);
-  };
+    setViewData(!viewData)
+  }
 
   return (
     <RoutineContainer>
@@ -58,13 +57,13 @@ export const Routine = ({ email, title, addInfo }) => {
               <BsArrowBarUp onClick={handleView} />
             ) : (
               <BsArrowBarDown onClick={handleView} />
-            )}{" "}
-            {title}{" "}
+            )}{' '}
+            {title}{' '}
           </Title>
         </TextDiv>
         {addInfo && (
           <LogoContainer>
-            <RiErrorWarningLine className="report" />{" "}
+            <RiErrorWarningLine className="report" />{' '}
             <Span className="tooltip">
               Debes completar tu información en "Mi Perfil"
             </Span>
@@ -79,7 +78,7 @@ export const Routine = ({ email, title, addInfo }) => {
       {viewData && Object.keys(routine).length !== 0 && (
         <RoutineData
           ref={routineRef}
-          className={isIntersecting ? "visible" : "right"}
+          className={isIntersecting ? 'visible' : 'right'}
         >
           <RoutineDay>
             {day === 1 ? (
@@ -105,11 +104,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -146,11 +145,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -187,11 +186,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -228,11 +227,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -269,11 +268,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -310,11 +309,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -351,11 +350,11 @@ export const Routine = ({ email, title, addInfo }) => {
                       <Exercise>
                         <TypeExercise>{ex.name}</TypeExercise>
                         <ExtraInfo>
-                          {ex.rest && `${ex.rest} segundos de descanso`}{" "}
+                          {ex.rest && `${ex.rest} segundos de descanso`}{' '}
                           {ex.description && `- ${ex.description}`}
                           {ex.rest === null &&
                             ex.description === null &&
-                            "Sin información adicional."}
+                            'Sin información adicional.'}
                         </ExtraInfo>
                       </Exercise>
                     </InfoItem>
@@ -369,14 +368,14 @@ export const Routine = ({ email, title, addInfo }) => {
             </List>
           </RoutineDay>
         </RoutineData>
-      )}{" "}
+      )}{' '}
       {viewData && Object.keys(routine).length === 0 && (
         <NoRoutine>Sin Información.</NoRoutine>
       )}
       <Toaster />
     </RoutineContainer>
-  );
-};
+  )
+}
 
 const DayWeek = styled.p`
   font-size: 2rem;
@@ -385,19 +384,19 @@ const DayWeek = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
-`;
+`
 
 const DayWeekNow = styled(DayWeek)`
   color: ${primaryRed};
-`;
+`
 
-const Exercise = styled.div``;
+const Exercise = styled.div``
 
 const ExerciseContainer = styled.div`
   display: block;
   border-left: 3px solid ${primaryBlue};
   margin: 1rem;
-`;
+`
 
 const ExercisePhoto = styled.img`
   border-radius: 5px;
@@ -406,13 +405,13 @@ const ExercisePhoto = styled.img`
   @media screen and (max-width: 480px) {
     width: 150px;
   }
-`;
+`
 
 const ExtraInfo = styled.p`
   font-style: italic;
-`;
+`
 
-const Hr = styled.hr``;
+const Hr = styled.hr``
 
 const InfoItem = styled.li`
   color: rgb(30, 30, 30);
@@ -421,9 +420,9 @@ const InfoItem = styled.li`
   @media screen and (max-width: 480px) {
     font-size: 0.8rem;
   }
-`;
+`
 
-const List = styled.div``;
+const List = styled.div``
 
 const LogoContainer = styled.div`
   svg {
@@ -475,7 +474,7 @@ const LogoContainer = styled.div`
   :hover .tooltip {
     visibility: visible;
   }
-`;
+`
 
 const Mount = styled.p`
   display: flex;
@@ -493,15 +492,15 @@ const Mount = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`
 
-const MountAndPhotoContainer = styled.div``;
+const MountAndPhotoContainer = styled.div``
 
 const NoData = styled.div`
   text-align: center;
   color: rgb(30, 30, 30);
   font-style: italic;
-`;
+`
 
 const NoRoutine = styled.p`
   font-size: 2rem;
@@ -511,7 +510,7 @@ const NoRoutine = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.4rem;
   }
-`;
+`
 
 const RoutineContainer = styled.div`
   align-content: center;
@@ -534,7 +533,7 @@ const RoutineContainer = styled.div`
   .right {
     transform: translateX(200px);
   }
-`;
+`
 
 const RoutineData = styled.div`
   display: grid;
@@ -556,7 +555,7 @@ const RoutineData = styled.div`
     grid-gap: 0;
     margin: -1.5rem 1rem 2rem 1rem;
   }
-`;
+`
 
 const RoutineDay = styled.div`
   color: ${primaryBlue};
@@ -577,11 +576,11 @@ const RoutineDay = styled.div`
     margin: 10vw -8vw 0.5vw 2vw;
     padding: 2vw;
   }
-`;
+`
 
-const Span = styled.span``;
+const Span = styled.span``
 
-const TextDiv = styled.div``;
+const TextDiv = styled.div``
 
 const TextNoData = styled.p`
   font-size: 1.5rem;
@@ -594,7 +593,7 @@ const TextNoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`
 
 const Title = styled.p`
   display: flex;
@@ -639,13 +638,13 @@ const Title = styled.p`
     font-size: 1.9rem;
     margin-left: 18vw;
   }
-`;
+`
 
 const TitleContainer = styled.div`
   display: flex;
-`;
+`
 
-const Today = styled.i``;
+const Today = styled.i``
 
 const TypeExercise = styled.p`
   font-size: 1.4rem;
@@ -659,4 +658,4 @@ const TypeExercise = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
-`;
+`

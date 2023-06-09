@@ -1,11 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { FaTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import styled from 'styled-components'
+import { FaTrashAlt } from 'react-icons/fa'
+import { FaEdit } from 'react-icons/fa'
 
-import { Colors } from "../constants/Colors";
+import { Colors } from '../constants/Colors'
 
-const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors;
+const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors
 
 export const MealComponent = ({ el, deleteData, data, editData, seeLogos }) => {
   return (
@@ -13,25 +12,27 @@ export const MealComponent = ({ el, deleteData, data, editData, seeLogos }) => {
       <MealItem key={el.id}>
         {el.count} {el.measure} - {el.meal}
       </MealItem>
-      {seeLogos && (<IconsContainer>
-        <FaEdit
-          className="edit-logo"
-          fontSize="1.3rem"
-          onClick={() => editData(el, data)}
-        />
-        <FaTrashAlt
-          className="delete-logo"
-          fontSize="1.3rem"
-          onClick={() => deleteData(el.id, data)}
-        />
-      </IconsContainer>)}
+      {seeLogos && (
+        <IconsContainer>
+          <FaEdit
+            className="edit-logo"
+            fontSize="1.3rem"
+            onClick={() => editData(el, data)}
+          />
+          <FaTrashAlt
+            className="delete-logo"
+            fontSize="1.3rem"
+            onClick={() => deleteData(el.id, data)}
+          />
+        </IconsContainer>
+      )}
     </MealContainer>
-  );
-};
+  )
+}
 
 const IconsContainer = styled.div`
   display: grid;
-`;
+`
 
 const MealContainer = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const MealContainer = styled.div`
   svg:hover {
     cursor: pointer;
   }
-`;
+`
 
 const MealItem = styled.li`
   font-size: 1.1rem;
@@ -84,4 +85,4 @@ const MealItem = styled.li`
     font-weight: bold;
     color: ${secondaryRed};
   }
-`;
+`

@@ -1,16 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import { toast, Toaster } from "react-hot-toast";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { Colors } from "../constants/Colors";
-import Modal from "./Modal";
-import { FormAditionalInfo } from "./FormAditionalInfo";
-import { FetchPutData } from "../helpers/FetchPutData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import Modal from './Modal'
+import { FormAditionalInfo } from './FormAditionalInfo'
+import { FetchPutData } from '../helpers/FetchPutData'
 
-const { primaryRed, secondaryBlue, secondaryRed } = Colors;
+const { primaryRed, secondaryBlue, secondaryRed } = Colors
 
 export const UserInfo = ({ user }) => {
   const initialForm = {
@@ -18,198 +16,198 @@ export const UserInfo = ({ user }) => {
     weight: user.weight,
     medication: user.medication,
     injuries: user.injuries,
-    diseases: user.diseases,
-  };
+    diseases: user.diseases
+  }
 
-  const [changeInfo, setChangeInfo] = useState(false);
-  const [form, setForm] = useState(initialForm);
-  const [newMedication, setNewMedication] = useState(null);
-  const [errorMedication, setErrorMedication] = useState(null);
-  const [newMedications, setNewMedications] = useState(initialForm.medication);
-  const [newInjury, setNewInjury] = useState(null);
-  const [newTreatment, setNewTreatment] = useState(null);
-  const [errorInjury, setErrorInjury] = useState({});
-  const [newInjuries, setNewInjuries] = useState(initialForm.injuries);
-  const [newDisease, setNewDisease] = useState(null);
-  const [newMedicationDisease, setNewMedicationDisease] = useState(null);
-  const [errorDisease, setErrorDisease] = useState({});
-  const [newDiseases, setNewDiseases] = useState(initialForm.diseases);
-  const [errors, setErrors] = useState({});
+  const [changeInfo, setChangeInfo] = useState(false)
+  const [form, setForm] = useState(initialForm)
+  const [newMedication, setNewMedication] = useState(null)
+  const [errorMedication, setErrorMedication] = useState(null)
+  const [newMedications, setNewMedications] = useState(initialForm.medication)
+  const [newInjury, setNewInjury] = useState(null)
+  const [newTreatment, setNewTreatment] = useState(null)
+  const [errorInjury, setErrorInjury] = useState({})
+  const [newInjuries, setNewInjuries] = useState(initialForm.injuries)
+  const [newDisease, setNewDisease] = useState(null)
+  const [newMedicationDisease, setNewMedicationDisease] = useState(null)
+  const [errorDisease, setErrorDisease] = useState({})
+  const [newDiseases, setNewDiseases] = useState(initialForm.diseases)
+  const [errors, setErrors] = useState({})
 
   const timeout = (delay) => {
-    return new Promise((res) => setTimeout(res, delay));
-  };
+    return new Promise((res) => setTimeout(res, delay))
+  }
 
   const onValidateForm = () => {
-    let errors = {};
+    let errors = {}
 
     if (form.weight <= 0) {
-      errors.weight = "El valor debe ser mayor a 0.";
+      errors.weight = 'El valor debe ser mayor a 0.'
     }
 
     if (form.height <= 0) {
-      errors.height = "El valor debe ser mayor a 0.";
+      errors.height = 'El valor debe ser mayor a 0.'
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const onValidateMedication = () => {
-    let errors = null;
+    let errors = null
 
     if (newMedication === null) {
-      errors = "El campo no debe estar vacío.";
+      errors = 'El campo no debe estar vacío.'
     }
 
     if (newMedications.includes(newMedication)) {
-      errors = `El medicamento "${newMedication}" ya ha sido agregado.`;
+      errors = `El medicamento "${newMedication}" ya ha sido agregado.`
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const onValidateInjury = () => {
-    let errors = {};
+    let errors = {}
 
     if (newInjury === null) {
-      errors.injury = "El campo no debe estar vacío.";
+      errors.injury = 'El campo no debe estar vacío.'
     }
 
     if (newInjuries.some((el) => el.injury === newInjury)) {
-      errors.injury = `La lesión "${newInjury}" ya ha sido agregada.`;
+      errors.injury = `La lesión "${newInjury}" ya ha sido agregada.`
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const onValidateDisease = () => {
-    let errors = {};
+    let errors = {}
 
     if (newDisease === null) {
-      errors.disease = "El campo no debe estar vacío.";
+      errors.disease = 'El campo no debe estar vacío.'
     }
 
     if (newDiseases.some((el) => el.disease === newDisease)) {
-      errors.disease = `La enfermedad "${newDisease}" ya ha sido agregada.`;
+      errors.disease = `La enfermedad "${newDisease}" ya ha sido agregada.`
     }
 
-    return errors;
-  };
+    return errors
+  }
 
   const handleModal = () => {
-    setChangeInfo(!changeInfo);
-    setForm(initialForm);
-    setNewMedications(initialForm.medication);
-    setErrorMedication(null);
-    setNewInjuries(initialForm.injuries);
-    setErrorInjury({});
-    setNewDiseases(initialForm.diseases);
-    setErrorDisease({});
-  };
+    setChangeInfo(!changeInfo)
+    setForm(initialForm)
+    setNewMedications(initialForm.medication)
+    setErrorMedication(null)
+    setNewInjuries(initialForm.injuries)
+    setErrorInjury({})
+    setNewDiseases(initialForm.diseases)
+    setErrorDisease({})
+  }
 
   const handleChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleChangeMedication = (e) => {
-    setNewMedication(e.target.value.toLowerCase());
-  };
+    setNewMedication(e.target.value.toLowerCase())
+  }
 
   const handleAddMedication = () => {
-    timeout(2000);
+    timeout(2000)
 
-    const err = onValidateMedication();
-    setErrorMedication(err);
+    const err = onValidateMedication()
+    setErrorMedication(err)
 
     if (err === null) {
-      const m = newMedication;
-      setNewMedications(newMedications.concat(m));
+      const m = newMedication
+      setNewMedications(newMedications.concat(m))
     } else {
       /* console.log("Error medicamento"); */
     }
 
-    document.getElementById("medication").value = null;
-    setNewMedication(null);
-  };
+    document.getElementById('medication').value = null
+    setNewMedication(null)
+  }
 
   const deleteMedication = (med) => {
-    let newData = newMedications.filter((el) => el !== med);
-    setNewMedications(newData);
-  };
+    let newData = newMedications.filter((el) => el !== med)
+    setNewMedications(newData)
+  }
 
   const handleChangeInjury = (e) => {
-    setNewInjury(e.target.value.toLowerCase());
-  };
+    setNewInjury(e.target.value.toLowerCase())
+  }
 
   const handleChangeTreatment = (e) => {
-    setNewTreatment(e.target.value.toLowerCase());
-  };
+    setNewTreatment(e.target.value.toLowerCase())
+  }
 
   const handleAddInjury = () => {
-    timeout(2000);
+    timeout(2000)
 
-    const err = onValidateInjury();
-    setErrorInjury(err);
+    const err = onValidateInjury()
+    setErrorInjury(err)
 
     if (Object.keys(err).length === 0) {
-      const i = { injury: newInjury, treatment: newTreatment };
-      setNewInjuries(newInjuries.concat(i));
+      const i = { injury: newInjury, treatment: newTreatment }
+      setNewInjuries(newInjuries.concat(i))
     } else {
       /* console.log("Error lesión"); */
     }
 
-    document.getElementById("injury").value = null;
-    setNewInjury(null);
-    document.getElementById("treatment").value = null;
-    setNewTreatment(null);
-  };
+    document.getElementById('injury').value = null
+    setNewInjury(null)
+    document.getElementById('treatment').value = null
+    setNewTreatment(null)
+  }
 
   const deleteInjury = (i) => {
-    let newData = newInjuries.filter((el) => el.injury !== i.injury);
-    setNewInjuries(newData);
-  };
+    let newData = newInjuries.filter((el) => el.injury !== i.injury)
+    setNewInjuries(newData)
+  }
 
   const handleChangeDisease = (e) => {
-    setNewDisease(e.target.value.toLowerCase());
-  };
+    setNewDisease(e.target.value.toLowerCase())
+  }
 
   const handleChangeMedicationDisease = (e) => {
-    setNewMedicationDisease(e.target.value);
-  };
+    setNewMedicationDisease(e.target.value)
+  }
 
   const handleAddDisease = () => {
-    timeout(2000);
+    timeout(2000)
 
-    const err = onValidateDisease();
-    setErrorDisease(err);
+    const err = onValidateDisease()
+    setErrorDisease(err)
 
     if (Object.keys(err).length === 0) {
-      const d = { disease: newDisease, medication: newMedicationDisease };
-      setNewDiseases(newDiseases.concat(d));
+      const d = { disease: newDisease, medication: newMedicationDisease }
+      setNewDiseases(newDiseases.concat(d))
     } else {
       /* console.log("Error enfermedad"); */
     }
 
-    document.getElementById("disease").value = null;
-    setNewDisease(null);
-    document.getElementById("medication-disease").value = null;
-    setNewMedicationDisease(null);
-  };
+    document.getElementById('disease').value = null
+    setNewDisease(null)
+    document.getElementById('medication-disease').value = null
+    setNewMedicationDisease(null)
+  }
 
   const deleteDisease = (d) => {
     /* console.log(newDiseases); */
-    let newData = newDiseases.filter((el) => el.disease !== d.disease);
-    setNewDiseases(newData);
-  };
+    let newData = newDiseases.filter((el) => el.disease !== d.disease)
+    setNewDiseases(newData)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const err = onValidateForm();
-    setErrors(err);
+    const err = onValidateForm()
+    setErrors(err)
 
     if (Object.keys(err).length === 0) {
       const data = {
@@ -217,42 +215,42 @@ export const UserInfo = ({ user }) => {
         height: form.height,
         medications: newMedications,
         injuries: newInjuries,
-        diseases: newDiseases,
-      };
+        diseases: newDiseases
+      }
 
       const res = await FetchPutData({
-        path: routes.INFO_UPDATE,
-        data: { user: data },
-      });
+        path: import.meta.env.VITE_INFO_UPDATE,
+        data: { user: data }
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Guardando cambios...`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
 
-        setChangeInfo(!changeInfo);
+        setChangeInfo(!changeInfo)
         setTimeout(() => {
-          window.location.reload();
-        }, 500);
+          window.location.reload()
+        }, 500)
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
-  };
+  }
 
   return (
     <InfoContainer>
@@ -350,8 +348,8 @@ export const UserInfo = ({ user }) => {
             user.injuries.map((el, index) => (
               <InfoItem key={index}>
                 <TextMed>
-                  - {el.injury} -{" "}
-                  {el.treatment ? `${el.treatment}` : "Sin tratamiento"}
+                  - {el.injury} -{' '}
+                  {el.treatment ? `${el.treatment}` : 'Sin tratamiento'}
                 </TextMed>
               </InfoItem>
             ))
@@ -365,10 +363,10 @@ export const UserInfo = ({ user }) => {
             user.diseases.map((el, index) => (
               <InfoItem key={index}>
                 <TextMed>
-                  - {el.disease} -{" "}
+                  - {el.disease} -{' '}
                   {el.medication.length > 0
                     ? el.medication.map((el) => `${el}. `)
-                    : "Sin medicamento"}
+                    : 'Sin medicamento'}
                 </TextMed>
               </InfoItem>
             ))
@@ -379,8 +377,8 @@ export const UserInfo = ({ user }) => {
       </SecondInfo>
       <Toaster />
     </InfoContainer>
-  );
-};
+  )
+}
 
 const AdInfoTitle = styled.h2`
   margin: 0 0 2vw 3vw;
@@ -401,23 +399,23 @@ const AdInfoTitle = styled.h2`
     cursor: pointer;
     color: ${secondaryRed};
   }
-`;
+`
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
-const FirstInfo = styled.div``;
+const FirstInfo = styled.div``
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div``
 
 const InfoItem = styled.li`
   display: block;
 
   @media screen and (max-width: 480px) {
   }
-`;
+`
 
 const Label = styled.h3`
   margin-left: 5vw;
@@ -429,9 +427,9 @@ const Label = styled.h3`
     margin-left: 8vw;
     margin-bottom: 1rem;
   }
-`;
+`
 
-const SecondInfo = styled.div``;
+const SecondInfo = styled.div``
 
 const Text = styled.p`
   font-size: 1.3rem;
@@ -441,7 +439,7 @@ const Text = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`
 
 const TextContainer = styled.div`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -456,17 +454,17 @@ const TextContainer = styled.div`
     margin-bottom: 5vw;
     margin-left: 8vw;
   }
-`;
+`
 
 const TextMed = styled(Text)`
   padding-left: 1rem;
-`;
+`
 
 const TextNoData = styled(Text)`
   font-style: italic;
   font-weight: 400;
-`;
+`
 
 const UploadInfoContainer = styled.div`
   display: block;
-`;
+`

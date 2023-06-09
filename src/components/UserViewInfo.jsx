@@ -1,42 +1,41 @@
-import React, {useEffect, useState} from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
 
-import defaultPhoto from "../assets/default_user.jpg";
-import { Colors } from "../constants/Colors";
-import routes from "../static/routes.json";
-import { FetchGetData } from "../helpers/FetchGetData";
+import defaultPhoto from '../assets/default_user.jpg'
+import { Colors } from '../constants/Colors'
+import { FetchGetData } from '../helpers/FetchGetData'
 
-const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors;
+const { primaryRed, secondaryBlue, secondaryRed, backgroundText } = Colors
 
 async function getUserPhoto(email) {
-  return await FetchGetData(`${routes.USER_PHOTO}?email=${email}`);
+  return await FetchGetData(`${import.meta.env.VITE_USER_PHOTO}?email=${email}`)
 }
 
 export const UserViewInfo = ({ user }) => {
   const [photo, setPhoto] = useState(null)
-  
+
   const getYears = () => {
-    var actDate = new Date();
+    var actDate = new Date()
 
-    var fechaNac = new Date(user.date);
+    var fechaNac = new Date(user.date)
 
-    var dif = actDate.getTime() - fechaNac.getTime();
+    var dif = actDate.getTime() - fechaNac.getTime()
 
-    return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25));
-  };
+    return Math.floor(dif / (1000 * 60 * 60 * 24 * 365.25))
+  }
 
   useEffect(() => {
     getUserPhoto(user.email)
-        .then((response) => response.blob())
-        .then((data) => {
-          if (data.size !== 14) {
-            const imageUrl = URL.createObjectURL(data);
-            setPhoto(imageUrl);
-          }
-        })
-        .catch((e) => {
-          console.error(e)
-        });
+      .then((response) => response.blob())
+      .then((data) => {
+        if (data.size !== 14) {
+          const imageUrl = URL.createObjectURL(data)
+          setPhoto(imageUrl)
+        }
+      })
+      .catch((e) => {
+        console.error(e)
+      })
   }, [])
 
   return (
@@ -105,8 +104,8 @@ export const UserViewInfo = ({ user }) => {
               user.injuries.map((el, index) => (
                 <InfoItem key={index}>
                   <TextMed>
-                    - {el.injury} -{" "}
-                    {el.treatment ? `${el.treatment}.` : "Sin tratamiento."}
+                    - {el.injury} -{' '}
+                    {el.treatment ? `${el.treatment}.` : 'Sin tratamiento.'}
                   </TextMed>
                 </InfoItem>
               ))
@@ -120,10 +119,10 @@ export const UserViewInfo = ({ user }) => {
               user.diseases.map((el, index) => (
                 <InfoItem key={index}>
                   <TextMed>
-                    - {el.disease} -{" "}
+                    - {el.disease} -{' '}
                     {el.medication.length > 0
                       ? el.medication.map((el) => `${el}. `)
-                      : "Sin medicamento."}
+                      : 'Sin medicamento.'}
                   </TextMed>
                 </InfoItem>
               ))
@@ -134,8 +133,8 @@ export const UserViewInfo = ({ user }) => {
         </SecondInfo>
       </InfoContainer>
     </ProfileContainer>
-  );
-};
+  )
+}
 
 const AdInfoTitle = styled.h2`
   margin: 0 0 2vw 3vw;
@@ -157,18 +156,18 @@ const AdInfoTitle = styled.h2`
     cursor: pointer;
     color: ${secondaryRed};
   }
-`;
+`
 
-const FirstInfo = styled.div``;
+const FirstInfo = styled.div``
 
-const InfoContainer = styled.div``;
+const InfoContainer = styled.div``
 
 const InfoItem = styled.li`
   display: block;
 
   @media screen and (max-width: 480px) {
   }
-`;
+`
 
 const Label = styled.h3`
   margin-bottom: -0.5rem;
@@ -180,7 +179,7 @@ const Label = styled.h3`
     margin-left: 8vw;
     margin-bottom: 1rem;
   }
-`;
+`
 
 const PhotoContainer = styled.div`
   color: ${secondaryBlue};
@@ -204,15 +203,15 @@ const PhotoContainer = styled.div`
     cursor: pointer;
     color: ${secondaryRed};
   }
-`;
+`
 
 const ProfileContainer = styled.div`
   display: block;
   margin: 2vw;
   margin-bottom: 1vw !important;
-`;
+`
 
-const SecondInfo = styled.div``;
+const SecondInfo = styled.div``
 
 const Text = styled.p`
   font-size: 1.3rem;
@@ -222,7 +221,7 @@ const Text = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`
 
 const TextContainer = styled.div`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -236,16 +235,16 @@ const TextContainer = styled.div`
     margin-bottom: 5vw;
     margin-left: 8vw;
   }
-`;
+`
 
 const TextMed = styled(Text)`
   padding-left: 1rem;
-`;
+`
 
 const TextNoData = styled(Text)`
   font-style: italic;
   font-weight: 400;
-`;
+`
 
 const UserPhoto = styled.img`
   width: 8vw;
@@ -262,4 +261,4 @@ const UserPhoto = styled.img`
   @media screen and (max-width: 1050px) {
     width: 15vw;
   }
-`;
+`

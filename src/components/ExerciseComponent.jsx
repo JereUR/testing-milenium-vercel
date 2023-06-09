@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { FaTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import styled from 'styled-components'
+import { FaTrashAlt } from 'react-icons/fa'
+import { FaEdit } from 'react-icons/fa'
 
-import { Colors } from "../constants/Colors";
+import { Colors } from '../constants/Colors'
 
-const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors;
+const { secondaryRed, backgroundSuccess, secondaryBlue } = Colors
 
 export const ExerciseComponent = ({ el, deleteData, editData, seeLogos }) => {
   return (
     <ExerciseContainer>
       <ExerciseItem key={el.id}>
-        {el.series} x {el.count} {el.measure} - {el.name} -{" "}
-        {el.rest ? `${el.rest} seg. de descanso` : "Sin descanso estipulado"} -{" "}
-        {el.description ? `${el.description}` : "Sin información adicional"}
+        {el.series} x {el.count} {el.measure} - {el.name} -{' '}
+        {el.rest ? `${el.rest} seg. de descanso` : 'Sin descanso estipulado'} -{' '}
+        {el.description ? `${el.description}` : 'Sin información adicional'}
       </ExerciseItem>
       <ExercisePhoto src={el.photo} />
       {seeLogos && (
@@ -31,8 +30,8 @@ export const ExerciseComponent = ({ el, deleteData, editData, seeLogos }) => {
         </IconsContainer>
       )}
     </ExerciseContainer>
-  );
-};
+  )
+}
 
 const ExerciseContainer = styled.div`
   display: flex;
@@ -65,7 +64,7 @@ const ExerciseContainer = styled.div`
   svg:hover {
     cursor: pointer;
   }
-`;
+`
 
 const ExerciseItem = styled.li`
   font-size: 1.1rem;
@@ -81,7 +80,7 @@ const ExerciseItem = styled.li`
     font-weight: bold;
     color: ${secondaryRed};
   }
-`;
+`
 
 const ExercisePhoto = styled.img`
   margin-left: 2vw;
@@ -92,9 +91,9 @@ const ExercisePhoto = styled.img`
   @media screen and (max-width: 480px) {
     height: 50px;
   }
-`;
+`
 
 const IconsContainer = styled.div`
   display: grid;
   margin-top: 1vw;
-`;
+`

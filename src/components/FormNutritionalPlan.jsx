@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FaEdit } from 'react-icons/fa'
@@ -11,7 +10,6 @@ import { FontFamily } from '../constants/Fonts'
 import { MealComponent } from './MealComponent'
 import { FetchPostData } from '../helpers/FetchPostData'
 import { FetchGetData } from '../helpers/FetchGetData'
-import routes from '../static/routes.json'
 
 const {
   errorInput,
@@ -138,7 +136,7 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     setForData(e.target.value)
 
     const user = await FetchGetData(
-      `${routes.USER_WEIGHT_HEIGHT}?email=${e.target.value}`
+      `${import.meta.env.VITE_USER_WEIGHT_HEIGHT}?email=${e.target.value}`
     )
       .then((response) => response.json())
       .then()
@@ -172,7 +170,9 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
   }
 
   const handleChangeDay = () => {
-    let decision = confirm("Al cambiar el día tu progreso será reemplazado por el plan del día que selecciones a continuación. ¿Estás seguro de cambiar el día?");
+    let decision = confirm(
+      'Al cambiar el día tu progreso será reemplazado por el plan del día que selecciones a continuación. ¿Estás seguro de cambiar el día?'
+    )
 
     if (decision) {
       setDayData(null)
@@ -444,25 +444,27 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
       //console.log({ planDay });
 
       const res = await FetchPostData({
-        path: routes.CREATE_PLAN,
+        path: import.meta.env.VITE_CREATE_PLAN,
         data: { planDay }
       })
 
       if (!(res instanceof Error)) {
-        const day = dbLocal.days.find(d => d.value === dayData).day
+        const day = dbLocal.days.find((d) => d.value === dayData).day
 
-        toast.success(`Plan nutricional enviado a ${forData} para el dia ${day}.`, {
-          position: 'top-right',
-          duration: 6000,
-          style: {
-            background: 'rgba(215, 250, 215)',
-            fontSize: '1rem',
-            fontWeight: '500'
+        toast.success(
+          `Plan nutricional enviado a ${forData} para el dia ${day}.`,
+          {
+            position: 'top-right',
+            duration: 6000,
+            style: {
+              background: 'rgba(215, 250, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
           }
-        })
+        )
 
         clearData()
-  
       } else {
         toast.error(res.message, {
           position: 'top-right',
@@ -492,141 +494,142 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
     if (forData === null || dayData === null) return
 
     if (forData !== null && dayData !== null) {
-      FetchGetData(`${routes.USER_PLAN}?email=${forData}&day=${dayData}`)
-        .then((response) => response.json()
-        )
+      FetchGetData(
+        `${import.meta.env.VITE_USER_PLAN}?email=${forData}&day=${dayData}`
+      )
+        .then((response) => response.json())
         .then((data) => {
-          if(data.error){
+          if (data.error) {
             setNoData(true)
           } else {
             setNoData(false)
             if (data.breakfast.length > 0) {
-            data.breakfast.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'breakfast_' + Math.floor(Math.random() * 10000)
-              }
-              b.push(m)
-            })
-          } else {
-            b = initialData
-          }
+              data.breakfast.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'breakfast_' + Math.floor(Math.random() * 10000)
+                }
+                b.push(m)
+              })
+            } else {
+              b = initialData
+            }
 
-          setBreakfast(b)
+            setBreakfast(b)
 
-          if (data.lunch.length > 0) {
-            data.lunch.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'lunch_' + Math.floor(Math.random() * 10000)
-              }
-              l.push(m)
-            })
-          } else {
-            l = initialData
-          }
+            if (data.lunch.length > 0) {
+              data.lunch.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'lunch_' + Math.floor(Math.random() * 10000)
+                }
+                l.push(m)
+              })
+            } else {
+              l = initialData
+            }
 
-          setLunch(l)
+            setLunch(l)
 
-          if (data.snack.length > 0) {
-            data.snack.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'snack_' + Math.floor(Math.random() * 10000)
-              }
-              s.push(m)
-            })
-          } else {
-            s = initialData
-          }
+            if (data.snack.length > 0) {
+              data.snack.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'snack_' + Math.floor(Math.random() * 10000)
+                }
+                s.push(m)
+              })
+            } else {
+              s = initialData
+            }
 
-          setSnack(s)
+            setSnack(s)
 
-          if (data.dinner.length > 0) {
-            data.dinner.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'dinner_' + Math.floor(Math.random() * 10000)
-              }
-              d.push(m)
-            })
-          } else {
-            d = initialData
-          }
+            if (data.dinner.length > 0) {
+              data.dinner.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'dinner_' + Math.floor(Math.random() * 10000)
+                }
+                d.push(m)
+              })
+            } else {
+              d = initialData
+            }
 
-          setDinner(d)
+            setDinner(d)
 
-          if (data.afterDinner.length > 0) {
-            data.afterDinner.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'after-dinner_' + Math.floor(Math.random() * 10000)
-              }
-              ad.push(m)
-            })
-          } else {
-            ad = initialData
-          }
+            if (data.afterDinner.length > 0) {
+              data.afterDinner.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'after-dinner_' + Math.floor(Math.random() * 10000)
+                }
+                ad.push(m)
+              })
+            } else {
+              ad = initialData
+            }
 
-          setAfterDinner(ad)
+            setAfterDinner(ad)
 
-          if (data.preWorkout.length > 0) {
-            data.preWorkout.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'pre-workout_' + Math.floor(Math.random() * 10000)
-              }
-              pr.push(m)
-            })
-          } else {
-            pr = initialData
-          }
+            if (data.preWorkout.length > 0) {
+              data.preWorkout.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'pre-workout_' + Math.floor(Math.random() * 10000)
+                }
+                pr.push(m)
+              })
+            } else {
+              pr = initialData
+            }
 
-          setPreWorkout(pr)
+            setPreWorkout(pr)
 
-          if (data.postWorkout.length > 0) {
-            data.postWorkout.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'post-workout_' + Math.floor(Math.random() * 10000)
-              }
-              po.push(m)
-            })
-          } else {
-            po = initialData
-          }
+            if (data.postWorkout.length > 0) {
+              data.postWorkout.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'post-workout_' + Math.floor(Math.random() * 10000)
+                }
+                po.push(m)
+              })
+            } else {
+              po = initialData
+            }
 
-          setPostWorkout(po)
+            setPostWorkout(po)
 
-          if (data.collation.length > 0) {
-            data.collation.forEach((el) => {
-              const m = {
-                measure: el.measure,
-                count: el.count,
-                meal: el.meal,
-                id: 'collation_' + Math.floor(Math.random() * 10000)
-              }
-              co.push(m)
-            })
-          } else {
-            co = initialData
-          }
+            if (data.collation.length > 0) {
+              data.collation.forEach((el) => {
+                const m = {
+                  measure: el.measure,
+                  count: el.count,
+                  meal: el.meal,
+                  id: 'collation_' + Math.floor(Math.random() * 10000)
+                }
+                co.push(m)
+              })
+            } else {
+              co = initialData
+            }
 
-          setCollation(co)
+            setCollation(co)
           }
         })
         .catch((e) => {
@@ -887,7 +890,12 @@ export const FormNutritionalPlan = ({ users, dbLocal }) => {
           </List>
         </MealContainer>
       )}
-      {noData && (<TextNoData>Sin plan nutricional para el día {dbLocal.days.find(d => d.value === dayData).day}.</TextNoData>)}
+      {noData && (
+        <TextNoData>
+          Sin plan nutricional para el día{' '}
+          {dbLocal.days.find((d) => d.value === dayData).day}.
+        </TextNoData>
+      )}
       {errorsPlan.planData && <ErrorInput>{errorsPlan.planData}</ErrorInput>}
       <ButtonSubmit type="submit">Enviar</ButtonSubmit>
       {loading && <Loader />}
@@ -1119,4 +1127,4 @@ const TextNoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`

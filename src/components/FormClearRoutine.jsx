@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { FaEdit } from 'react-icons/fa'
@@ -10,7 +9,6 @@ import { FontFamily } from '../constants/Fonts'
 import { ExerciseComponent } from './ExerciseComponent'
 import { FetchDeleteData } from '../helpers/FetchDeleteData'
 import { FetchGetData } from '../helpers/FetchGetData'
-import routes from '../static/routes.json'
 
 const { errorInput, primaryRed, primaryBlue, secondaryRed, secondaryBlue } =
   Colors
@@ -63,15 +61,15 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
   }
 
   const handleSeeRoutine = async () => {
-    const err = onValidate();
-    setErrors(err);
+    const err = onValidate()
+    setErrors(err)
     setLoading(true)
 
     if (Object.keys(err).length === 0) {
       let ex = []
 
       await FetchGetData(
-        `${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`
+        `${import.meta.env.VITE_USER_ROUTINE}?email=${forData}&day=${dayData}`
       )
         .then((response) => {
           if (!response.ok) {
@@ -87,7 +85,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
             }
           }
 
-          return response.json();
+          return response.json()
         })
         .then((data) => {
           if (data.length > 0) {
@@ -112,7 +110,7 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
         })
         .catch((e) => {
           toast.error(e.message, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
               background: 'rgba(250, 215, 215)',
@@ -123,13 +121,15 @@ export const FormClearRoutine = ({ users, dbLocal }) => {
         })
     }
     setLoading(false)
-  };
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const res = await FetchDeleteData({
-      path: `${routes.USER_DELETE_ROUTINE}?email=${forData}&day=${dayData}`
+      path: `${
+        import.meta.env.VITE_USER_DELETE_ROUTINE
+      }?email=${forData}&day=${dayData}`
     })
 
     if (!(res instanceof Error)) {

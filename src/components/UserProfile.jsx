@@ -1,19 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import { toast, Toaster } from "react-hot-toast";
-import styled from "styled-components";
-import { FaEdit } from "react-icons/fa";
-import uploadPhoto from "../static/upload-photo.json";
+import { useEffect, useRef, useState } from 'react'
+import { toast, Toaster } from 'react-hot-toast'
+import styled from 'styled-components'
+import { FaEdit } from 'react-icons/fa'
+import uploadPhoto from '../static/upload-photo.json'
 
-import defaultPhoto from "../assets/default_user.jpg";
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import Modal from "./Modal";
-import { UploadAnimation } from "./UploadAnimation";
-import { UserInfo } from "./UserInfo";
-import { FetchPostImage } from "../helpers/FetchPostImage";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { FetchDeleteData } from "../helpers/FetchDeleteData";
-import routes from "../static/routes.json";
+import defaultPhoto from '../assets/default_user.jpg'
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import Modal from './Modal'
+import { UploadAnimation } from './UploadAnimation'
+import { UserInfo } from './UserInfo'
+import { FetchPostImage } from '../helpers/FetchPostImage'
+import { FetchGetData } from '../helpers/FetchGetData'
+import { FetchDeleteData } from '../helpers/FetchDeleteData'
 
 const {
   primaryBlue,
@@ -22,8 +21,8 @@ const {
   secondaryRed,
   backgroundText,
   colorText,
-  errorInput,
-} = Colors;
+  errorInput
+} = Colors
 
 const initialData = {
   username: null,
@@ -36,26 +35,26 @@ const initialData = {
   height: null,
   medication: [],
   injuries: [],
-  diseases: [],
-};
+  diseases: []
+}
 
 async function getUser() {
-  return await FetchGetData(`${routes.USER_PROFILE}`);
+  return await FetchGetData(`${import.meta.env.VITE_USER_PROFILE}`)
 }
 
 async function getUserPhoto() {
-  return await FetchGetData(`${routes.PHOTO}`);
+  return await FetchGetData(`${import.meta.env.VITE_PHOTO}`)
 }
 
 export const UserProfile = ({ email }) => {
-  const [user, setUser] = useState(initialData);
-  const [userPhoto, setUserPhoto] = useState(null);
-  const [errorInput, setErrorInput] = useState(null);
-  const [changePhoto, setChangePhoto] = useState(false);
-  const [preview, setPreview] = useState("");
+  const [user, setUser] = useState(initialData)
+  const [userPhoto, setUserPhoto] = useState(null)
+  const [errorInput, setErrorInput] = useState(null)
+  const [changePhoto, setChangePhoto] = useState(false)
+  const [preview, setPreview] = useState('')
   const [photoToSend, setPhotoToSend] = useState(null)
 
-  const formData = new FormData();
+  const formData = new FormData()
 
   useEffect(() => {
     //Get user info menos routine, plan y payments
@@ -64,144 +63,144 @@ export const UserProfile = ({ email }) => {
       getUser()
         .then((response) => response.json())
         .then((data) => {
-          setUser(data);
+          setUser(data)
         })
         .catch((e) => {
           toast.error(e, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        })
 
       getUserPhoto()
         .then((response) => response.blob())
         .then((data) => {
           if (data.size !== 14) {
-            const imageUrl = URL.createObjectURL(data);
-            setUserPhoto(imageUrl);
+            const imageUrl = URL.createObjectURL(data)
+            setUserPhoto(imageUrl)
           }
         })
         .catch((e) => {
           toast.error(e, {
-            position: "top-right",
+            position: 'top-right',
             duration: 6000,
             style: {
-              background: "rgba(250, 215, 215)",
-              fontSize: "1rem",
-              fontWeight: "500",
-            },
-          });
-        });
+              background: 'rgba(250, 215, 215)',
+              fontSize: '1rem',
+              fontWeight: '500'
+            }
+          })
+        })
     }
-  }, [email]);
+  }, [email])
 
   useEffect(() => {
     if (!changePhoto) {
-      setPhotoToSend(null);
+      setPhotoToSend(null)
     }
-  }, [changePhoto]);
+  }, [changePhoto])
 
   useEffect(() => {
-    if (!userPhoto){
-      setPreview("");
+    if (!userPhoto) {
+      setPreview('')
     }
-  }, [userPhoto]);
+  }, [userPhoto])
 
-  const reference = useRef();
+  const reference = useRef()
 
   const handleModal = () => {
-    setChangePhoto(!changePhoto);
-  };
+    setChangePhoto(!changePhoto)
+  }
 
   const handleChangePassword = () => {
-    window.location.replace("/change-password");
-  };
+    window.location.replace('/change-password')
+  }
 
   const handleSignOut = async () => {
-    const res = await FetchDeleteData({ path: routes.LOGOUT });
+    const res = await FetchDeleteData({ path: import.meta.env.VITE_LOGOUT })
 
     if (!(res instanceof Error)) {
       setTimeout(() => {
-        window.location.replace("/");
-      }, 1000);
+        window.location.replace('/')
+      }, 1000)
     } else {
       toast.error(res.message, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(250, 215, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
     }
-  };
+  }
 
   const uploadFiles = () => {
-    reference.current.click();
-  };
+    reference.current.click()
+  }
 
   const handlePhoto = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.substring(0, 5) === "image") {
-      formData.append("image", file);
+    const file = e.target.files[0]
+    if (file && file.type.substring(0, 5) === 'image') {
+      formData.append('image', file)
 
-      const imageUrl = URL.createObjectURL(file);
-      setUserPhoto(imageUrl);
+      const imageUrl = URL.createObjectURL(file)
+      setUserPhoto(imageUrl)
       setPhotoToSend(file)
-      setErrorInput(null);
+      setErrorInput(null)
     } else {
-      setUserPhoto(null);
+      setUserPhoto(null)
       setErrorInput(
-        "Archivo no compatible. Solo archivos tipo .jpg, .jpeg y .png."
-      );
+        'Archivo no compatible. Solo archivos tipo .jpg, .jpeg y .png.'
+      )
     }
-  };
+  }
 
   const handleChange = () => {
-    setUserPhoto(null);
-  };
+    setUserPhoto(null)
+  }
 
   const handleSendPhoto = async () => {
-    setChangePhoto(!changePhoto);
+    setChangePhoto(!changePhoto)
 
     if (photoToSend != null) {
-      const formData = new FormData();
-      formData.append("image", photoToSend);
+      const formData = new FormData()
+      formData.append('image', photoToSend)
 
       const res = await FetchPostImage({
-        path: routes.PHOTO,
-        data: formData,
-      });
+        path: import.meta.env.VITE_PHOTO,
+        data: formData
+      })
 
       if (!(res instanceof Error)) {
         toast.success(`Foto de perfil actualizada.`, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(215, 250, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(215, 250, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       } else {
         toast.error(res.message, {
-          position: "top-right",
+          position: 'top-right',
           duration: 6000,
           style: {
-            background: "rgba(250, 215, 215)",
-            fontSize: "1rem",
-            fontWeight: "500",
-          },
-        });
+            background: 'rgba(250, 215, 215)',
+            fontSize: '1rem',
+            fontWeight: '500'
+          }
+        })
       }
     }
-  };
+  }
 
   return (
     <ProfileContainer>
@@ -220,7 +219,7 @@ export const UserProfile = ({ email }) => {
               type="file"
               name="photo"
               accept="'image/*"
-              style={{ display: "none" }}
+              style={{ display: 'none' }}
               onChange={handlePhoto}
               ref={reference}
             />
@@ -229,7 +228,7 @@ export const UserProfile = ({ email }) => {
                 src={userPhoto}
                 alt="User photo"
                 onClick={uploadFiles}
-                style={{ width: "25vw", height: "30vw", cursor: "pointer" }}
+                style={{ width: '25vw', height: '30vw', cursor: 'pointer' }}
               />
             ) : (
               <UploadAnimation
@@ -258,8 +257,8 @@ export const UserProfile = ({ email }) => {
       </SignOutContainer>
       <Toaster />
     </ProfileContainer>
-  );
-};
+  )
+}
 
 const ChangePasswordButton = styled.button`
   width: 90%;
@@ -283,7 +282,7 @@ const ChangePasswordButton = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const ChangePhoto = styled.button`
   font-family: ${FontFamily};
@@ -304,13 +303,13 @@ const ChangePhoto = styled.button`
     cursor: pointer;
     background-color: ${secondaryRed};
   }
-`;
+`
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 const ErrorInput = styled.div`
   font-size: 12px;
@@ -318,7 +317,7 @@ const ErrorInput = styled.div`
   margin-bottom: 1rem;
   text-align: left;
   margin-left: 2rem;
-`;
+`
 
 const ImagePhoto = styled.img`
   margin-bottom: 1rem;
@@ -327,15 +326,15 @@ const ImagePhoto = styled.img`
     width: 60vw !important;
     height: 70vw !important;
   }
-`;
+`
 
 const InputPhoto = styled.input`
   margin-left: 2rem;
-`;
+`
 
 const PasswordContainer = styled.div`
   text-align: center;
-`;
+`
 
 const PhotoContainer = styled.div`
   color: ${secondaryBlue};
@@ -358,13 +357,13 @@ const PhotoContainer = styled.div`
     cursor: pointer;
     color: ${secondaryRed};
   }
-`;
+`
 
 const ProfileContainer = styled.div`
   display: block;
   margin: 2vw;
   margin-bottom: 1vw !important;
-`;
+`
 
 const SendPhoto = styled.button`
   font-family: ${FontFamily};
@@ -385,7 +384,7 @@ const SendPhoto = styled.button`
     cursor: pointer;
     background-color: ${secondaryBlue};
   }
-`;
+`
 
 const SignOutButton = styled.button`
   width: 90%;
@@ -408,14 +407,14 @@ const SignOutButton = styled.button`
     cursor: pointer;
     background-color: ${secondaryRed};
   }
-`;
+`
 
-const SignOutContainer = styled(PasswordContainer)``;
+const SignOutContainer = styled(PasswordContainer)``
 
 const UploadPhotoContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const UserPhoto = styled.img`
   width: 8vw;
@@ -432,4 +431,4 @@ const UserPhoto = styled.img`
   @media screen and (max-width: 1050px) {
     width: 15vw;
   }
-`;
+`

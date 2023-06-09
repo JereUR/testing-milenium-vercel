@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FaEdit } from 'react-icons/fa'
 import { IoMdAddCircle } from 'react-icons/io'
@@ -10,7 +10,6 @@ import { FontFamily } from '../constants/Fonts'
 import { ExerciseComponent } from './ExerciseComponent'
 import { FetchPostData } from '../helpers/FetchPostData'
 import { FetchGetData } from '../helpers/FetchGetData'
-import routes from '../static/routes.json'
 
 const {
   errorInput,
@@ -118,7 +117,7 @@ const FormRoutine = ({ users, dbLocal }) => {
     setForData(e.target.value)
 
     const user = await FetchGetData(
-      `${routes.USER_WEIGHT_HEIGHT}?email=${e.target.value}`
+      `${import.meta.env.VITE_USER_WEIGHT_HEIGHT}?email=${e.target.value}`
     )
       .then((response) => response.json())
       .then()
@@ -152,7 +151,9 @@ const FormRoutine = ({ users, dbLocal }) => {
   }
 
   const handleChangeDay = () => {
-    let decision = confirm("Al cambiar el día tu progreso será reemplazado por la rutina del día que selecciones a continuación. ¿Estás seguro de cambiar el día?");
+    let decision = confirm(
+      'Al cambiar el día tu progreso será reemplazado por la rutina del día que selecciones a continuación. ¿Estás seguro de cambiar el día?'
+    )
 
     if (decision) {
       setDayData(null)
@@ -262,12 +263,12 @@ const FormRoutine = ({ users, dbLocal }) => {
       }
 
       const res = await FetchPostData({
-        path: routes.CREATE_ROUTINE,
+        path: import.meta.env.VITE_CREATE_ROUTINE,
         data: { routineDay }
       })
 
       if (!(res instanceof Error)) {
-        const day = dbLocal.days.find(d => d.value === dayData).day
+        const day = dbLocal.days.find((d) => d.value === dayData).day
 
         toast.success(`Rutina enviada a ${forData} para el dia ${day}.`, {
           position: 'top-right',
@@ -302,10 +303,12 @@ const FormRoutine = ({ users, dbLocal }) => {
     if (forData === null || dayData === null) return
 
     if (forData !== null && dayData !== null) {
-      FetchGetData(`${routes.USER_ROUTINE}?email=${forData}&day=${dayData}`)
+      FetchGetData(
+        `${import.meta.env.VITE_USER_ROUTINE}?email=${forData}&day=${dayData}`
+      )
         .then((response) => response.json())
         .then((data) => {
-          if(data.error){
+          if (data.error) {
             setNoData(true)
           } else {
             setNoData(false)
@@ -325,11 +328,10 @@ const FormRoutine = ({ users, dbLocal }) => {
                 }
                 ex.push(e)
               })
-          }
+            }
 
-          setExercises(ex)
+            setExercises(ex)
           }
-          
         })
         .catch((e) => {
           console.error(e)
@@ -488,7 +490,12 @@ const FormRoutine = ({ users, dbLocal }) => {
           ))}
         </List>
       )}
-      {noData && (<TextNoData>Sin rutina para el día {dbLocal.days.find(d => d.value === dayData).day}.</TextNoData>)}
+      {noData && (
+        <TextNoData>
+          Sin rutina para el día{' '}
+          {dbLocal.days.find((d) => d.value === dayData).day}.
+        </TextNoData>
+      )}
       {errorsRoutine.exercises && (
         <ErrorInput>{errorsRoutine.exercises}</ErrorInput>
       )}
@@ -738,6 +745,6 @@ const TextNoData = styled.p`
   @media screen and (max-width: 480px) {
     font-size: 1.1rem;
   }
-`;
+`
 
 export default FormRoutine

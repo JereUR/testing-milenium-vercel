@@ -1,25 +1,24 @@
-import './App.css';
-import styled from 'styled-components';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
-import { toast, Toaster } from 'react-hot-toast';
+import './App.css'
+import styled from 'styled-components'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { useEffect, useState, useRef } from 'react'
+import { toast, Toaster } from 'react-hot-toast'
 
-import { SesionPage } from './components/SesionPage';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { Home } from './components/Home';
-import { Bill } from './components/Bill';
-import { UserProfile } from './components/UserProfile';
-import { AdminPage } from './components/AdminPage';
-import { Error404 } from './components/Error404';
-import LoginRoute from './components/LoginRoute';
-import AdminRoute from './components/AdminRoute';
-import { ResetPassword } from './components/ResetPassword';
-import { ChangePassword } from './components/ChangePassword';
-import RecoverAccount from './components/RecoverAccount';
-import dbLocal from './static/db_local.json';
-import { FetchGetData } from './helpers/FetchGetData';
-import routes from './static/routes.json';
+import { SesionPage } from './components/SesionPage'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import { Home } from './components/Home'
+import { Bill } from './components/Bill'
+import { UserProfile } from './components/UserProfile'
+import { AdminPage } from './components/AdminPage'
+import { Error404 } from './components/Error404'
+import LoginRoute from './components/LoginRoute'
+import AdminRoute from './components/AdminRoute'
+import { ResetPassword } from './components/ResetPassword'
+import { ChangePassword } from './components/ChangePassword'
+import RecoverAccount from './components/RecoverAccount'
+import dbLocal from './static/db_local.json'
+import { FetchGetData } from './helpers/FetchGetData'
 
 const initialData = {
   email: null,
@@ -28,19 +27,19 @@ const initialData = {
   admin: false,
   weight: null,
   height: null
-};
+}
 
 function App() {
-  const [user, setUser] = useState(initialData);
-  const [login, setLogin] = useState(false);
-  const res = useRef(null);
+  const [user, setUser] = useState(initialData)
+  const [login, setLogin] = useState(false)
+  const res = useRef(null)
 
   useEffect(() => {
-    FetchGetData(routes.CURRENT_USER)
+    FetchGetData(import.meta.env.VITE_CURRENT_USER)
       .then((response) => response.json())
       .then((data) => {
-        res.current = data;
-        setUser(res.current);
+        res.current = data
+        setUser(res.current)
       })
       .catch((e) => {
         if (
@@ -55,27 +54,27 @@ function App() {
               fontSize: '1rem',
               fontWeight: '500'
             }
-          });
+          })
         }
-      });
-  }, []);
+      })
+  }, [])
 
   useEffect(() => {
     if (user.email !== null) {
-      setLogin(true);
+      setLogin(true)
     } else {
       // localStorage.removeItem("token");
-      setLogin(false);
+      setLogin(false)
     }
 
     if (user.username === undefined) {
-      window.location.reload();
+      window.location.reload()
     }
-  }, [user]);
+  }, [user])
 
   return (
     <Container>
-      {user !== null && user.username!==undefined && (
+      {user !== null && user.username !== undefined && (
         <Router>
           {login && (
             <Header username={user.username} login={login} admin={user.admin} />
@@ -157,12 +156,12 @@ function App() {
       {login && <Footer />}
       <Toaster />
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`
   display: block;
   justify-content: center;
-`;
+`
 
-export default App;
+export default App

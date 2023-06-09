@@ -1,112 +1,109 @@
-import React from "react";
-import { useState } from "react";
-import styled from "styled-components";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-import { RiErrorWarningLine } from "react-icons/ri";
+import { useState } from 'react'
+import styled from 'styled-components'
+import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
+import { RiErrorWarningLine } from 'react-icons/ri'
 
-import { Colors } from "../constants/Colors";
-import { FontFamily } from "../constants/Fonts";
-import { FetchGetData } from "../helpers/FetchGetData";
-import { Toaster, toast } from "react-hot-toast";
-import { FetchPostData } from "../helpers/FetchPostData";
-import routes from "../static/routes.json";
+import { Colors } from '../constants/Colors'
+import { FontFamily } from '../constants/Fonts'
+import { FetchGetData } from '../helpers/FetchGetData'
+import { Toaster, toast } from 'react-hot-toast'
+import { FetchPostData } from '../helpers/FetchPostData'
 
-const { secondaryBlue, primaryBlue, primaryRed } = Colors;
+const { secondaryBlue, primaryBlue, primaryRed } = Colors
 
 export const DebtorsSection = ({ users }) => {
-  const [debtorUsers, setDebtorUsers] = useState([]);
-  const [viewDebtors, setViewDebtors] = useState(false);
+  const [debtorUsers, setDebtorUsers] = useState([])
+  const [viewDebtors, setViewDebtors] = useState(false)
 
   const handleDebtors = () => {
     if (!viewDebtors) {
-      const today = new Date();
-      let newArray = []
+      const today = new Date()
 
       users.forEach(async (user) => {
         const nextPayment = await FetchGetData(
-          `${routes.GET_NEXT_PAYMENT}?email=${user.email}`
+          `${import.meta.env.VITE_GET_NEXT_PAYMENT}?email=${user.email}`
         )
           .then((response) => response.json())
           .then()
           .catch((e) => {
             toast.error(e.messsage, {
-              position: "top-right",
+              position: 'top-right',
               duration: 6000,
               style: {
-                background: "rgba(250, 215, 215)",
-                fontSize: "1rem",
-                fontWeight: "500",
-              },
-            });
-          });
-        
+                background: 'rgba(250, 215, 215)',
+                fontSize: '1rem',
+                fontWeight: '500'
+              }
+            })
+          })
+
         if (nextPayment !== null) {
           let userDate = new Date(
             nextPayment.year,
             nextPayment.month,
             nextPayment.day
-          );
+          )
 
           if (userDate < today) {
             let newData = {
               username: user.username,
               surname: user.surname,
-              email: user.email,
-            };
+              email: user.email
+            }
 
-            setDebtorUsers(prevArray => [...prevArray, newData]);
+            setDebtorUsers((prevArray) => [...prevArray, newData])
           }
         }
-      });
-      
-      setViewDebtors(true);
+      })
+
+      setViewDebtors(true)
     } else {
-      setDebtorUsers([]);
-      setViewDebtors(false);
+      setDebtorUsers([])
+      setViewDebtors(false)
     }
-  };
+  }
 
   const handleReport = async (email) => {
     const res = await FetchPostData({
-      path: routes.REPORT,
-      data: { email },
-    });
+      path: import.meta.env.VITE_REPORT,
+      data: { email }
+    })
 
     if (!(res instanceof Error)) {
       toast.success(`Reporte enviado a ${email}.`, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(215, 250, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(215, 250, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
 
-      let newDebtors = debtorUsers.filter((el) => el.email !== email);
+      let newDebtors = debtorUsers.filter((el) => el.email !== email)
 
       if (newDebtors.length === 0) {
-        setViewDebtors(false);
+        setViewDebtors(false)
       }
 
-      setDebtorUsers(newDebtors);
+      setDebtorUsers(newDebtors)
     } else {
       toast.error(res.message, {
-        position: "top-right",
+        position: 'top-right',
         duration: 6000,
         style: {
-          background: "rgba(250, 215, 215)",
-          fontSize: "1rem",
-          fontWeight: "500",
-        },
-      });
+          background: 'rgba(250, 215, 215)',
+          fontSize: '1rem',
+          fontWeight: '500'
+        }
+      })
     }
-  };
+  }
 
   return (
     <>
       <ButtonDebtors type="button" onClick={handleDebtors}>
-        Ver Deudores{" "}
+        Ver Deudores{' '}
         {viewDebtors ? (
           <AiOutlineArrowUp fontSize="2.5rem" />
         ) : (
@@ -133,8 +130,8 @@ export const DebtorsSection = ({ users }) => {
       )}
       <Toaster />
     </>
-  );
-};
+  )
+}
 
 const ButtonDebtors = styled.button`
   font-family: ${FontFamily};
@@ -167,13 +164,13 @@ const ButtonDebtors = styled.button`
     font-size: 1.5rem;
     width: 80%;
   }
-`;
+`
 
 const DebtorInfo = styled.p`
   font-size: 1.4rem;
   font-weight: bold;
   color: ${secondaryBlue};
-`;
+`
 
 const DebtorItem = styled.div`
   display: flex;
@@ -189,9 +186,9 @@ const DebtorItem = styled.div`
     position: relative;
     top: 0.8vw;
   }
-`;
+`
 
-const DebtorsResult = styled.div``;
+const DebtorsResult = styled.div``
 
 const LogoContainer = styled.div`
   color: rgb(255, 69, 0);
@@ -229,6 +226,6 @@ const LogoContainer = styled.div`
   :hover .tooltip {
     visibility: visible;
   }
-`;
+`
 
-const Span = styled.span``;
+const Span = styled.span``

@@ -11,7 +11,6 @@ import LoaderSignUp from './LoaderSignUp'
 import { Colors } from '../constants/Colors'
 import { FontFamily } from '../constants/Fonts'
 import { FetchPostData } from '../helpers/FetchPostData'
-import routes from '../static/routes.json'
 
 const { primaryBlue, primaryRed, secondaryBlue, secondaryRed, colorText } =
   Colors
@@ -87,7 +86,7 @@ export const SignIn = ({ setUser }) => {
     }
 
     const res = await FetchPostData({
-      path: routes.LOGIN,
+      path: import.meta.env.VITE_LOGIN,
       data: { user }
     })
 
@@ -129,7 +128,7 @@ export const SignIn = ({ setUser }) => {
     setLoadingRecover(true)
 
     const res = await FetchPostData({
-      path: routes.RECOVER,
+      path: import.meta.env.VITE_RECOVER,
       data: { user: { email: emailRecover } }
     })
 
@@ -220,7 +219,7 @@ export const SignIn = ({ setUser }) => {
                   required
                 />
                 <ButtonRecover>Enviar</ButtonRecover>
-                {loadingRecover && <LoaderSignUp/>}
+                {loadingRecover && <LoaderSignUp />}
               </Form>
             </FormRecoverContainer>
           </Content>

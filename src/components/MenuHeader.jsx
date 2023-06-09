@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { IconContext } from "react-icons";
-import { FaHome, FaFileInvoiceDollar, FaUserAlt } from "react-icons/fa";
-import { MdAdminPanelSettings } from "react-icons/md";
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+import { IconContext } from 'react-icons'
+import { FaHome, FaFileInvoiceDollar, FaUserAlt } from 'react-icons/fa'
+import { MdAdminPanelSettings } from 'react-icons/md'
 
 /* import { useAuthAdmin } from "./AdminRoute";
 import { useAuth } from "./LoginRoute"; */
-import { Colors } from "../constants/Colors";
-import { BurgerButton } from "./BurgerButton";
+import { Colors } from '../constants/Colors'
+import { BurgerButton } from './BurgerButton'
 
-const { secondaryBlue, colorText } = Colors;
+const { secondaryBlue, colorText } = Colors
 
 export const MenuHeader = ({ username, login, admin }) => {
-  const profilePath = `/usuario/${username}`;
-  const authAdmin = login && admin;
+  const profilePath = `/usuario/${username}`
+  const authAdmin = login && admin
 
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false)
 
   const handleClick = () => {
     if (window.innerWidth <= 1300) {
-      setClicked(!clicked);
+      setClicked(!clicked)
     }
-  };
+  }
 
   return (
     <NavContainer>
       {!authAdmin && (
         <NavContainer>
-          <NavLinks className={`links ${clicked ? "active" : ""}`}>
+          <NavLinks className={`links ${clicked ? 'active' : ''}`}>
             <IconContext.Provider
-              value={{ size: "1.2rem", style: { verticalAlign: "top" } }}
+              value={{ size: '1.2rem', style: { verticalAlign: 'top' } }}
             >
               <NavLink to="/" activeclassname="active" onClick={handleClick}>
                 <FaHome size="1.3rem" /> Inicio
@@ -55,8 +55,8 @@ export const MenuHeader = ({ username, login, admin }) => {
       )}
       {authAdmin && (
         <NavContainer>
-          <NavLinks className={`links ${clicked ? "active" : ""}`}>
-            <IconContext.Provider value={{ style: { verticalAlign: "top" } }}>
+          <NavLinks className={`links ${clicked ? 'active' : ''}`}>
+            <IconContext.Provider value={{ style: { verticalAlign: 'top' } }}>
               <NavLink to="/" activeclassname="active" onClick={handleClick}>
                 <FaHome size="1.3rem" /> Inicio
               </NavLink>
@@ -81,10 +81,10 @@ export const MenuHeader = ({ username, login, admin }) => {
       <BurgerContainer className="burger">
         <BurgerButton clicked={clicked} handleClick={handleClick} />
       </BurgerContainer>
-      <BgDiv className={`initial ${clicked ? "active" : ""}`} />
+      <BgDiv className={`initial ${clicked ? 'active' : ''}`} />
     </NavContainer>
-  );
-};
+  )
+}
 
 const BgDiv = styled.div`
   position: absolute;
@@ -100,9 +100,9 @@ const BgDiv = styled.div`
     width: 100%;
     height: 110%;
   }
-`;
+`
 
-const BurgerContainer = styled.div``;
+const BurgerContainer = styled.div``
 
 const NavContainer = styled.div`
   font-weight: bold;
@@ -197,9 +197,9 @@ const NavContainer = styled.div`
       left: 5%;
     }
   }
-`;
+`
 
 const NavLinks = styled.div`
   z-index: 2;
   transition: all 0.2s ease-in-out;
-`;
+`

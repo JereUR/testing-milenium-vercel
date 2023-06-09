@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Loader = () => {
   return (
@@ -9,9 +8,9 @@ const Loader = () => {
       <Div></Div>
       <Div></Div>
     </Div>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader
 
-const Div = styled.div``;
+const Div = styled.div``

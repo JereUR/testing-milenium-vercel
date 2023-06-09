@@ -2,12 +2,11 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { Toaster, toast } from 'react-hot-toast'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { useLocation } from 'react-router-dom'
 
 import { Colors } from '../constants/Colors'
 import { FontFamily } from '../constants/Fonts'
 import { FetchPostData } from '../helpers/FetchPostData'
-import routes from '../static/routes.json'
-import { useLocation } from 'react-router-dom'
 
 const initialData = {
   newPassword: '',
@@ -58,7 +57,7 @@ export const ResetPassword = () => {
       }
 
       const res = await FetchPostData({
-        path: routes.RECOVER,
+        path: import.meta.env.VITE_RECOVER,
         data: { user }
       })
 
