@@ -1,6 +1,9 @@
+import.meta.env
+
 export const FetchPostData = async ({ path, data }) => {
   const token = localStorage.getItem('token')
   let headers = {}
+  const url = import.meta.env.VITE_BASE_URL+path
 
   if (
     path === import.meta.env.VITE_SIGN_UP ||
@@ -33,7 +36,7 @@ export const FetchPostData = async ({ path, data }) => {
   }
 
   try {
-    const resp = await fetch(`${import.meta.env.VITE_BASE_URL}${path}`, {
+    const resp = await fetch(url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(data),

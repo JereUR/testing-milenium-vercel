@@ -1,7 +1,9 @@
-export const FetchDeleteData = async ({ path }) => {
+export const FetchDeleteData = async ( {path} ) => {
   const token = localStorage.getItem('token')
+  const url = import.meta.env.VITE_BASE_URL+path
+
   try {
-    const resp = await fetch(`${import.meta.env.VITE_BASE_URL}${path}`, {
+    const resp = await fetch(url, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

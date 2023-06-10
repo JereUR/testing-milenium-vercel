@@ -1,10 +1,11 @@
 export const FetchPostImage = async ({ path, data }) => {
   const token = localStorage.getItem('token')
+  const url = import.meta.env.VITE_BASE_URL + path
 
   // console.log({data})
 
   try {
-    const resp = await fetch(`${import.meta.env.VITE_BASE_URL}${path}`, {
+    const resp = await fetch(url, {
       method: 'POST',
       headers: {
         Authorization: `${token}`

@@ -1,8 +1,9 @@
 export const FetchPutData = async ({ path, data }) => {
   const token = localStorage.getItem('token')
+  const url = import.meta.env.VITE_BASE_URL + path
 
   try {
-    const resp = await fetch(`${import.meta.env.VITE_BASE_URL}${path}`, {
+    const resp = await fetch(url, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

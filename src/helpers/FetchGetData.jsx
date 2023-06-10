@@ -1,6 +1,7 @@
 export const FetchGetData = async (path) => {
   const token = localStorage.getItem('token')
   let headers = {}
+  const url = import.meta.env.VITE_BASE_URL + path
 
   if (token === null) {
     headers = {
@@ -16,7 +17,7 @@ export const FetchGetData = async (path) => {
   }
 
   try {
-    return await fetch(`${import.meta.env.VITE_BASE_URL}${path}`, {
+    return await fetch(url, {
       credentials: 'include',
       headers: headers,
       withCredentials: true
