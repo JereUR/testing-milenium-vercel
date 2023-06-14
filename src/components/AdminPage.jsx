@@ -71,7 +71,7 @@ export const AdminPage = ({ dbLocal }) => {
       </ClearPlanContainer>
       <BillSection>
         <Title>Agregar pago</Title>
-        <FormBill users={activeUsers} dbLocal={dbLocal} />
+        {/* <FormBill users={activeUsers} dbLocal={dbLocal} /> */}
       </BillSection>
       <SeeUserSection>
         <Title>Ver detalles de usuario</Title>

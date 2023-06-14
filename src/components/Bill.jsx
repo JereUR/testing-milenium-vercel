@@ -53,9 +53,9 @@ export const Bill = ({ user, months }) => {
       <PaymentsContainer>
         <NoticeTitlePayment>Pagos realizados:</NoticeTitlePayment>
         {payment !== null && payment.payment !== null ? (
-          payment.payment.payments.map((el, index) => (
-            <BillItem key={index} bill={el} user={user} months={months} />
-          ))
+          payment.payment.payments.map((el, index) => ({
+            /* <BillItem key={index} bill={el} user={user} months={months} /> */
+          }))
         ) : (
           <NoData>Sin pagos disponibles.</NoData>
         )}
